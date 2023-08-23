@@ -1,0 +1,22 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.users {
+    //display: grid;
+    //grid-gap: 20px;
+    //grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+}
+
+.banner {
+    &__banner {
+        object-fit: cover;
+    }
+}
+
+.banners {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin-top: 20px;
+}

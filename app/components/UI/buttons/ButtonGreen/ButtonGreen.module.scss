@@ -1,0 +1,57 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+.button {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: var(--color-emerald);
+    border-radius: 10px;
+    color: var(--color-white);
+    transition: 0.5s;
+    text-align: center;
+    text-decoration: none;
+    border: 0;
+    max-width: 380px;
+    padding: 0 40px;
+    height: 50px;
+    user-select: none;
+
+    &:hover {
+        background-color: var(--color-emerald-hover);
+    }
+
+    &:active {
+        background-color: var(--color-emerald-pressed);
+    }
+}
+
+.floatingButton {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    height: 50px;
+    z-index: 10;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    box-shadow: 0px 0px 212px rgba(0, 0, 0, 0.0147844), 0px 0px 63.9118px rgba(0, 0, 0, 0.0360409),
+    0px 0px 26.5457px rgba(0, 0, 0, 0.0634089), 0px 0px 9.60106px rgba(0, 0, 0, 0.09);
+
+    @include breakpoint(sm-max) {
+        display: flex;
+    }
+
+    &:hover {
+        background-color: var(--color-emerald-hover);
+    }
+
+    &:active {
+        background-color: var(--color-emerald-pressed);
+    }
+}

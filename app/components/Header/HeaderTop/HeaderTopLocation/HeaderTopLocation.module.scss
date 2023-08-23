@@ -1,0 +1,42 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+
+.location {
+    display: flex;
+    align-items: center;
+    color: var(--color-emerald);
+    cursor: pointer;
+    padding-left: 21px;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: right;
+
+    &__icon {}
+
+    span {
+        color: var(--color-emerald);
+        margin-left: 3px;
+    }
+
+    @include breakpoint(sm-max) {
+        font-size: 12px;
+        align-items: start;
+        padding-left: 20px;
+        margin-top: 35px;
+
+        img {
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        span {
+            color: var(--color-black-or-white);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 19vw;
+        }
+    }
+}

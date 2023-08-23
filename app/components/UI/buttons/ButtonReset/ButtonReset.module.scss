@@ -1,0 +1,13 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+.button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 18px;
+    line-height: 100%;
+    cursor: pointer;
+    margin-left: 40px;
+    color: var(--color-emerald);
+    outline: none;
+}

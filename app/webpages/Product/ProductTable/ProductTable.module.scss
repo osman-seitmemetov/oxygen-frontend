@@ -1,0 +1,104 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.table_active {
+    .table__content {
+        height: auto;
+        overflow: visible;
+    }
+
+    .table__bg {
+        display: none;
+    }
+
+
+    .table__btn {
+        svg {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.table {
+    &__btn {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        margin-top: 20px;
+
+        span {
+            font-size: 15px;
+            line-height: 100%;
+            color: var(--color-emerald);
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--color-emerald);
+            transform: rotate(-180deg);
+            margin-left: 10px;
+        }
+    }
+
+    &__content {
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__bg {
+        width: 100%;
+        height: 196px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 50%);
+        position: absolute;
+        bottom: -306px; // подправить
+    }
+}
+
+.descTable {
+    color: var(--color-black);
+    font-size: 15px;
+    line-height: 220%;
+
+    &__title {
+        margin-bottom: 10px;
+        text-align: left;
+        font-size: 15px;
+        line-height: 150%;
+    }
+
+    &__head {
+        margin-bottom: 10px;
+        border-spacing: 0 10px;
+    }
+
+    &__headItem {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 150%;
+        padding-right: 10px;
+    }
+
+    &__bodyNumber {
+        width: 50px;
+        padding-right: 10px;
+    }
+
+    &__bodyTitle {
+        width: 317px;
+        padding-right: 10px;
+    }
+
+    &__bodyCount {
+        padding-right: 10px;
+        width: 127px;
+    }
+
+    &__bodyWeight {
+        width: 46px;
+        padding-right: 10px;
+    }
+}

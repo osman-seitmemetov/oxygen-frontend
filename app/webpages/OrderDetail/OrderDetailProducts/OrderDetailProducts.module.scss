@@ -1,0 +1,89 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.historyDetailsProducts {
+    width: 100%;
+    max-width: 460px;
+    max-height: 385px;
+    overflow: hidden;
+    padding-right: 14px;
+    margin-top: 45px;
+
+    @include breakpoint(md-max) {
+        max-width: 100%;
+        margin-bottom: 60px;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+.items {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.title {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--color-raven-or-dove-gray);
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-gallery-or-tundora);
+
+    &:last-child {
+        border: none;
+        margin-bottom: 0;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__img {
+        @include breakpoint(sm-max) {
+            width: 64px;
+            height: 55px;
+        }
+    }
+
+    &__title {
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--color-text);
+        max-width: 181px;
+        margin-left: 5px;
+
+        @include breakpoint(sm-max) {
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 100%;
+
+        @include breakpoint(lg-max) {
+            display: none;
+        }
+
+        @include breakpoint(md-max) {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}

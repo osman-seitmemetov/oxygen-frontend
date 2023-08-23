@@ -1,0 +1,35 @@
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autoMargin {
+    margin-bottom: 20px;
+}
+
+.inputs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    margin-left: 10px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    background: none;
+    border: none;
+
+    > svg {
+        fill: var(--color-silver-chalice);
+        transition: 200ms;
+    }
+
+    &:hover > svg {
+        fill: var(--color-mine-shaft-or-white);
+    }
+}
+

@@ -1,0 +1,90 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.mobileMenu {
+    width: 100%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 0;
+    z-index: 20;
+    display: none;
+    grid-gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px 15px;
+    background-color: var(--color-body);
+    box-shadow: 0px -27px 355px rgba(0, 0, 0, 0.0174206), 0px -12.8911px 132.878px rgba(0, 0, 0, 0.025),
+    0px -5.0507px 49.0332px rgba(0, 0, 0, 0.0325794), 0px -1.56836px 16.6433px rgba(0, 0, 0, 0.05);
+
+    @include breakpoint(sm-max) {
+        display: grid;
+    }
+
+    &__item {
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__link_active {
+        cursor: default;
+
+        .mobileMenu__linkIcon {
+            svg {
+                fill: var(--color-emerald);
+            }
+        }
+
+        .mobileMenu__linkLabel {
+            color: var(--color-emerald);
+        }
+    }
+
+    &__link_notify {
+        .mobileMenu__linkNotify {
+            display: flex;
+        }
+    }
+
+    &__linkNotify {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 12px;
+        height: 12px;
+        background-color: var(--color-emerald);
+        border-radius: 50%;
+        font-size: 7px;
+        font-weight: 400;
+        text-align: center;
+        color: var(--color-white);
+    }
+
+    &__linkIcon {
+        position: relative;
+
+        svg {
+            fill: var(--color-wistful-or-dove-gray);
+        }
+    }
+
+    &__linkLabel {
+        margin-top: 5px;
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 100%;
+        text-align: center;
+        color: var(--color-wistful-or-dove-gray);
+    }
+}

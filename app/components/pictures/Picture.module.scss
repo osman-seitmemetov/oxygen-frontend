@@ -1,0 +1,31 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.light {
+    fill: var(--color-midnight-blue-or-zumthor);
+}
+
+.dark {
+    stroke: var(--color-zumthor-or-midnight-blue);
+}
+
+.darkFill {
+    fill: var(--color-zumthor-or-midnight-blue);
+}
+
+.picture {
+    path[stroke="#002464"] {
+        stroke: var(--color-zumthor-or-midnight-blue);
+    }
+
+    path[fill="#002464"] {
+        fill: var(--color-zumthor-or-midnight-blue);
+    }
+
+    path[fill="#F4F5FA"] {
+        fill: var(--color-midnight-blue-or-zumthor);
+    }
+
+    path[fill="#EBF2FF" ] {
+        fill: var(--color-midnight-blue-or-zumthor);
+    }
+}

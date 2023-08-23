@@ -1,0 +1,11 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.coupons {
+    //display: flex;
+    //flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+
+    height: 100%;
+}

@@ -1,0 +1,31 @@
+.add {
+    max-width: fit-content;
+    margin: -5px 0 5px 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.input {
+    display: none;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.title {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-mine-shaft-or-white);
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+    fill: var(--color-mine-shaft-or-white)
+}

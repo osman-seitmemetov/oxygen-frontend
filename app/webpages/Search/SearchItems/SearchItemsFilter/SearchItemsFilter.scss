@@ -1,0 +1,100 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+@import "../../../../assets/scss/vars";
+
+
+.css-1pahdxg-control {
+    box-shadow: none !important;
+}
+
+.select-filter {
+    z-index: 1 !important;
+    &__control {
+        cursor: pointer !important;
+        width: 220px !important;
+        border: none !important;
+        padding: 0 !important;
+        height: fit-content !important;
+        min-height: auto !important;
+        outline: none !important;
+        justify-content: flex-end !important;
+        background-color: transparent !important;
+        @include breakpoint(sm-max) {
+            display: none !important;
+        }
+    }
+
+    &__control--is-focused {
+        outline: none !important;
+    }   
+
+    &__value-container {
+        //display: flex !important;
+        padding: 0 !important;
+    }
+
+    &__single-value {
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        text-align: right !important;
+        color: var(--color-mine-shaft-or-white) !important;
+    }
+
+    &__indicator {
+        display: flex !important;
+        padding: 0 !important;
+        transform: rotate(-90deg) !important;
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: 5px !important;
+
+        svg {
+            display: none !important;
+        }
+    }
+
+    &__indicator-separator {
+        display: none !important;
+    }
+
+    &__option {
+        cursor: pointer !important;
+        color: var(--color-text) !important;
+        padding: 5px 15px !important;
+
+        &--is-focused {
+            background: none !important;
+            //color: var(--color-white) !important;
+        }
+
+        &--is-selected {
+            background-color: var(--color-emerald) !important;
+            color: var(--color-white) !important;
+        }
+    }
+
+    &__menu {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 15px !important;
+        padding: 10px 0 !important;
+        min-width: max-content !important;
+        transition: .6s !important;
+        background-color: var(--color-body) !important;
+    }
+}
+
+html[data-theme="light"] {
+    .select-filter__indicator {
+        background: url("../#{$url-select-arrow}") center no-repeat !important;
+    }
+}
+
+html[data-theme="dark"] {
+    .select-filter__indicator {
+        background: url("../#{$url-select-arrow2}") center no-repeat !important;
+    }
+}

@@ -1,0 +1,72 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.property {
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-black-or-white);
+
+    span {
+        font-weight: 700;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.property_extend {
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--color-black-or-white);
+    }
+
+.items {
+        margin-top: 5px;
+        display: flex;
+    }
+
+.item {
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+
+.item__input {
+    display: none;
+
+    &:checked + .item__radio {
+        border: 2px solid var(--color-emerald);
+    }
+}
+
+.item__input[disabled] + .item__radio {
+    background-color: var(--color-gallery-or-tundora);
+    border: 0;
+    color: var(--color-silver-chalice);
+    cursor: default;
+}
+
+.item__radio {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-wistful-or-dove-gray);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+
+    div {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+    }
+}

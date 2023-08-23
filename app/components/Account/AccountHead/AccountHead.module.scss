@@ -1,0 +1,107 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.account-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 34px;
+
+    @include breakpoint(lg-max) {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    &__tabs {
+        display: flex;
+        position: relative;
+
+        @include breakpoint(sm-max) {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+        }
+
+        div {
+            display: block;
+
+            @include breakpoint(sm-max) {
+                display: none;
+            }
+        }
+    }
+
+    &__tab {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 100%;
+        margin-right: 30px;
+        color: var(--color-wistful);
+        padding: 0;
+        background: none;
+        border: none;
+        position: relative;
+
+        @include breakpoint(lg-max) {
+            font-size: 16px;
+        }
+
+        @include breakpoint(sm-max) {
+            border-radius: 10px;
+            padding: 15px;
+            color: var(--color-emerald);
+            border: 1px solid var(--color-emerald);
+            margin-right: 0;
+            width: 100%;
+            font-weight: 400;
+            hyphens: auto;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__tab--active {
+        color: var(--color-emerald);
+
+        @include breakpoint(sm-max) {
+            background: var(--color-emerald);
+            color: var(--color-white);
+        }
+    }
+
+    &__hint {
+        font-size: 14px;
+        line-height: 100%;
+        color: var(--color-emerald);
+        padding: 0;
+        background: none;
+        border: none;
+
+        @include breakpoint(lg-max) {
+            margin-bottom: 20px;
+        }
+
+        @include breakpoint(sm-max) {
+            display: none;
+        }
+    }
+}
+
+//.account-items {
+//    display: grid;
+//    grid-template-columns: repeat(1, 1fr);
+//    grid-gap: 20px;
+//    width: 100%;
+//    max-width: 680px;
+//    height: fit-content;
+//}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

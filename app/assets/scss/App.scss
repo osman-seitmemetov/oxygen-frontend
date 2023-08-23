@@ -1,0 +1,145 @@
+@import "./mixins/breakpoint";
+@import "fonts.scss";
+@import "vars.scss";
+@import 'react-redux-toastr/src/styles/index';
+
+
+html {
+    box-sizing: border-box;
+}
+
+.html--crop-x {
+    @include breakpoint(sm-max) {
+        overflow-x: hidden;
+    }
+
+    body {
+        @include breakpoint(sm-max) {
+            overflow-x: hidden;
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+    transition: color 100ms linear,
+        background-color 100ms linear,
+        border 100ms linear,
+        fill 100ms linear;
+
+}
+
+*::selection {
+    background-color: var(--color-emerald);
+    color: var(--color-white);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+     -webkit-tap-highlight-color: transparent;
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-mine-shaft-or-white);
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-body);
+    width: 100%;
+    transform: none;
+    transition: background-color 100ms linear;
+    font-family: "Museo Sans 500 Medium", sans-serif;
+    font-style: normal;
+    color: var(--color-mine-shaft-or-white);
+}
+
+.body--crop {
+    overflow: hidden;
+}
+
+.main {
+    width: 100%;
+    transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-hidden {
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    font-family: inherit;
+    text-decoration: none;
+    color: var(--color-mine-shaft);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+button[disabled] {
+    background: #bdbdbd;
+    cursor: default;
+
+    &:hover {
+        background: #bdbdbd;
+    }
+}
+
+.h1 {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 38px;
+    color: var(--color-mine-shaft-or-white);
+    margin-bottom: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px var(--color-body) inset !important;
+}
+
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

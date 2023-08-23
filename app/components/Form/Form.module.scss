@@ -1,0 +1,63 @@
+.form {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+
+    &__checkbox {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .checkbox-item {
+            align-items: flex-start;
+        }
+
+        .checkbox-item__title {
+            font-family: "Museo Sans Cyrl";
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 120%;
+            color: var(--color-black);
+            padding-top: 3px;
+        }
+    }
+
+    &__warning {
+        width: 100%;
+        padding: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--color-coral-red);
+        box-shadow: 0px 4.5288px 9.95858px rgba(0, 0, 0, 0.0174206);
+        border-radius: 10px;
+    }
+
+    &__warning-title {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 100%;
+        color: var(--color-black);
+    }
+
+    &__warning-text {
+        font-family: "Museo Sans Cyrl";
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+        color: var(--color-black);
+    }
+
+    &__text {
+        margin-bottom: 20px;
+        width: 100%;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+    }
+}

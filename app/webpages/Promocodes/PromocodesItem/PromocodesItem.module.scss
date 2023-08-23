@@ -1,0 +1,103 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.coupon {
+    background-color: var(--color-white-lilac-or-tundora);
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    //margin-bottom: 15px;
+
+    @include breakpoint(md-max) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    @include breakpoint(sm-max) {
+        padding: 20px;
+    }
+}
+
+.coupon_active {
+    padding-left: 45px;
+    position: relative;
+
+    @include breakpoint(md-max) {
+        padding-left: 35px;
+    }
+
+    @include breakpoint(sm-max) {
+        padding-left: 50px;
+    }
+
+    &:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-emerald);
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include breakpoint(md-max) {
+            left: 15px;
+            transform: translateY(0);
+        }
+
+        @include breakpoint(sm-max) {
+            left: 20px;
+            top: 20px;
+        }
+    }
+}
+
+.title {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    margin-bottom: 10px;
+
+    @include breakpoint(sm-max) {
+        font-size: 14px;
+    }
+}
+
+.info {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    display: flex;
+    color: var(--color-raven-or-dove-gray);
+
+    span {
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 300;
+        margin-left: 5px;
+        font-size: 14px;
+        line-height: 100%;
+        color: var(--color-emerald);
+    }
+}
+
+.right {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    color: var(--color-emerald);
+
+    @include breakpoint(md-max) {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+}
+
+.left {}

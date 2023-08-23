@@ -1,0 +1,74 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.sidebar {
+    width: 230px;
+    margin-right: 30px;
+    border-right: 1px solid var(--color-gallery-or-tundora);
+    padding: 20px 5px 0 0;
+    //position: fixed;
+
+    @include breakpoint(sm-max) {
+        margin: auto;
+        width: 100%;
+        min-width: fit-content;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+
+    &__link {
+        margin-bottom: 4px;
+        padding: 10px 5px 10px 38px;
+        font-size: 16px;
+        line-height: 100%;
+        font-weight: 300;
+        position: relative;
+        user-select: none;
+        color: var(--color-mine-shaft-or-white);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            fill: var(--color-mine-shaft-or-white);
+        }
+
+        &:hover {
+
+        }
+    }
+
+    &__link_active {
+        cursor: default;
+        background-color: var(--color-gallery-or-tundora);
+        border-radius: 5px;
+        position: relative;
+
+        &:after {
+            content: "";
+            background-color: var(--color-emerald);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -8px;
+            display: block;
+            width: 4px;
+            height: 30px;
+            border-radius: 2px;
+        }
+    }
+}

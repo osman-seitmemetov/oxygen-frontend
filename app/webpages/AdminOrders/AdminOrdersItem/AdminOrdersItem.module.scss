@@ -1,0 +1,177 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.item {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: var(--color-white-lilac-or-tundora);
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    color: var(--color-wistful-or-dove-gray);
+    font-size: 14px;
+    font-weight: 700;
+
+    span {
+        color: var(--color-wistful-or-dove-gray);
+        font-size: 14px;
+    }
+}
+
+.img {
+    border-radius: 5px;
+    margin-right: 10px;
+    object-fit: cover;
+    object-position: center;
+    width: 200px;
+    height: 80px;
+}
+
+.link {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+
+    > svg {
+        fill: var(--color-silver-chalice);
+    }
+
+    &:hover > svg {
+        fill: var(--color-mine-shaft-or-white);
+    }
+}
+
+.btn {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    background: none;
+    margin-left: 10px;
+
+    > svg {
+        fill: var(--color-silver-chalice);
+    }
+
+    &:hover > svg {
+        fill: var(--color-mine-shaft-or-white);
+    }
+}
+
+.item {
+    padding: 25px;
+    background-color: var(--color-white-lilac-or-tundora);
+    border-radius: 10px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.num {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    color: var(--color-emerald);
+}
+
+.num_positive {
+    color: var(--color-emerald);
+}
+
+.num_negative {
+    color: var(--color-coral-red);
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
+
+    @include breakpoint(md-max) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.info {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 100%;
+    display: flex;
+
+    @include breakpoint(md-max) {
+        justify-content: space-between;
+    }
+
+    span {
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        color: var(--color-raven-or-dove-gray);
+        margin-right: 5px;
+    }
+}
+
+.status {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    color: var(--color-white);
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+.status_active {
+    background-color: var(--color-emerald);
+}
+
+.status_inactive {
+    background-color: var(--color-golden-tainoi);
+}
+
+.bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+
+    @include breakpoint(sm-max) {
+        justify-content: flex-start;
+    }
+}
+
+.link {
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--color-emerald);
+}
+

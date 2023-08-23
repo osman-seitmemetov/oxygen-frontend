@@ -1,0 +1,113 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.propos {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+
+    @include breakpoint(sm-max) {
+        margin-bottom: 60px;
+    }
+}
+
+.slider {
+    width: 100%;
+    height: fit-content;
+
+    @include breakpoint(lg-max) {
+        border-radius: 12px;
+    }
+
+    @include breakpoint(md-max) {
+        border-radius: 0;
+    }
+
+    @include breakpoint(sm-max) {
+        overflow: visible;
+    }
+}
+
+.swiper-wrapper {
+    @include breakpoint(lg) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 15px;
+        grid-row-gap: 0;
+    }
+
+    @include breakpoint(md-max) {
+        width: 100%;
+        display: flex;
+        grid-gap: 0;
+    }
+}
+
+.item {
+    width: 210px !important;
+    height: 200px;
+    padding: 30px 20px 30px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+
+    @include breakpoint(lg-max) {
+        padding: 15px 10px;
+        max-height: 171px;
+        width: 93% !important;
+        max-width: 240px;
+    }
+
+    @include breakpoint(sm-max) {
+        max-width: 138px;
+        max-height: 138px;
+        padding: 10px;
+    }
+
+    &:first-child {
+        width: 340px !important;
+
+        @include breakpoint(lg-max) {
+            width: 93% !important;
+            max-width: 240px;
+        }
+
+        @include breakpoint(sm-max) {
+            max-width: 138px;
+            max-height: 138px;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        color: var(--color-white);
+        font-weight: 900;
+        margin-bottom: 5px;
+        font-size: 24px;
+        line-height: 29px;
+
+        @include breakpoint(lg-max) {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        @include breakpoint(sm-max) {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    &__label {
+        width: 100%;
+        font-size: 18px;
+        line-height: 22px;
+        color: rgba(255, 255, 255, 0.75);
+
+        @include breakpoint(lg-max) {
+            font-size: 10px;
+            line-height: 12px;
+        }
+    }
+}

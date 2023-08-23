@@ -1,0 +1,12 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.footer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    @media (max-width: $screen-xs-max) {
+        padding-bottom: 20px;
+        margin-bottom: 57px;
+    }
+}

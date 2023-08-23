@@ -1,0 +1,23 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.ordering {
+    display: flex;
+    justify-content: space-between;
+
+    // .swiper-scrollbar {
+    //     margin-right: 5px;
+    //     margin-top: 20px;
+    //     margin-bottom: 20px;
+    //     background: none;
+    //     width: 4px;
+    // }
+
+    // .swiper-scrollbar-drag {
+    //     background-color: var(--color-wistful);
+    // }
+
+    @include breakpoint(md-max) {
+        flex-direction: column;
+        justify-content: unset;
+    }
+}

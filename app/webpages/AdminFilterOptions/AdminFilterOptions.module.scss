@@ -1,0 +1,9 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.products {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin-top: 20px;
+}

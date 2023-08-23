@@ -1,0 +1,20 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+    flex-direction: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+
+    @include breakpoint(lg-max) {
+        padding: 0 50px;
+    }
+
+    @include breakpoint(sm-max) {
+        padding: 0 15px;
+    }
+}

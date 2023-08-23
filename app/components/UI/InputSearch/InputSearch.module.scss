@@ -1,0 +1,113 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+    width: 380px;
+    height: 45px;
+    position: relative;
+    background-color: var(--color-white-lilac-or-tundora);
+    border-radius: 31px;
+
+    input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        background: none;
+        border-radius: 31px;
+        border: none;
+        outline: none;
+        text-align: left;
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 100%;
+        color: var(--color-black-or-white);
+        padding: 0 36px;
+    }
+
+    &_left {
+        justify-content: left !important;
+    }
+}
+
+.icon {
+    width: 16px;
+    height: 17px;
+    position: absolute;
+    z-index: 5;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    fill: var(--color-wistful-or-dove-gray);
+}
+
+.icon_hidden {
+    display: none;
+}
+
+.placeholder {
+    user-select: none;
+    position: relative;
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-wistful-or-dove-gray);
+    padding-left: 21px;
+
+    svg {
+        width: 16px;
+        height: 17px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        fill: var(--color-wistful-or-dove-gray);
+    }
+}
+
+.placeholder_hidden {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-body);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+
+    &__item {
+        margin-bottom: 20px;
+        white-space: nowrap;
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 100%;
+        color: var(--color-text);
+        text-decoration: none;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.dropdown_hidden {
+    display: none;
+}

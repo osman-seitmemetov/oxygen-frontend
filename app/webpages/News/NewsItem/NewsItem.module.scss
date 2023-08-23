@@ -1,0 +1,117 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.item {
+    display: flex;
+
+    @include breakpoint(md-max) {
+        flex-direction: column;
+    }
+
+    &__img {
+        width: 250px;
+        height: 180px;
+        margin-right: 20px;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: center;
+
+        @include breakpoint(lg-max) {
+            width: 209px;
+            height: 150px;
+        }
+
+        @include breakpoint(md-max) {
+            width: 250px;
+            height: 180px;
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+        @include breakpoint(sm-max) {
+            height: 112px;
+        }
+    }
+
+    &__right {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include breakpoint(md-max) {
+            max-width: 250px;
+            height: fit-content;
+        }
+    }
+
+    &__title {
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        line-height: 150%;
+        color: var(--color-black-or-white);
+
+        @include breakpoint(lg-max) {
+            font-size: 15px;
+        }
+
+        @include breakpoint(md-max) {
+            margin-bottom: 10px;
+        }
+
+        @include breakpoint(sm-max) {
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+    &__bottom {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @include breakpoint(sm-max) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+
+    &__date {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--color-wistful-or-dove-gray);
+
+        span {
+            color: var(--color-wistful-or-dove-gray);
+            font-size: 14px;
+
+            @include breakpoint(lg-max) {
+                font-size: 10px;
+                line-height: 12px;
+            }
+        }
+
+        @include breakpoint(lg-max) {
+            font-size: 10px;
+            line-height: 12px;
+        }
+    }
+
+    &__link {
+        font-family: "Museo Sans Cyrl", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        color: var(--color-emerald);
+
+        @include breakpoint(sm-max) {
+            font-size: 12px;
+            line-height: 14px;
+            margin-top: 5px;
+        }
+    }
+}

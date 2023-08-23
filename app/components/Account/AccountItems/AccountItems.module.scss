@@ -1,0 +1,10 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    width: 100%;
+    max-width: 680px;
+    height: fit-content;
+}

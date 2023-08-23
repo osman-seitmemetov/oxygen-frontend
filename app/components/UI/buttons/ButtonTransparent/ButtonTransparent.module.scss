@@ -1,0 +1,20 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+.button {
+    user-select: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid var(--color-emerald);
+    background: none;
+    color: var(--color-emerald);
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    outline: none;
+}

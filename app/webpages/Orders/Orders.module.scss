@@ -1,0 +1,8 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.history {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+}

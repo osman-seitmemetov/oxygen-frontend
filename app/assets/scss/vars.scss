@@ -1,0 +1,82 @@
+:root {
+    --color-black: #000000;
+    --color-white: #fff;
+    --color-white-lilac: #F4F5FA;
+    --color-emerald: #48cb7b;
+    --color-emerald-hover: #248A4C;
+    --color-emerald-pressed: #095527;
+    --color-mine-shaft: #303030;
+    --color-raven: #73798C;
+    --color-wistful: #A7AED2;
+    --color-gallery: #F0F0F0;
+    --color-coral-red: #FF3D3D;
+    --color-mojo: #C54646;
+    --color-cod-gray: #121212;
+    --color-mercury: #E2E2E2;
+    --color-golden-tainoi: #FFD057;
+    --color-silver-chalice: #ABABAB;
+    --color-french-gray: #C0C2CB;
+    --color-alto: #d6d5d5;
+    --color-silver: #C4C4C4;
+    --color-midnight-blue: #002464;
+    --color-zumthor: #EBF2FF;
+    --color-tundora: #464646;
+    --color-dove-gray: #727272;
+    --color-periwinkle-gray: #cdcfea;
+
+    --more-width: 160px;
+	--more-margin: 0px;
+    --menu-margin: 15px;
+
+    --screen-sm: 576px;
+    --screen-md: 768px;
+    --screen-lg: 992px;
+    --screen-xl: 1200px;
+
+    --screen-sm-max: 767px;
+    --screen-md-max: 991px;
+    --screen-lg-max: 1199px;
+}
+
+
+html[data-theme='light'] {
+    --color-body: var(--color-white);
+    --color-mine-shaft-or-white: var(--color-mine-shaft);
+    --color-gallery-or-tundora: var(--color-gallery);
+    --color-black-or-white: var(--color-black);
+    --color-white-or-black: var(--color-white);
+    --color-cod-gray-or-white: var(--color-cod-gray);
+    --color-periwinkle-gray-or-tundora: var(--color-periwinkle-gray);
+    --color-wistful-or-dove-gray: var(--color-wistful);
+    --color-white-lilac-or-tundora: var(--color-white-lilac);
+    --color-raven-or-dove-gray: var(--color-raven);
+    --color-white-or-212121: var(--color-white);
+
+    $url-input-date-arrow: "../../../../assets/img/arrow-left-icon.svg" !global;
+    $url-select-arrow: "../../../assets/img/arrow-left-icon.svg" !global;
+    $color-black-or-white: var(--color-black)  !global;
+
+    --color-zumthor-or-midnight-blue: var(--color-midnight-blue);
+    --color-midnight-blue-or-zumthor: var(--color-zumthor);
+}
+
+html[data-theme='dark'] {
+    --color-body: #212121;
+    --color-mine-shaft-or-white: var(--color-white);
+    --color-gallery-or-tundora: var(--color-tundora);
+    --color-black-or-white: var(--color-white);
+    --color-white-or-black: var(--color-black);
+    --color-cod-gray-or-white: var(--color-white);
+    --color-periwinkle-gray-or-tundora: var(--color-tundora);
+    --color-wistful-or-dove-gray: var(--color-dove-gray);
+    --color-white-lilac-or-tundora: var(--color-tundora);
+    --color-raven-or-dove-gray: var(--color-dove-gray);
+    --color-white-or-212121: #212121;
+
+    $url-input-date-arrow2: "../../../../assets/img/arrow-left-icon2.svg" !global;
+    $url-select-arrow2: "../../../assets/img/arrow-left-icon2.svg" !global;
+    $color-black-or-white2: var(--color-white)  !global;
+
+    --color-zumthor-or-midnight-blue: var(--color-zumthor);
+    --color-midnight-blue-or-zumthor: rgba(0, 23, 59, 0.45);
+}

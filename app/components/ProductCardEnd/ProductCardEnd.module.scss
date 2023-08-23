@@ -1,0 +1,27 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.card {
+    cursor: pointer;
+    width: 250px;
+    background-color: var(--color-emerald);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 386px;
+    display: flex;
+    flex-direction: column;
+
+    &__icon {
+        margin-bottom: 10px;
+        width: 40px;
+        height: 40px;
+        fill: var(--color-white);
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: var(--color-white);
+    }
+}

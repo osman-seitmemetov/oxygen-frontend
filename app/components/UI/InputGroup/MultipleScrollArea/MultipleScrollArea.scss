@@ -1,0 +1,156 @@
+@import "../../../../assets/scss/vars";
+
+.select {
+    width: 120px;
+    position: relative;
+    margin-bottom: 10px;
+
+    &__control {
+        margin-top: 10px !important;
+        cursor: pointer !important;
+        max-width: 100% !important;
+        min-height: 50px !important;
+        border: 1px solid var(--color-wistful-or-dove-gray) !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        user-select: none !important;
+        outline: none !important;
+        background-color: transparent !important;
+        padding: 5px 0 !important;
+    }
+
+    &__input {
+        color: var(--color-mine-shaft-or-white) !important;
+        width: 100% !important;
+
+        &-container {
+            max-width: max-content !important;
+            overflow: hidden;
+        }
+    }
+
+    &__multi-value {
+        background-color: var(--color-white-lilac-or-tundora) !important;
+        max-width: max-content !important;
+        border-radius: 5px !important;
+
+        &__label {
+            color: var(--color-mine-shaft-or-white) !important;
+        }
+    }
+
+    &__single-value {
+        font-family: "Museo Sans Cyrl", sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 16px !important;
+        line-height: 100% !important;
+        color: var(--color-mine-shaft-or-white) !important;
+        margin-left: 0 !important;
+        overflow: visible !important;
+    }
+
+    &__single-value--is-disabled {
+        color: var(--color-wistful-or-dove-gray) !important;
+        user-select: text;
+    }
+
+    &__control--is-focused {
+        outline: none !important;
+    }
+
+    &__value-container {
+        padding: 0 15px !important;
+
+        &--is-multi {
+            display: flex;
+            > div {
+                max-width: max-content !important;
+            }
+        }
+    }
+
+    &__placeholder {
+        font-family: "Museo Sans Cyrl", sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 16px !important;
+        line-height: 100% !important;
+        color: var(--color-wistful-or-dove-gray) !important;
+        margin-left: 0 !important;
+    }
+
+    &__dropdown-indicator {
+        display: flex !important;
+        padding: 0 35px 0 0 !important;
+        transform: rotate(-90deg);
+        width: 20px !important;
+        height: 20px !important;
+
+        svg {
+            display: none !important;
+        }
+    }
+
+    &__indicator-separator {
+        display: none !important;
+    }
+
+    &__option {
+        cursor: pointer !important;
+
+        &--is-focused {
+            background: none !important;
+        }
+
+        &--is-selected {
+            background: none !important;
+            color: var(--color-black-or-white) !important;
+            font-weight: 700;
+        }
+    }
+
+    &__menu {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 15px !important;
+        overflow: hidden;
+        background-color: var(--color-body) !important;
+    }
+
+    &__item {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+}
+
+.select__control--is-disabled {
+    .select__indicator {
+        display: none !important;
+    }
+}
+
+html[data-theme="light"] {
+    .select__dropdown-indicator {
+        background: url("#{$url-input-date-arrow}") center no-repeat !important;
+    }
+
+    .select__clear-indicator {
+
+    }
+}
+
+html[data-theme="dark"] {
+    .select__dropdown-indicator {
+        background: url("#{$url-input-date-arrow2}") center no-repeat !important;
+    }
+
+    .select__clear-indicator {
+
+    }
+}
+
+.css-1pahdxg-control {
+    box-shadow: none !important;
+}

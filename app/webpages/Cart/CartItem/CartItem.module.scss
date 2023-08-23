@@ -1,0 +1,151 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.item {
+    width: 100%;
+    // max-width: 657px;
+    display: flex;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--color-gallery-or-tundora);
+    padding-bottom: 40px;
+
+    &__data {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 18px;
+
+        @include breakpoint(sm-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__right {
+        display: flex;
+    }
+
+    &__img {
+        margin-top: 5px;
+        margin-right: 18px;
+        //width: 79px;
+        //height: 63px;
+        object-fit: contain;
+        object-position: center;
+        margin-left: 4px;
+
+        @include breakpoint(sm-max) {
+            width: 77px;
+            height: 95px;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        width: 280px;
+        font-size: 18px;
+        line-height: 22px;
+        margin-right: 26px;
+        margin-top: 4px;
+        color: var(--color-mine-shaft-or-white);
+
+        @include breakpoint(sm-max) {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    &__count {
+        font-size: 14px;
+        line-height: 100%;
+        color: var(--color-silver-chalice);
+        margin-top: 10px;
+
+        @include breakpoint(sm-max) {
+            margin-top: 5px;
+        }
+    }
+
+    &__price {
+        font-size: 24px;
+        line-height: 29px;
+        display: flex;
+        flex-direction: column;
+        margin: 3px 25px 0 25px;
+        white-space: nowrap;
+
+        @include breakpoint(sm-max) {
+            flex-direction: column-reverse;
+            margin-right: 0;
+            font-weight: 600;
+        }
+
+        span {
+            font-size: 14px;
+            line-height: 100%;
+            color: var(--color-silver-chalice);
+            margin-top: 10px;
+
+            @include breakpoint(sm-max) {
+                margin: 0 0 2px 0;
+                font-weight: 400;
+                text-align: right;
+            }
+        }
+    }
+
+    &__close {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 8px;
+        margin-right: -10px;
+
+        @include breakpoint(sm-max) {
+            margin-right: 0;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-silver-chalice);
+            transition: 0.2s;
+        }
+
+        &:hover > svg {
+            fill: var(--color-mine-shaft-or-white);
+        }
+    }
+
+    .counter {
+        margin-top: 1px;
+    }
+
+    &__bottom_mobile {
+        display: flex;
+        justify-content: flex-end;
+        //width: 100%;
+        //max-width: 290px;
+
+        @include breakpoint(lg-max) {
+            width: 100%;
+            //max-width: 300px;
+        }
+
+        @include breakpoint(sm-max) {
+            justify-content: space-between;
+            min-width: 100%;
+            align-items: flex-end;
+        }
+    }
+}

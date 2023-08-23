@@ -1,0 +1,126 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.info {
+    position: sticky;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    height: fit-content;
+    margin-left: 40px;
+
+    @include breakpoint(lg-max) {
+        width: 100%;
+        position: static;
+        margin-left: 0;
+    }
+
+    &__label {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 100%;
+        text-align: center;
+        color: var(--color-silver-chalice);
+
+        @include breakpoint(sm-max) {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    }
+
+    .form {
+        width: 380px;
+        border: 1px solid var(--color-gallery-or-tundora);
+        border-radius: 12px;
+        padding: 20px;
+
+        @include breakpoint(lg-max) {
+            width: 100%;
+        }
+
+        @include breakpoint(sm-max) {
+            border: 0 !important;
+            padding: 0 !important;
+        }
+
+        .result {
+            width: 380px;
+            border: 1px solid var(--color-gallery-or-tundora);
+            border-radius: 12px;
+            padding: 20px;
+
+            @include breakpoint(lg-max) {
+                width: 100%;
+            }
+        }
+
+        &__submit {
+            width: 100%;
+            height: 58px;
+            background-color: var(--color-emerald);
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-family: "Museo Sans Cyrl", sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            color: var(--color-white);
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover {
+                background-color: var(--color-emerald-hover);
+            }
+
+            &:active {
+                background-color: var(--color-emerald-pressed);
+            }
+        }
+
+        &__promocode {
+            width: 100%;
+            height: 58px;
+            border: 1px solid var(--color-emerald);
+            border-radius: 10px;
+            background: none;
+            outline: none;
+            font-family: "Museo Sans Cyrl", sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            color: var(--color-emerald);
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        &__data {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-family: "Museo Sans Cyrl", sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 100%;
+            color: var(--color-raven-or-dove-gray);
+        }
+
+        &__result {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            align-items: flex-end;
+            font-family: "Museo Sans Cyrl", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 100%;
+        }
+
+        &__sum {
+            line-height: 100%;
+            font-size: 24px;
+        }
+    }
+}

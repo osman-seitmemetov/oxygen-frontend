@@ -1,0 +1,28 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.breadcrumbs {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-wistful);
+    text-decoration: none;
+    //white-space: wrap;
+
+    @include breakpoint(sm-max) {
+        font-size: 12px;
+        line-height: 150%;
+    }
+
+    &__separator {
+        color: var(--color-wistful);
+    }
+
+    &__container {
+        display: block !important;
+    }
+
+    &__item {
+        color: var(--color-wistful);
+    }
+}

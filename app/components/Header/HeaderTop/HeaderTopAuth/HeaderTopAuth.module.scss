@@ -1,0 +1,164 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+
+.auth {
+    margin-left: 25px;
+    display: flex;
+    position: relative;
+
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    background-color: var(--color-body);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    min-width: 296px;
+    display: none;
+    flex-direction: column;
+}
+
+.head {
+    padding: 20px;
+    border-bottom: 1px solid var(--color-gallery-or-tundora);
+}
+
+.balance {
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+    margin-top: 22px;
+}
+
+.action {
+    margin-right: 20px;
+    max-width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    line-height: 100%;
+    color: #46c578;
+    padding: 0;
+    border: none;
+    background: none;
+    white-space: nowrap;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.menu {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-text);
+    position: relative;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--color-wistful-or-dove-gray);
+        margin-right: 10px;
+    }
+
+    span {
+        position: absolute;
+        background-color: var(--color-emerald);
+        padding: 0 5px;
+        font-size: 10px;
+        font-weight: 300;
+        color: var(--color-white);
+        border-radius: 10px;
+        top: -8px;
+        right: -30px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.link_active {
+    cursor: default;
+    color: var(--color-emerald);
+
+    svg {
+        fill: var(--color-emerald);
+    }
+}
+
+.link_btn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.link_exit {
+    color: var(--color-coral-red);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    svg {
+        fill: var(--color-coral-red);
+    }
+}
+
+.auth_active {
+    .btn {
+        svg {
+            transform: rotate(90deg);
+        }
+    }
+
+    .dropdown {
+        display: flex;
+    }
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-size: 16px;
+    line-height: 100%;
+    border: none;
+    background: none;
+    overflow: hidden;
+    min-width: max-content;
+
+    span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 10vw;
+    }
+
+    &__arrow {
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        transform: rotate(-90deg);
+        fill: var(--color-black-or-white);
+        transition: .1s;
+    }
+}

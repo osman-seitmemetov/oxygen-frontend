@@ -1,0 +1,144 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.contacts {
+    justify-content: space-between;
+    padding: 60px 0 150px 0;
+
+    @include breakpoint(md-max) {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @include breakpoint(sm-max) {
+        padding: 30px 0;
+    }
+}
+
+.info {
+    width: 580px;
+    min-width: 440px;
+    margin-right: 50px;
+
+    @include breakpoint(md-max) {
+        margin-right: 0;
+        min-width: min-content;
+    }
+
+    @include breakpoint(sm-max) {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+}
+
+.info__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-mine-shaft-or-white);
+    margin-bottom: 35px;
+
+    @include breakpoint(sm-max) {
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--color-black-or-white);
+        margin-bottom: 30px;
+    }
+}
+
+.info__img {
+    width: 380px;
+    margin-top: 14px;
+
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+}
+
+.info__img_mobile {
+    display: none;
+
+    @include breakpoint(sm-max) {
+        width: 100%;
+        max-width: 380px;
+        display: block;
+        margin-bottom: 30px;
+        height: auto;
+    }
+}
+
+.info__title {
+    @include breakpoint(sm-max) {
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 30px;
+    }
+}
+
+.phone {
+    margin-bottom: 30px;
+
+    @include breakpoint(sm-max) {
+        margin-bottom: 20px;
+    }
+}
+
+.phone__icon {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-emerald);
+
+    @include breakpoint(sm-max) {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+ .phone__number {
+     color: var(--color-emerald);
+     margin-left: 10px;
+     font-weight: 700;
+     font-size: 18px;
+     line-height: 100%;
+
+     @include breakpoint(sm-max) {
+         font-size: 16px;
+         margin-left: 4px;
+     }
+ }
+
+.phone__inner {
+    display: flex;
+    align-items: center;
+}
+
+.phone__date {
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+        line-height: 120%;
+    }
+
+    span {
+        color: var(--color-coral-red);
+    }
+}
+
+.phone__desc {
+    margin-top: 9px;
+    margin-left: 28px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-wistful-or-dove-gray);
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+        line-height: 12px;
+        margin-left: 20px;
+    }
+}

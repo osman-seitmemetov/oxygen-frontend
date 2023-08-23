@@ -1,0 +1,274 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+.modalWrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0);
+    z-index: 30000000000;
+    transition: opacity 100ms;
+}
+
+.modalWrapper.active {
+    .modal {
+        transform: scale(1);
+        opacity: 1;
+    }
+    transform: scale(1);
+    opacity: 1;
+}
+
+.content {
+    padding: 40px 50px;
+    border-radius: 12px;
+    background-color: transparent;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cityFragment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    &__liter {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: var(--color-emerald);
+        margin-right: 20px;
+    }
+
+    &__item {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        color: var(--color-mine-shaft-or-white);
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+}
+
+.modal {
+    background: var(--color-body);
+    border-radius: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //width: 100%;
+    width: 1000px;
+    //height: 554px;
+    //max-width: 500px;
+    transition: 100ms;
+    transform: scale(0);
+
+    @include breakpoint(sm-max) {
+        max-width: none;
+        min-width: fit-content;
+        border-radius: 0;
+    }
+}
+
+.close {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    @include breakpoint(sm-max) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--color-mine-shaft-or-white);
+
+        path {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.logo {
+    display: flex;
+}
+
+.head {
+    width: 100%;
+    padding: 50px 50px 0 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+
+    @include breakpoint(sm-max) {
+        padding: 20px 15px;
+        justify-content: flex-start;
+    }
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 0;
+    border: none;
+    margin-left: 5px;
+    font-family: 'Museo Sans Cyrl', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: var(--color-mine-shaft-or-white);
+    outline: none;
+    background-color: transparent;
+
+    &::placeholder {
+        color: var(--color-wistful-or-dove-gray);
+    }
+}
+
+.form {
+    width: 100%;
+    max-width: 500px !important;
+    padding: 35px 60px;
+
+    @include breakpoint(sm-max) {
+        padding: 35px 15px;
+    }
+}
+
+.form--faq {
+    max-width: 600px !important;
+}
+
+.modal--faq {
+    max-width: 600px;
+}
+
+.hystmodal {
+    &__window {
+        margin: 115px 0;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+
+        @include breakpoint(sm-max) {
+            width: 100%;
+            min-height: 100vh;
+        }
+    }
+}
+
+.hystmodal--popup {
+    .hystmodal__window {
+        @include breakpoint(sm-max) {
+            padding: 0 15px;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+    }
+
+    .modal {
+        @include breakpoint(sm-max) {
+            max-width: auto;
+            border-radius: 20px;
+        }
+
+        .form {
+            padding: 35px 50px;
+        }
+
+        .head {
+            padding: 35px 15px 25px 15px;
+            justify-content: center;
+        }
+
+        .close {
+            @include breakpoint(sm-max) {
+                display: none;
+            }
+        }
+
+        .title {
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+}
+
+.menu {
+    width: 100%;
+    background-color: var(--color-white);
+
+    &__head {
+        position: relative;
+        width: 100%;
+        display: flex;
+        padding: 15px 15px 0 15px;
+        margin-bottom: 30px;
+
+        .modal__close {
+            top: 36px;
+        }
+    }
+
+    &__contacts-phone {
+        align-items: flex-start !important;
+    }
+
+    .account-menu {
+        width: 100%;
+        padding: 0 15px;
+
+        &__head {
+            padding: 20px 0;
+        }
+
+        &__nav {
+            padding: 30px 0;
+        }
+
+        .socials {
+            margin-top: 5px;
+            margin-bottom: 60px;
+        }
+    }
+
+    .menu {
+        &__contacts {
+            margin-top: 30px;
+        }
+    }
+}
+
+.hystmodal--menu {
+    top: 100vh;
+    transition: .4s;
+}
+
+.hystmodal--active {
+    top: 0;
+}

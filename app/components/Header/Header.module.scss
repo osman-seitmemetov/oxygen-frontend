@@ -1,0 +1,28 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+
+.header {
+    width: 100%;
+    z-index: 10000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.searchBg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(48, 48, 48, 0.4);
+    width: 100%;
+    height: calc(100vh - 97px);
+    z-index: 3000;
+    display: none;
+}
+
+.searchBg_active {
+    display: flex;
+}

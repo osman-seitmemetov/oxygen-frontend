@@ -1,0 +1,63 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.cart {
+    margin-top: 37px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(lg-max) {
+        flex-direction: column;
+    }
+
+    &__left {
+        width: 100%;
+
+        @include breakpoint(lg-max) {
+            width: 100%;
+        }
+    }
+
+    &__head {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+
+        @include breakpoint(sm-max) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__clean {
+        font-size: 16px;
+        line-height: 100%;
+        color: var(--color-silver-chalice);
+        padding: 0;
+        height: fit-content;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        margin-bottom: 7px;
+        transition: 0.2s;
+
+        @include breakpoint(sm-max) {
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        &:hover {
+            color: var(--color-mine-shaft-or-white);
+        }
+    }
+
+    &__items {
+        width: 100%;
+    }
+}

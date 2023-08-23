@@ -1,0 +1,14 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+
+.form {
+    max-width: 480px !important;
+
+    @include breakpoint(md-max) {
+        margin-top: 50px;
+    }
+
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+}

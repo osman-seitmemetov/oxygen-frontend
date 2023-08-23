@@ -1,0 +1,50 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+.search {
+    display: flex;
+    flex-direction: column;
+    padding: 38px 0 0 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(sm-max) {
+        max-width: 380px;
+    }
+}
+
+.title {
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+}
+
+.items {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+
+    @include breakpoint(lg-max) {
+        grid-gap: 30px;
+    }
+
+    @include breakpoint(md-max) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    @include breakpoint(sm-max) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+
+    @include breakpoint(sm-max) {
+        margin-top: 0 !important;
+    }
+}
+
+.catalog {
+    padding: 20px 0 80px 0;
+}

@@ -1,0 +1,71 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.sidebar {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-bottom: 80px;
+
+    @include breakpoint(sm-max) {
+        display: none;
+    }
+
+    @media (max-width: $screen-xs-max) {
+        display: none;
+    }
+}
+
+.filter {
+    margin-bottom: 50px;
+}
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+.filter__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.filter__settings {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__setting {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--color-mine-shaft-or-white);
+}
+
+.filter__input {
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--color-white-lilac-or-tundora);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+    line-height: 19px;
+
+    &::placeholder {
+        color: var(--color-wistful-or-dove-gray);
+    }
+}
+
+.submit {
+    margin: 30px 0 20px 0;
+}

@@ -1,0 +1,55 @@
+.user {
+    width: 100%;
+}
+
+.field {
+    font-size: 18px;
+    margin-bottom: 10px;
+
+    > span {
+        font-weight: 900;
+    }
+}
+
+.subjectsWrapper {
+    position: relative;
+}
+
+.subjects {
+    margin-top: 15px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 5px 0;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.07), -1px -1px 15px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    position: absolute;
+    scrollbar-color: #458245 transparent;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #C1C1C1;
+        border-radius: 10px;
+        width: 6px;
+        height: 6px;
+    }
+}
+
+.subject {
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #232323;
+
+    &:hover {
+        background-color: #1D71B8;
+        color: #FFFFFF;
+    }
+}
