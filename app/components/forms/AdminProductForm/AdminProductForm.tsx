@@ -33,7 +33,7 @@ interface AdminProductFormProps {
 
 const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldArray, mode}) => {
     const {
-        register, handleSubmit, formState: {errors}, control, watch, setValue
+        register, handleSubmit, formState: {errors}, control, watch
     } = useFormContext<IProductFields>();
 
     const {data: categories, isLoading: isCategoriesLoading} = useCategoriesForSelect({
@@ -53,7 +53,7 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
     console.log(fieldArray.fields, "fields")
 
     useEffect(() => {
-        if(mode === "CREATE") parameters?.forEach(param => fieldArray.append({
+        if (mode === "CREATE") parameters?.forEach(param => fieldArray.append({
             parameterId: Number(param.id),
             checkbox: {
                 colorValueIds: [],
@@ -82,7 +82,7 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
     }, [data?.data]);
 
     useEffect(() => {
-        if(mode === "CREATE") fieldArray.remove();
+        if (mode === "CREATE") fieldArray.remove();
         setTypeId(String(typeId));
     }, [setTypeId, typeId]);
 

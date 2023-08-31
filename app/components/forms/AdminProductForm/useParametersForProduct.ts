@@ -5,7 +5,7 @@ import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {ProductService} from "@/services/ProductService";
 
 export const useParametersForProduct = () => {
-    const [typeId, setTypeId] = useState(undefined);
+    const [typeId, setTypeId] = useState<string>();
     const debouncedTypeId = useDebounce(typeId, 500);
 
     const queryData = useQuery(['admin all product parameters', debouncedTypeId], () => ProductService.getAllParametersByTypeId(debouncedTypeId || ''), {

@@ -1,23 +1,23 @@
-import { FC } from "react";
+import React, {FC} from "react";
 import style from './Footer.module.scss';
-import FooterBottom from './FooterBottom/FooterBottom';
-import FooterTop from './FooterTop/FooterTop';
 import Container from "../Container/Container";
+import Logo from "@/components/Logo/Logo";
+import Link from "next/link";
 
 
 const Footer: FC = () => {
 
-    // const wrongURL = '/login' || '/registration';
-    //
-    // if (location.pathname === '/login' || location.pathname === '/registration') {
-    //     return null;
-    // }
-
     return (
         <footer className={style.footer}>
             <Container>
-                <FooterTop />
-                <FooterBottom />
+                <Logo isDark/>
+
+                <div className={style.nav}>
+                    <Link href="/about" className={style.nav__item}>О компании</Link>
+                    <Link href="/faq" className={style.nav__item}>Вопрос-Ответ</Link>
+                    <Link href="/news" className={style.nav__item}>Новости</Link>
+                    <Link href="/contacts" className={style.nav__item}>Контакты</Link>
+                </div>
             </Container>
         </footer>
     );

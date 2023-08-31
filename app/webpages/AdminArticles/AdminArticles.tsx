@@ -4,7 +4,7 @@ import styles from "./AdminArticles.module.scss";
 import {useArticles} from "@/webpages/AdminArticles/useArticles";
 import AdminArticleItem from "@/webpages/AdminArticles/AdminArticleItem/AdminArticleItem";
 import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
-import InputSearch from "@/UI/InputSearch/InputSearch";
+import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/components/UI/SkeletonLoader/SkeletonLoader";
 import Modal from "@/UI/modals/Modal/Modal";
 import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
@@ -27,7 +27,7 @@ const AdminArticles: FC = () => {
                 style={{maxWidth: '300px', marginBottom: 20}}
             >Создать статью</ButtonTransparent>
 
-            <InputSearch
+            <HeaderSearch
                 isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}

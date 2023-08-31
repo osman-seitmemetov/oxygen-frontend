@@ -13,12 +13,12 @@ const ProductCard: FC<ProductCardProps> = ({product, className}) => {
     return (
         <>
             <div className={`${style.productCard} ${className}`}>
-                <div className={style}>
-                    <Link href={`product/${product.id}`}>
+                <div>
+                    <Link href={`/product/${product.id}`}>
                         <img src={`http://localhost:5000/${product.img}`} alt="Товар" className={style.img}/>
                     </Link>
 
-                    <Link href={`product/${product.id}`}>
+                    <Link href={`/product/${product.id}`}>
                         <h3 className={style.title}>{product.name}</h3>
                     </Link>
 
@@ -32,8 +32,8 @@ const ProductCard: FC<ProductCardProps> = ({product, className}) => {
                         {
                             product.isDiscount
                                 ? <>
-                                    <span className={style.priceOld}>{product.newPrice} руб.</span>
-                                    <span className={style.priceNew}>{product.price} руб.</span>
+                                    <span className={style.priceOld}>{product.price} руб.</span>
+                                    <span className={style.priceNew}>{product.newPrice} руб.</span>
                                 </>
                                 : <>{product.price} руб.</>
                         }

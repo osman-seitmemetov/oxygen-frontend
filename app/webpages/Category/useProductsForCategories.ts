@@ -1,15 +1,18 @@
-import {useMemo} from "react";
+import {useMemo, useState} from "react";
 import {useQuery} from "react-query";
 import {CategoryService} from "@/services/CategoryService";
 import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {ProductService} from "@/services/ProductService";
 import {useRouter} from "next/router";
+import {useDebounce} from "@/hooks/useDebounce";
+import {IProductsFilterFields} from "@/webpages/Category/Category";
 
 
 export const useProductsForCategories = () => {
+    const [productsFilterFormValues, setProductsFilterFormValues] = useState<IProductsFilterFields>();
+    const debouncedProductsFilterFormValues = useDebounce(productsFilterFormValues, 400);
     const {query} = useRouter();
     const categoryId = String(query.id);
-    console.log(categoryId)
 
     const {
         data: category,
@@ -34,7 +37,14 @@ export const useProductsForCategories = () => {
     const {
         data: products,
         isLoading: isProductsLoading
-    } = useQuery(['products of categories', categoryId], () => ProductService.getAll({categoryId: Number(categoryId)}), {
+    } = useQuery(['products of categories', categoryId, debouncedProductsFilterFormValues], () => ProductService.getAll({
+        categoryId: Number(categoryId),
+        typeIds: debouncedProductsFilterFormValues?.typeIds,
+        brandIds: debouncedProductsFilterFormValues?.brandIds,
+        sort: debouncedProductsFilterFormValues?.sort,
+        priceMin: debouncedProductsFilterFormValues?.priceMin,
+        priceMax: debouncedProductsFilterFormValues?.priceMax
+    }), {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении категорий');
         },
@@ -42,6 +52,12 @@ export const useProductsForCategories = () => {
     });
 
     return useMemo(() => ({
-        category, isCategoryLoading, products, isProductsLoading, children, isChildrenLoading
-    }), [category, children, isCategoryLoading, isChildrenLoading, isProductsLoading, products]);
+        category,
+        isCategoryLoading,
+        products,
+        isProductsLoading,
+        children,
+        isChildrenLoading,
+        setProductsFilterFormValues
+    }), [category, children, isCategoryLoading, isChildrenLoading, isProductsLoading, products, setProductsFilterFormValues]);
 }

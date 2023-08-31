@@ -2,7 +2,7 @@ import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminParameters.module.scss";
 import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
-import InputSearch from "@/UI/InputSearch/InputSearch";
+import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import {useAdminParameters} from "@/webpages/AdminParameters/useAdminParameters";
 import AdminParametersItem from "@/webpages/AdminParameters/AdminParametersItem/AdminParametersItem";
@@ -30,7 +30,7 @@ const AdminParameters: FC = () => {
                 Добавить категорию
             </ButtonTransparent>
 
-            <InputSearch
+            <HeaderSearch
                 isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}

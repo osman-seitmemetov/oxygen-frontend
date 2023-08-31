@@ -9,10 +9,6 @@ export const useAdminProducts = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const debouncedSearch = useDebounce(searchTerm, 200);
 
-    useEffect(() => {
-
-    }, [])
-
     const queryData = useQuery(['admin all products', debouncedSearch], () => ProductService.getAll({term: debouncedSearch}), {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении товаров')

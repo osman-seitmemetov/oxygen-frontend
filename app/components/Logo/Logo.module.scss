@@ -1,0 +1,18 @@
+@import "../../assets/scss/mixins/breakpoint";
+
+
+.logo {
+    cursor: pointer;
+    display: flex;
+
+    svg {
+        width: 140px;
+        fill: #1266dc;
+    }
+
+    &_dark {
+        svg {
+            fill: #262626;
+        }
+    }
+}

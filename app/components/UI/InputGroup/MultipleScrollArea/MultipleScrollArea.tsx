@@ -1,48 +1,46 @@
-import React, {FC} from 'react';
-import Select, {OnChangeValue, Options} from "react-select";
-import {IOption} from "@/models/IOption";
+import React, {FC, useEffect, useState} from 'react';
 import styles from "@/components/UI/InputGroup/Input/Input.module.scss";
-import makeAnimated from "react-select/animated";
 import {ControllerRenderProps, FieldError} from "react-hook-form";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
+import Checkbox from "@/components/Checkbox/Checkbox";
 
-interface CustomSelectProps {
-    placeholder: string,
-    // value: string | IOption | undefined,
+
+export interface IScrollAreaOption {
+    id: number,
+    title?: string,
+    value: string
+}
+
+interface MultipleScrollAreaProps {
+    groupName: string
     error?: FieldError,
     disabled?: boolean,
-    options: Options<IOption>,
+    options: IScrollAreaOption[],
     isMulti?: boolean,
     field: ControllerRenderProps<any, any>,
     isLoading?: boolean,
-    isSearchable?: boolean
 }
 
-const animatedComponents = makeAnimated();
-
-const CustomSelect: FC<CustomSelectProps> = (
+const MultipleScrollArea: FC<MultipleScrollAreaProps> = (
     {
         error,
-        disabled,
         field,
         options,
         isMulti = false,
         isLoading,
-        isSearchable = false,
-        ...rest
+        groupName,
     }
 ) => {
-    const onChange = (newValue: unknown | OnChangeValue<IOption, boolean>) => {
-        field.onChange(isMulti ? (newValue as IOption[]).map(item => item.value) : (newValue as IOption).value);
-    }
+    const [singleValue, setSingleValue] = useState<number>();
+    const [multipleValue, setMultipleValue] = useState<number[]>([]);
 
-    const getValue = () => {
+    useEffect(() => {
         if (field.value) {
-            return isMulti
-                ? options.filter(option => field.value.indexOf(option.value) >= 0)
-                : options.find(option => option.value === field.value)
-        } else return isMulti ? [] : ''
-    }
+            isMulti
+                ? setMultipleValue(options.filter(option => field.value.indexOf(option.id) >= 0).map(option => option.id))
+                : setSingleValue(options.find(option => option.id === field.value)?.id)
+        } else isMulti ? setMultipleValue([]) : setSingleValue(undefined);
+    }, [field.value, isMulti, options]);
 
     return (
         <>
@@ -60,27 +58,43 @@ const CustomSelect: FC<CustomSelectProps> = (
                         />
                     </>
                     : <>
-                        {/*<Select*/}
-                        {/*    classNamePrefix="select"*/}
-                        {/*    options={options}*/}
-                        {/*    value={getValue()}*/}
-                        {/*    onChange={onChange}*/}
-                        {/*    isMulti={isMulti}*/}
-                        {/*    components={animatedComponents}*/}
-                        {/*    isLoading={isLoading}*/}
-                        {/*    isSearchable={isSearchable}*/}
-                        {/*    isDisabled={disabled}*/}
-                        {/*    {...rest}*/}
-                        {/*/>*/}
-
                         <div>
-
+                            {
+                                isMulti
+                                    ? options.map(option => <Checkbox
+                                        key={option.id}
+                                        onChange={
+                                            (event) => {
+                                                const checked = event.target.checked;
+                                                checked ? field.onChange([...multipleValue, option.id]) : field.onChange(multipleValue.filter(id => id !== option.id));
+                                            }
+                                        }
+                                    >
+                                        {option.value}
+                                    </Checkbox>)
+                                    : options.map(option => <div key={option.id}>
+                                        <input
+                                            type="radio"
+                                            name={groupName}
+                                            onChange={
+                                                (event) => {
+                                                    const checked = event.target.checked;
+                                                    checked ? field.onChange(option.id) : field.onChange(undefined);
+                                                }
+                                            }
+                                        />
+                                        {option.value}
+                                    </div>)
+                            }
                         </div>
-                        {error && <div className={styles.errorLog}>{error.message}</div>}
+
+                        {error &&
+                            <div className={styles.errorLog}>{error.message}</div>
+                        }
                     </>
             }
         </>
     );
 }
 
-export default CustomSelect;
+export default MultipleScrollArea;

@@ -3,10 +3,53 @@
 .footer {
     display: flex;
     width: 100%;
-    flex-direction: column;
+    background-color: #B6CDEF;
+    padding: 40px 0;
+    justify-content: space-between;
+    align-items: center;
 
     @media (max-width: $screen-xs-max) {
-        padding-bottom: 20px;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: auto;
+        padding: 30px 0;
         margin-bottom: 57px;
+    }
+}
+
+.nav {
+    @media (max-width: $screen-xs-max) {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__item {
+        margin-right: 45px;
+        font-size: 18px;
+        line-height: 26px;
+        font-family: 'Museo Sans Cyrl', sans-serif;
+        text-decoration: none;
+        padding: 0;
+        color: var(--color-black-or-white);
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @media (max-width: $screen-xs-max) {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 40px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }

@@ -1,10 +1,9 @@
 import {ChangeEvent, CSSProperties, FC, useRef, useState} from "react";
-import styles from "./InputSearch.module.scss";
+import styles from "./HeaderSearch.module.scss";
 import Link from "next/link";
 
 
-interface InputSearchProps {
-    isPlaceholderLeft?: boolean,
+interface HeaderSearchProps {
     searchTerm: string,
     handleSearch: (event: ChangeEvent<HTMLInputElement>) => void,
     placeholder: string,
@@ -12,19 +11,17 @@ interface InputSearchProps {
     className?: string
 }
 
-const InputSearch: FC<InputSearchProps> = ({isPlaceholderLeft, searchTerm, handleSearch, placeholder, style, className}) => {
+const HeaderSearch: FC<HeaderSearchProps> = ({searchTerm, handleSearch, placeholder, style, className}) => {
     const inputSearch = useRef("cgccc");
     const [placeholderStyles, setPlaceholder] = useState(`${styles.placeholder}`);
     const [inputIcon, setInputIcon] = useState(`${styles.icon} ${styles.icon_hidden}`);
     const [inputDropdown, setInputDropdown] = useState(`${styles.dropdown} ${styles.dropdown_hidden}`);
-    // const [inputBG, setInputBG] = useState(`${style.placeholder}`);
-
-    console.log(style);
+    const [inputBG, setInputBG] = useState(`${styles.placeholder}`);
 
     const inputSearchFocus = () => {
         setPlaceholder(`${styles.placeholder} ${styles.placeholder_hidden}`);
         setInputIcon(`${styles.icon}`);
-        // setInputBG(``);
+        setInputBG(``);
     }
 
     const inputSearchInput = () => {
@@ -37,12 +34,11 @@ const InputSearch: FC<InputSearchProps> = ({isPlaceholderLeft, searchTerm, handl
             setInputIcon(`${styles.icon} ${styles.icon_hidden}`);
             setInputDropdown(`${styles.dropdown} ${styles.dropdown_hidden}`);
         }
-        // setInputBG(``);
-
+        setInputBG(``);
     }
 
     return (
-        <div className={`${styles.search} ${isPlaceholderLeft && styles.search_left} ${className}`} style={style}>
+        <div className={`${styles.search} ${className}`} style={style}>
             <svg className={inputIcon} width="16" height="16" viewBox="0 0 16 16" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -66,14 +62,14 @@ const InputSearch: FC<InputSearchProps> = ({isPlaceholderLeft, searchTerm, handl
                 onChange={handleSearch}
             />
 
-            {/*<div className={inputDropdown}>*/}
-            {/*    <Link href="/pages/search"><a className={styles.dropdown__item}>Консервы</a></Link>*/}
-            {/*    <Link href="/pages/search"><a className={styles.dropdown__item}>Консервированные каши</a></Link>*/}
-            {/*    <Link href="/pages/search"><a className={styles.dropdown__item}>Консервы фруктовые</a></Link>*/}
-            {/*    <Link href="/pages/search"><a className={styles.dropdown__item}>Консервы овощные</a></Link>*/}
-            {/*</div>*/}
+            <div className={inputDropdown}>
+                <Link href="/search" className={styles.dropdown__item}>Консервы</Link>
+                <Link href="/search" className={styles.dropdown__item}>Консервированные каши</Link>
+                <Link href="/search" className={styles.dropdown__item}>Консервы фруктовые</Link>
+                <Link href="/search" className={styles.dropdown__item}>Консервы овощные</Link>
+            </div>
         </div>
     );
 }
 
-export default InputSearch;
+export default HeaderSearch;

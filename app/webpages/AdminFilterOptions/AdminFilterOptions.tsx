@@ -2,7 +2,7 @@ import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminFilterOptions.module.scss";
 import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
-import InputSearch from "@/UI/InputSearch/InputSearch";
+import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import {useAdminFilterOptions} from "@/webpages/AdminFilterOptions/useAdminFilterOptions";
 import AdminFilterOptionsItem from "@/webpages/AdminFilterOptions/AdminFilterOptionsItem/AdminFilterOptionsItem";
@@ -29,7 +29,7 @@ const AdminFilterOptions: FC = () => {
                 Добавить группу фильтров
             </ButtonTransparent>
 
-            <InputSearch
+            <HeaderSearch
                 isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}

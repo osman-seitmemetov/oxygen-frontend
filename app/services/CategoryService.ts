@@ -2,7 +2,7 @@ import axios from "axios";
 import {axiosClassic} from "@/api/interceptots";
 import {ICategory} from "@/models/ICategory";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
-import {ICategoryChildren} from "@/webpages/Category/Category";
+import {IProductsFilterData} from "@/components/Products/useProductsFilter";
 
 
 export const CategoryService = {
@@ -17,7 +17,7 @@ export const CategoryService = {
     },
 
     async getChildrenById(id: string) {
-        return await axios.get<ICategoryChildren>(`http://localhost:5000/api/category/children/${id}`);
+        return await axios.get<IProductsFilterData>(`http://localhost:5000/api/category/children/${id}`);
     },
 
     async getById(id: string) {

@@ -2,7 +2,7 @@ import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminProducts.module.scss";
 import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
-import InputSearch from "@/UI/InputSearch/InputSearch";
+import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import AdminProductItem from "@/webpages/AdminProducts/AdminProductItem/AdminProductItem";
 import {useAdminProducts} from "@/webpages/AdminProducts/useAdminProducts";
@@ -29,7 +29,7 @@ const AdminArticles: FC = () => {
                 Добавить товар
             </ButtonTransparent>
 
-            <InputSearch
+            <HeaderSearch
                 isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}

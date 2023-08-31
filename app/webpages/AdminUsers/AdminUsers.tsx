@@ -3,7 +3,7 @@ import styles from './AdminUsers.module.scss';
 import Admin from "@/components/Admin/Admin";
 import {useUsers} from "@/webpages/AdminUsers/useUsers";
 import AdminUsersItem from "@/webpages/AdminUsers/AdminUsersItem/AdminUsersItem";
-import InputSearch from "@/UI/InputSearch/InputSearch";
+import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 
 const AdminUsers: FC = () => {
     const {data, isLoading, searchTerm, handleSearch, deleteAsync} = useUsers();
@@ -13,7 +13,7 @@ const AdminUsers: FC = () => {
 
     return (
         <Admin title=" > Пользователи">
-            <InputSearch
+            <HeaderSearch
                 isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}
