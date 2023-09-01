@@ -1,7 +1,7 @@
 import {FC} from "react";
 import style from './Contacts.module.scss';
 import ContactsForm from "./ContactsForm/ContactsForm";
-import ButtonGreen from "../../components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import Container from "../../components/Container/Container";
 import PictureContacts from "../../components/pictures/PictureContacts";
 
@@ -9,7 +9,7 @@ const Contacts: FC = () => {
     return (
         <section className={style.contacts}>
             <Container>
-                <ButtonGreen isFloating>Форма обратной связи</ButtonGreen>
+                <PrimaryButton isFloating>Форма обратной связи</PrimaryButton>
 
                 <div className={style.info}>
                     <PictureContacts className={style.info__img_mobile}/>

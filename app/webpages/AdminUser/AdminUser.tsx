@@ -6,7 +6,7 @@ import {Controller, useForm} from "react-hook-form";
 import Input from "@/UI/InputGroup/Input/Input";
 import InputDate from "@/UI/InputGroup/InputDate/InputDate";
 import InputTel from "@/UI/InputGroup/InputTel/InputTel";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import Form from "@/components/Form/Form";
 import dynamic from "next/dynamic";
 import {useUserEdit} from "@/webpages/AdminUser/useUserEdit";
@@ -148,20 +148,20 @@ const AdminUser: FC = () => {
                                 </div>
 
                                 {disabledInput
-                                    ? <ButtonTransparent
+                                    ? <SecondaryButton
                                         type="submit"
                                         onClick={unDisable}
                                         className={style.profile__btn}
                                     >
                                         Редактировать данные
-                                    </ButtonTransparent>
-                                    : <ButtonTransparent
+                                    </SecondaryButton>
+                                    : <SecondaryButton
                                         type="button"
                                         onClick={disable}
                                         className={style.profile__btn}
                                     >
                                         Сохранить
-                                    </ButtonTransparent>
+                                    </SecondaryButton>
                                 }
                             </Form>
                     }

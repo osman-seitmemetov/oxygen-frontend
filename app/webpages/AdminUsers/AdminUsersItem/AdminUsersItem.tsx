@@ -6,8 +6,8 @@ import {IUser} from "@/models/IUser";
 import Link from "next/link";
 import Arrow from "@/components/Arrow/Arrow";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 
 interface AdminUsersItemProps {
     user: IUser,
@@ -65,7 +65,7 @@ const AdminUsersItem: FC<AdminUsersItemProps> = ({user, activeModal, setActiveMo
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(user.id));
                             setActiveModal(false);
@@ -73,14 +73,14 @@ const AdminUsersItem: FC<AdminUsersItemProps> = ({user, activeModal, setActiveMo
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </div>

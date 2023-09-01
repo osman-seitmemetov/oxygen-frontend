@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminPromocodes.module.scss";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import AdminProductItem from "@/webpages/AdminProducts/AdminProductItem/AdminProductItem";
@@ -24,12 +24,12 @@ const AdminPromocodes: FC = () => {
 
     return (
         <Admin title={` > Промокоды`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/promocodes/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
             >
                 Добавить промокод
-            </ButtonTransparent>
+            </SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

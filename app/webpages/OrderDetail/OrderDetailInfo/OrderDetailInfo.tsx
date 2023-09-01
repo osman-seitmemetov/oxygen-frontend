@@ -1,6 +1,6 @@
 import {FC} from "react";
 import style from './OrderDetailInfo.module.scss';
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {ORDERS_ROUTE} from "@/lib/consts";
 import Link from "next/link";
 import {IOrder, orderStatuses, orderTypes} from "@/models/IOrder";
@@ -68,7 +68,7 @@ const OrderDetailInfo: FC<OrderDetailInfoProps> = ({order}) => {
                 </div>
             </div>
 
-            <ButtonGreen type="button" className={style.btn}>Повторить заказ</ButtonGreen>
+            <PrimaryButton type="button" className={style.btn}>Повторить заказ</PrimaryButton>
         </div>
     );
 }

@@ -9,7 +9,9 @@ export const products: IProduct[] = [
         price: 24320,
         count: 5,
         description: '',
-        categoryId: 1
+        categoryId: 1,
+        brandId: 1,
+        typeId: 1
     },
     {
         id: 2,
@@ -18,7 +20,9 @@ export const products: IProduct[] = [
         price: 24320,
         count: 5,
         description: '',
-        categoryId: 1
+        categoryId: 1,
+        brandId: 1,
+        typeId: 1
     },
     {
         id: 3,
@@ -27,7 +31,9 @@ export const products: IProduct[] = [
         price: 24320,
         count: 5,
         description: '',
-        categoryId: 1
+        categoryId: 1,
+        brandId: 1,
+        typeId: 1
     },
     {
         id: 4,
@@ -36,7 +42,9 @@ export const products: IProduct[] = [
         price: 24320,
         count: 5,
         description: '',
-        categoryId: 1
+        categoryId: 1,
+        brandId: 1,
+        typeId: 1
     },
     {
         id: 5,
@@ -45,6 +53,8 @@ export const products: IProduct[] = [
         price: 24320,
         count: 5,
         description: '',
-        categoryId: 1
+        categoryId: 1,
+        brandId: 1,
+        typeId: 1
     }
 ]

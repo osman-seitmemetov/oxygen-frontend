@@ -2,10 +2,9 @@
 
 .title {
     font-family: "Museo Sans Cyrl", sans-serif;
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 50px;
-    margin-bottom: 30px;
+    font-weight: 900;
+    font-size: 30px;
+    margin-bottom: 20px;
     color: var(--color-mine-shaft-or-white);
 
     @include breakpoint(sm-max) {

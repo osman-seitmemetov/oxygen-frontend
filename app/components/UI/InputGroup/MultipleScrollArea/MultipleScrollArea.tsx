@@ -1,8 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
-import styles from "@/components/UI/InputGroup/Input/Input.module.scss";
+import styles from "./MultipleScrollArea.module.scss";
 import {ControllerRenderProps, FieldError} from "react-hook-form";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import Checkbox from "@/components/Checkbox/Checkbox";
+import Radio from "@/components/Radio/Radio";
 
 
 export interface IScrollAreaOption {
@@ -61,20 +62,23 @@ const MultipleScrollArea: FC<MultipleScrollAreaProps> = (
                         <div>
                             {
                                 isMulti
-                                    ? options.map(option => <Checkbox
-                                        key={option.id}
-                                        onChange={
-                                            (event) => {
-                                                const checked = event.target.checked;
-                                                checked ? field.onChange([...multipleValue, option.id]) : field.onChange(multipleValue.filter(id => id !== option.id));
+                                    ? options.map(option =>
+                                        <Checkbox
+                                            key={option.id}
+                                            className={styles.checkbox}
+                                            onChange={
+                                                (event) => {
+                                                    const checked = event.target.checked;
+                                                    checked ? field.onChange([...multipleValue, option.id]) : field.onChange(multipleValue.filter(id => id !== option.id));
+                                                }
                                             }
-                                        }
-                                    >
-                                        {option.value}
-                                    </Checkbox>)
-                                    : options.map(option => <div key={option.id}>
-                                        <input
-                                            type="radio"
+                                        >
+                                            {option.value}
+                                        </Checkbox>)
+                                    : options.map(option =>
+                                        <Radio
+                                            key={option.id}
+                                            className={styles.radio}
                                             name={groupName}
                                             onChange={
                                                 (event) => {
@@ -82,9 +86,10 @@ const MultipleScrollArea: FC<MultipleScrollAreaProps> = (
                                                     checked ? field.onChange(option.id) : field.onChange(undefined);
                                                 }
                                             }
-                                        />
-                                        {option.value}
-                                    </div>)
+                                        >
+                                            {option.value}
+                                        </Radio>
+                                    )
                             }
                         </div>
 

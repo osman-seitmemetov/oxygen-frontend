@@ -4,8 +4,8 @@ import {IArticle} from "@/models/IArticle";
 import {convertPostgresDateToNormalDate} from "@/lib/date/convertPostgresDateToNormalDate";
 import Link from "next/link";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 
 
 interface AdminArticleItemProps {
@@ -71,7 +71,7 @@ const AdminArticleItem: FC<AdminArticleItemProps> = ({article, setActiveModal, a
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(article.id));
                             setActiveModal(false);
@@ -79,14 +79,14 @@ const AdminArticleItem: FC<AdminArticleItemProps> = ({article, setActiveModal, a
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

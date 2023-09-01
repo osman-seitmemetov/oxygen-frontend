@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminFilterOptions.module.scss";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import {useAdminFilterOptions} from "@/webpages/AdminFilterOptions/useAdminFilterOptions";
@@ -22,12 +22,12 @@ const AdminFilterOptions: FC = () => {
 
     return (
         <Admin title={` > Опции фильтров`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/filter_options/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
             >
                 Добавить группу фильтров
-            </ButtonTransparent>
+            </SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

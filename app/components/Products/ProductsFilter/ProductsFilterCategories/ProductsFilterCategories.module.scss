@@ -1,0 +1,37 @@
+@import "../../../../assets/scss/mixins/breakpoint";
+
+
+.category {
+    max-width: max-content;
+    font-size: 16px;
+    margin-bottom: 5px;
+    transition: all .1s;
+    cursor: pointer;
+
+    svg {
+        fill: #262626;
+    }
+
+    &:hover {
+        color: var(--color-accent);
+
+        svg {
+            fill: var(--color-accent);
+        }
+    }
+
+    &_current {
+        background-color: var(--color-bg);
+        padding: 2px 7px;
+        border-radius: 5px;
+    }
+
+    &_back {
+        display: flex;
+        align-items: center;
+    }
+
+    &_child {
+        margin-left: 15px;
+    }
+}

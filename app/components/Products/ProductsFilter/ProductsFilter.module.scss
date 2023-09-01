@@ -16,20 +16,8 @@
     }
 }
 
-.filter {
-    margin-bottom: 50px;
-}
-
 .checkbox {
-    margin-bottom: 20px;
-}
-
-.filter__title {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
     margin-bottom: 10px;
-    width: 100%;
 }
 
 .filter__settings {
@@ -68,21 +56,4 @@
 
 .submit {
     margin: 30px 0 20px 0;
-}
-
-.category {
-    background-color: var(--color-bg);
-    display: inline-flex;
-    padding: 2px 7px;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-
-    &_back {
-
-    }
-
-    &_child {
-        
-    }
 }

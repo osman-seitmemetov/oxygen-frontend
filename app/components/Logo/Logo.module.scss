@@ -4,10 +4,19 @@
 .logo {
     cursor: pointer;
     display: flex;
+    margin-right: 20px;
+
+    @include breakpoint(sm-max) {
+        margin: 0;
+    }
 
     svg {
         width: 140px;
         fill: #1266dc;
+
+        @include breakpoint(sm-max) {
+            width: 120px;
+        }
     }
 
     &_dark {

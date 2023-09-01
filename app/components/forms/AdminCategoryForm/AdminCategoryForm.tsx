@@ -3,7 +3,7 @@ import {Controller, SubmitHandler, useFormContext} from "react-hook-form";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
 import {stripHtml} from "string-strip-html";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
@@ -173,7 +173,7 @@ const AdminCategoryForm: FC<AdminCategoryFormProps> = ({onSubmit, disabled}) => 
                 />
             </InputGroup>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

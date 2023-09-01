@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminParameters.module.scss";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import {useAdminParameters} from "@/webpages/AdminParameters/useAdminParameters";
@@ -23,12 +23,12 @@ const AdminParameters: FC = () => {
 
     return (
         <Admin title={` > Характеристики`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/parameters/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
             >
                 Добавить категорию
-            </ButtonTransparent>
+            </SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

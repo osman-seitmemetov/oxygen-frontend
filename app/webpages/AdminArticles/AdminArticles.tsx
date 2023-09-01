@@ -3,11 +3,11 @@ import Admin from "@/components/Admin/Admin";
 import styles from "./AdminArticles.module.scss";
 import {useArticles} from "@/webpages/AdminArticles/useArticles";
 import AdminArticleItem from "@/webpages/AdminArticles/AdminArticleItem/AdminArticleItem";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/components/UI/SkeletonLoader/SkeletonLoader";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import ButtonGroup from "@/UI/buttons/ButtonGroup/ButtonGroup";
 
 
@@ -22,10 +22,10 @@ const AdminArticles: FC = () => {
 
     return (
         <Admin title={` > Статьи`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/articles/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
-            >Создать статью</ButtonTransparent>
+            >Создать статью</SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

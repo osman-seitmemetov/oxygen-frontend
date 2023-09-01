@@ -2,8 +2,8 @@ import {FC} from "react";
 import Input from "@/UI/InputGroup/Input/Input";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import {inputModes} from "@/UI/InputGroup/Input/InputEnums";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import {buttonTypes} from "@/UI/buttons/ButtonGreen/ButtonGreenEnums";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import {buttonTypes} from "@/UI/buttons/PrimaryButton/ButtonGreenEnums";
 import Auth from "@/components/components/Auth/Auth";
 import Form from "@/components/components/Form/Form";
 import {PROFILE_ROUTE} from "@/lib/consts";
@@ -24,7 +24,7 @@ const PasswordRecovery2: FC = () => {
                     <Input placeholder="Повторите новый пароль" type="password" inputMode={inputModes.text} />
                 </InputGroup>
 
-                <ButtonGreen type={buttonTypes.submit}>Войти</ButtonGreen>
+                <PrimaryButton type={buttonTypes.submit}>Войти</PrimaryButton>
             </Form>
         </Auth>
     );

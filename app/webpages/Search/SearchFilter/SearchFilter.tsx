@@ -1,8 +1,8 @@
 import {FC} from "react";
 import style from './SearchFilter.module.scss';
 import Checkbox from "@/components/Checkbox/Checkbox";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/components/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 
 const SearchFilter: FC = () => {
     return (
@@ -28,8 +28,8 @@ const SearchFilter: FC = () => {
             <Checkbox className={style.checkbox}>Популярные товары</Checkbox>
             <Checkbox className={style.checkbox}>Новинки</Checkbox>
 
-            <ButtonGreen type="submit" className={style.submit}>Применить</ButtonGreen>
-            <ButtonTransparent type="reset" className={style.reset}>Сбросить</ButtonTransparent>
+            <PrimaryButton type="submit" className={style.submit}>Применить</PrimaryButton>
+            <SecondaryButton type="reset" className={style.reset}>Сбросить</SecondaryButton>
         </form>
     );
 }

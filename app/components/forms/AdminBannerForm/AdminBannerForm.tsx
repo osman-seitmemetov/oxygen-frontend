@@ -5,7 +5,7 @@ import Input from "@/UI/InputGroup/Input/Input";
 import FieldsSection from "@/UI/FieldsSection/FieldsSection";
 import {stripHtml} from "string-strip-html";
 import ImageUploader from "@/UI/InputGroup/ImageUploader/ImageUploader";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import {IBannerFields} from "@/components/forms/AdminBannerForm/useAdminBannerForm";
@@ -100,7 +100,7 @@ const AdminBannerForm: FC<AdminBannerFormProps> = ({onSubmit, disabled}) => {
                 </InputGroup>
             </FieldsSection>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

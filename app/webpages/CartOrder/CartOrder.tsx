@@ -2,7 +2,7 @@ import {FC} from "react";
 import style from "./CartOrder.module.scss";
 import InputGroup from "@/components/UI/InputGroup/InputGroup";
 import Input from "@/components/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import FormWarning from "@/components/Form/FormWarning/FormWarning";
 import Form from "@/components/Form/Form";
 import Title from "@/components/Title/Title";
@@ -56,7 +56,7 @@ const CartOrder: FC = () => {
                         </Checkbox>
                     </FormAdditional>
 
-                    <ButtonGreen type="submit">Выбрать вариант оплаты</ButtonGreen>
+                    <PrimaryButton type="submit">Выбрать вариант оплаты</PrimaryButton>
                 </Form>
             </Container>
         </section>

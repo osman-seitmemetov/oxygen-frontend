@@ -1,25 +1,25 @@
 import React, {FC} from "react";
 import style from './Products.module.scss';
-import ProductsFilter from './ProductsFilter/ProductsFilter';
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import Title from "@/components/Title/Title";
-import ProductsItems from "@/components/Products/ProductsItems/ProductsItems";
 import {IProduct} from "@/models/IProduct";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
+import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
+import ProductsFilter from "@/components/Products/ProductsFilter/ProductsFilter";
+import ProductsItems from "@/components/Products/ProductsItems/ProductsItems";
 
 
 interface ProductsProps {
     products: IProduct[],
     isProductsLoading: boolean,
     title: string,
-    // childCategories: ICategoryChildren
     category: ICategoryFields
 }
 
 const Products: FC<ProductsProps> = (props) => {
     return (
         <>
-            <ButtonGreen isFloating>Фильтры</ButtonGreen>
+            <PrimaryButton isFloating>Фильтры</PrimaryButton>
             <Title className={style.title}>{props.title}</Title>
 
             <div className={style.components}>

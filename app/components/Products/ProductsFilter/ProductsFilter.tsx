@@ -1,8 +1,8 @@
 import React, {FC} from "react";
 import styles from './ProductsFilter.module.scss';
 import Checkbox from "@/components/Checkbox/Checkbox";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/components/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import Link from "next/link";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
 import {useProductsFilter} from "@/components/Products/useProductsFilter";
@@ -11,6 +11,10 @@ import MultipleScrollArea from "@/UI/InputGroup/MultipleScrollArea/MultipleScrol
 import {IProductsFilterFields} from "@/webpages/Category/Category";
 import Input from "@/UI/InputGroup/Input/Input";
 import InputGroup from "@/UI/InputGroup/InputGroup";
+import ProductsFilterGroup from "@/components/Products/ProductsFilter/ProductsFilterGroup/ProductsFilterGroup";
+import ProductsFilterCategories
+    from "@/components/Products/ProductsFilter/ProductsFilterCategories/ProductsFilterCategories";
+import ProductsFilterLoader from "@/components/Products/ProductsFilter/ProductsFilterLoader/ProductsFilterLoader";
 
 interface ProductFilterProps {
     category: ICategoryFields,
@@ -28,54 +32,17 @@ const ProductsFilter: FC<ProductFilterProps> = ({category}) => {
             <form className={styles.sidebar}>
                 {
                     isLoading
-                        ? <div>Loading...</div>
+                        ? <ProductsFilterLoader />
                         : productsFilter ? <>
-                                <div className={styles.filter}>
-                                    <div className={styles.filter__title}>Категории</div>
+                                <ProductsFilterCategories
+                                    category={category}
+                                    parent1Lvl={productsFilter.parent1Lvl}
+                                    parent2Lvl={productsFilter.parent2Lvl}
+                                    childCategory2Lvls={productsFilter.childCategory2Lvls || []}
+                                    childCategory3Lvls={productsFilter.childCategory3Lvls}
+                                />
 
-                                    {
-                                        productsFilter.parent1Lvl
-                                        &&
-                                        <Link href={`/categories/${productsFilter.parent1Lvl.id}`} className={styles.category_back}>
-                                            {`< ${productsFilter.parent1Lvl.name}`}
-                                        </Link>
-                                    }
-
-                                    {
-                                        productsFilter.parent2Lvl
-                                        &&
-                                        <Link href={`/categories/${productsFilter.parent2Lvl.id}`} className={styles.category_back}>
-                                            {`< ${productsFilter.parent2Lvl.name}`}
-                                        </Link>
-                                    }
-
-                                    <div className={styles.category}>{category.name}</div>
-
-                                    {
-                                        productsFilter.childCategory2Lvls?.map(childCategory =>
-                                            <Link href={`/categories/${childCategory.id}`}
-                                                  key={childCategory.id}
-                                                  className={styles.category_child}
-                                            >
-                                                {childCategory.name}
-                                            </Link>
-                                        )
-                                    }
-
-                                    {
-                                        String(category.lvl) === "2" && productsFilter.childCategory3Lvls?.map(childCategory =>
-                                            <Link style={{display: "inline-flex", marginLeft: 10}}
-                                                  href={`/categories/${childCategory.id}`}
-                                                  key={childCategory.id}>
-                                                {childCategory.name}
-                                            </Link>
-                                        )
-                                    }
-                                </div>
-
-                                <div className={styles.filter}>
-                                    <h3 className={styles.filter__title}>Типы:</h3>
-
+                                <ProductsFilterGroup title="Типы">
                                     <Controller
                                         control={control}
                                         name="typeIds"
@@ -95,11 +62,9 @@ const ProductsFilter: FC<ProductFilterProps> = ({category}) => {
                                             />
                                         }
                                     />
-                                </div>
+                                </ProductsFilterGroup>
 
-                                <div className={styles.filter}>
-                                    <h3 className={styles.filter__title}>Бренды:</h3>
-
+                                <ProductsFilterGroup title="Бренды">
                                     <Controller
                                         control={control}
                                         name="brandIds"
@@ -119,22 +84,22 @@ const ProductsFilter: FC<ProductFilterProps> = ({category}) => {
                                             />
                                         }
                                     />
-                                </div>
+                                </ProductsFilterGroup>
                             </>
                             : <div>Возникла ошибка при загрузке</div>
                 }
 
                 {
                     fields.map((param, index) => {
-                        const colorValues = productsFilter?.parameters.find(parameter => Number(parameter.id) === param.parameterId)?.colorValues;
-                        const textValues = productsFilter?.parameters.find(parameter => Number(parameter.id) === param.parameterId)?.textValues;
-                        const numberValues = productsFilter?.parameters.find(parameter => Number(parameter.id) === param.parameterId)?.numberValues;
+                        const colorValues = productsFilter?.parameters?.find(parameter => Number(parameter.id) === param.parameterId)?.colorValues;
+                        const textValues = productsFilter?.parameters?.find(parameter => Number(parameter.id) === param.parameterId)?.textValues;
+                        const numberValues = productsFilter?.parameters?.find(parameter => Number(parameter.id) === param.parameterId)?.numberValues;
 
                         return (
-                            <div key={param.id} className={styles.filter}>
-
-                                <div className={styles.filter__title}>{param.title}</div>
-
+                            <ProductsFilterGroup
+                                key={param.id}
+                                title={param.title}
+                            >
                                 {
                                     param.type === "COLOR"
                                         ? param.format === "CHECKBOX"
@@ -315,14 +280,12 @@ const ProductsFilter: FC<ProductFilterProps> = ({category}) => {
                                                 </InputGroup>
 
                                 }
-                            </div>
+                            </ProductsFilterGroup>
                         )
                     })
                 }
 
-                <div className={styles.filter}>
-                    <div className={styles.filter__title}>Стоимость в рублях</div>
-
+                <ProductsFilterGroup title="Стоимость в рублях">
                     <div className={styles.filter__settings}>
                         <div className={styles.filter__setting}>
                             от
@@ -350,13 +313,13 @@ const ProductsFilter: FC<ProductFilterProps> = ({category}) => {
                             />
                         </div>
                     </div>
-                </div>
+                </ProductsFilterGroup>
 
                 <Checkbox className={styles.checkbox}>Акции</Checkbox>
                 <Checkbox className={styles.checkbox}>В наличии</Checkbox>
 
-                <ButtonGreen type="submit" className={styles.submit}>Применить</ButtonGreen>
-                <ButtonTransparent type="reset">Сбросить</ButtonTransparent>
+                <PrimaryButton type="submit" className={styles.submit}>Применить</PrimaryButton>
+                <SecondaryButton type="reset">Сбросить</SecondaryButton>
             </form>
         </>
     );

@@ -2,8 +2,8 @@ import React, {FC} from "react";
 import styles from "./AdminParametersItem.module.scss";
 import Link from "next/link";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IParameter} from "@/models/IParameter";
 
 
@@ -58,7 +58,7 @@ const AdminParametersItem: FC<AdminCategoriesItemProps> = ({parameter, removeHan
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(parameter.id));
                             setActiveModal(false);
@@ -66,14 +66,14 @@ const AdminParametersItem: FC<AdminCategoriesItemProps> = ({parameter, removeHan
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

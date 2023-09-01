@@ -6,7 +6,7 @@ import Account from "@/components/Account/Account";
 import {useAuth} from "@/hooks/useAuth";
 import {Controller, useForm} from "react-hook-form";
 import Form from "@/components/Form/Form";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import InputDate from "@/UI/InputGroup/InputDate/InputDate";
 import InputTel from "@/UI/InputGroup/InputTel/InputTel";
 import dynamic from "next/dynamic";
@@ -144,20 +144,20 @@ const Profile: FC = () => {
                         </div>
 
                         {disabledInput
-                            ? <ButtonTransparent
+                            ? <SecondaryButton
                                 type="submit"
                                 onClick={unDisable}
                                 className={style.profile__btn}
                             >
                                 Редактировать данные
-                            </ButtonTransparent>
-                            : <ButtonTransparent
+                            </SecondaryButton>
+                            : <SecondaryButton
                                 type="button"
                                 onClick={disable}
                                 className={style.profile__btn}
                             >
                                 Сохранить
-                            </ButtonTransparent>
+                            </SecondaryButton>
                         }
                     </Form>
             }

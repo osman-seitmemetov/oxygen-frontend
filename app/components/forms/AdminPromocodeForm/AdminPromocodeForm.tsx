@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Controller, SubmitHandler, useFormContext} from "react-hook-form";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import FieldsSection from "@/UI/FieldsSection/FieldsSection";
@@ -70,7 +70,7 @@ const AdminPromocodeForm: FC<AdminProductFormProps> = ({onSubmit, disabled}) => 
                 </InputGroup>
             </FieldsSection>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

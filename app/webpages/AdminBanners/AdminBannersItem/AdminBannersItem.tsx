@@ -2,8 +2,8 @@ import React, {FC} from "react";
 import styles from "./AdminBannersItem.module.scss";
 import Link from "next/link";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IBanner} from "@/models/IBanner";
 
 
@@ -60,7 +60,7 @@ const AdminBannersItem: FC<AdminBannersItemProps> = ({banner, removeHandler, set
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(banner.id));
                             setActiveModal(false);
@@ -68,14 +68,14 @@ const AdminBannersItem: FC<AdminBannersItemProps> = ({banner, removeHandler, set
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

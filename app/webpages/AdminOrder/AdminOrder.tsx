@@ -5,7 +5,7 @@ import Form from "@/components/Form/Form";
 import dynamic from "next/dynamic";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {IBannerFields, ICategoryFields, IOrderFields} from "@/types/types";
 import {stripHtml} from "string-strip-html";
 import ImageUploader from "@/UI/InputGroup/ImageUploader/ImageUploader";
@@ -116,7 +116,7 @@ const AdminOrder: FC = () => {
                 //                 </InputGroup>
                 //             </FieldsSection>
                 //
-                //             <ButtonGreen>Сохранить</ButtonGreen>
+                //             <PrimaryButton>Сохранить</PrimaryButton>
                 //         </Form>
                 //     </Admin>
             }

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {SubmitHandler, useFormContext} from "react-hook-form";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import Form from "@/components/Form/Form";
 import {IFilterGroupFields} from "@/components/forms/AdminFilterGroupForm/useAdminFilterGroupForm";
 
@@ -29,7 +29,7 @@ const AdminFilterGroupForm: FC<AdminFilterGroupFormProps> = ({onSubmit, disabled
                 />
             </InputGroup>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

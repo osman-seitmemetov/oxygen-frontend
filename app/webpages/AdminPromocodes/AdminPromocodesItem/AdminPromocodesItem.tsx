@@ -3,8 +3,8 @@ import styles from "./AdminPromocodesItem.module.scss";
 import Link from "next/link";
 import {IProduct} from "@/models/IProduct";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IPromocode} from "@/models/IPromocode";
 import {separateByCommas} from "@/lib/string/separateByCommas";
 
@@ -72,7 +72,7 @@ const AdminPromocodesItem: FC<AdminProductItemProps> = ({promocode, removeHandle
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(promocode.id));
                             setActiveModal(false);
@@ -80,14 +80,14 @@ const AdminPromocodesItem: FC<AdminProductItemProps> = ({promocode, removeHandle
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

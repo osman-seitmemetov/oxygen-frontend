@@ -1,12 +1,12 @@
 import React, {AnchorHTMLAttributes, ButtonHTMLAttributes, FC} from 'react';
-import style from './ButtonTransparent.module.scss';
+import style from './SecondaryButton.module.scss';
 import Link from "next/link";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     link?: string
 }
 
-const ButtonTransparent: FC<IButton & AnchorHTMLAttributes<HTMLAnchorElement>> = (
+const SecondaryButton: FC<IButton & AnchorHTMLAttributes<HTMLAnchorElement>> = (
     {
         className,
         link,
@@ -26,4 +26,4 @@ const ButtonTransparent: FC<IButton & AnchorHTMLAttributes<HTMLAnchorElement>> =
     );
 }
 
-export default ButtonTransparent;
+export default SecondaryButton;

@@ -1,11 +1,11 @@
 import React, {ButtonHTMLAttributes, FC} from 'react';
-import style from './ButtonGreen.module.scss';
+import style from './PrimaryButton.module.scss';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     isFloating?: boolean,
 }
 
-const ButtonGreen: FC<IButton> = ({className, isFloating, children, ...rest}) => {
+const PrimaryButton: FC<IButton> = ({className, isFloating, children, ...rest}) => {
     return (
         <button
             className={`${className} ${style.button} ${isFloating && style.floatingButton}`}
@@ -16,4 +16,4 @@ const ButtonGreen: FC<IButton> = ({className, isFloating, children, ...rest}) =>
     );
 }
 
-export default ButtonGreen;
+export default PrimaryButton;

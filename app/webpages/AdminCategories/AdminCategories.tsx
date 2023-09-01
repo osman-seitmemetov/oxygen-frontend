@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminCategories.module.scss";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import {useAdminCategories} from "@/webpages/AdminCategories/useAdminCategories";
 import AdminCategoriesItem from "@/webpages/AdminCategories/AdminCategoriesItem/AdminCategoriesItem";
@@ -23,12 +23,12 @@ const AdminCategories: FC = () => {
 
     return (
         <Admin title={` > Категории`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/categories/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
             >
                 Добавить категорию
-            </ButtonTransparent>
+            </SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

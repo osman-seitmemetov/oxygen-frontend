@@ -2,7 +2,7 @@ import {FC, MouseEvent} from "react";
 import style from "./Product.module.scss";
 import ProductCheckboxGroup from "./ProductCheckboxGroup/ProductCheckboxGroup";
 import Container from "@/components/Container/Container";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {IProduct} from "@/models/IProduct";
 import parse from "html-react-parser";
 import Image from "next/image";
@@ -69,14 +69,14 @@ const Product: FC<ProductProps> = ({product, productsForSlider}) => {
                             {/*<ProductTable />*/}
 
                             {product.count > 0
-                                // ? <ButtonGreen
+                                // ? <PrimaryButton
                                 //     className={style.desc__btn}
                                 //     // onClick={() => addHandler(String(product?.id))}
                                 // >
                                 //     В корзину
-                                // </ButtonGreen>
+                                // </PrimaryButton>
                                 ? <AddToCart productId={product.id} productCount={product.count} />
-                                : <ButtonGreen disabled className={style.desc__btn}>Нет в наличии</ButtonGreen>
+                                : <PrimaryButton disabled className={style.desc__btn}>Нет в наличии</PrimaryButton>
                             }
 
                             <div className={style.desc__text}>{parse(product.description)}</div>

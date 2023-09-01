@@ -10,6 +10,7 @@ import {sortOptions} from "@/lib/sortOptions";
 import {Controller, useFormContext} from "react-hook-form";
 import {IProductsFilterFields} from "@/webpages/Category/Category";
 import {declensions} from "@/lib/declensions";
+import ProductsItemsLoader from "@/components/Products/ProductsItems/ProductsItemsLoader/ProductsItemsLoader";
 
 
 interface SearchItemsProps {
@@ -24,8 +25,7 @@ const ProductsItems: FC<SearchItemsProps> = ({products, isLoading}) => {
         <>
             <section className={style.catalogItems}>
                 <div className={style.head}>
-                    <Title className={style.title_mob}>Консервы</Title>
-                    <div className={style.count}>{products && products.length} {declensions(products.length, ['товар', 'товара', 'товаров'])}</div>
+                    {/*<Title className={style.title_mob}>Консервы</Title>*/}
 
                     <Controller
                         control={control}
@@ -45,7 +45,7 @@ const ProductsItems: FC<SearchItemsProps> = ({products, isLoading}) => {
 
                 {
                     isLoading
-                        ? <SkeletonLoader count={3}/>
+                        ? <ProductsItemsLoader />
                         : products
                             ? products.length > 0
                                 ? <div className={style.items}>

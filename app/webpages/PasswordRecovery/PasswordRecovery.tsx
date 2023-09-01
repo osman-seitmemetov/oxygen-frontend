@@ -2,8 +2,8 @@ import {FC} from "react";
 import Input from "@/UI/InputGroup/Input/Input";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import {inputModes} from "@/UI/InputGroup/Input/InputEnums";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import {buttonTypes} from "@/UI/buttons/ButtonGreen/ButtonGreenEnums";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import {buttonTypes} from "@/UI/buttons/PrimaryButton/ButtonGreenEnums";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import Form from "@/components/Form/Form";
 import Title from "@/components/Title/Title";
@@ -24,7 +24,7 @@ const PasswordRecovery: FC = () => {
                     <Checkbox isSmall>Восстановить пароль с помощью эл. почты</Checkbox>
                 </FormAdditional>
 
-                <ButtonGreen type={buttonTypes.submit}>Войти</ButtonGreen>
+                <PrimaryButton type={buttonTypes.submit}>Войти</PrimaryButton>
                 <FormLabel>Мы отправим вам SMS с кодом подтверждения</FormLabel>
             </Form>
         </Auth>

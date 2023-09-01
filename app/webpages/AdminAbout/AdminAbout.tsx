@@ -5,7 +5,7 @@ import Form from "@/components/Form/Form";
 import dynamic from "next/dynamic";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {useCategoryEdit} from "@/webpages/AdminCategory/useCategoryEdit";
 import {ICategoryFields} from "@/types/types";
 import {IAbout} from "@/models/IAbout";
@@ -72,7 +72,7 @@ const AdminCategory: FC = () => {
                                 />
                             </InputGroup>
 
-                            <ButtonGreen>Сохранить</ButtonGreen>
+                            <PrimaryButton>Сохранить</PrimaryButton>
                         </Form>
                     </Admin>
             }

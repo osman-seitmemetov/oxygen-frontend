@@ -3,7 +3,7 @@ import {Controller, SubmitHandler, UseFieldArrayReturn, useFormContext} from "re
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
 import {stripHtml} from "string-strip-html";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import FieldsSection from "@/UI/FieldsSection/FieldsSection";
@@ -505,7 +505,7 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
                 </InputGroup>
             </FieldsSection>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

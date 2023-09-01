@@ -4,7 +4,7 @@ import Payment from "@/components/Payment/Payment";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
 import {inputModes} from "@/UI/InputGroup/Input/InputEnums";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import Account from "@/components/Account/Account";
 
 
@@ -18,7 +18,7 @@ const Balance: FC = () => {
 
                 <div className={style.balance__title}>Выберите способ пополнения баланса</div>
                 <Payment />
-                <ButtonGreen className={style.balance__btn}>Пополнить баланс</ButtonGreen>
+                <PrimaryButton className={style.balance__btn}>Пополнить баланс</PrimaryButton>
             </div>
         </Account>
     );

@@ -8,6 +8,7 @@ import {IColorValue} from "@/models/IColorValue";
 import {ITextValue} from "@/models/ITextValue";
 import {INumberValue} from "@/models/INumberValue";
 import {IBooleanValue} from "@/models/IBooleanValue";
+import ProductsLoader from "@/components/Products/ProductsFilter/ProductsLoader/ProductsLoader";
 
 
 export interface IProductsFilterFields {
@@ -75,9 +76,9 @@ const Category: FC = () => {
             <Container className={style.container}>
                 {
                     isCategoryLoading
-                        ? <div>Loading...</div>
+                        ? <ProductsLoader />
                         : category?.data && <>
-                        <div>{category?.data.name}</div>
+                        <div style={{marginBottom: 5}}>Главная / Каталог / {category?.data.name}</div>
                         <FormProvider {...productsFilterForm}>
                             <Products
                                 products={products?.data ? products?.data : []}

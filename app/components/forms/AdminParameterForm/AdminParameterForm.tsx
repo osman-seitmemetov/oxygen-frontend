@@ -2,11 +2,11 @@ import React, {FC, useEffect} from 'react';
 import {Controller, SubmitHandler, useFieldArray, useFormContext} from "react-hook-form";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import FieldsSection from "@/UI/FieldsSection/FieldsSection";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IParameterFields} from "@/components/forms/AdminParameterForm/useAdminParameterForm";
 import {IOption} from "@/models/IOption";
 import PropertyInputGroup from "@/UI/PropertyInputGroup/PropertyInputGroup";
@@ -216,7 +216,7 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
             {
                 format === "CHECKBOX" || format === "RADIO"
                     ? type === "COLOR"
-                        ? <ButtonTransparent
+                        ? <SecondaryButton
                             type="button"
                             // @ts-ignore
                             onClick={() => colorValuesFieldArray.append({})}
@@ -226,9 +226,9 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
                             }}
                         >
                             Добавить значение характеристики
-                        </ButtonTransparent>
+                        </SecondaryButton>
                         : type === "TEXT"
-                            ? <ButtonTransparent
+                            ? <SecondaryButton
                                 type="button"
                                 // @ts-ignore
                                 onClick={() => textValuesFieldArray.append({})}
@@ -238,10 +238,10 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
                                 }}
                             >
                                 Добавить значение характеристики
-                            </ButtonTransparent>
+                            </SecondaryButton>
 
                             : type === "NUMBER"
-                                ? <ButtonTransparent
+                                ? <SecondaryButton
                                     type="button"
                                     // @ts-ignore
                                     onClick={() => numberValuesFieldArray.append({})}
@@ -251,12 +251,12 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
                                     }}
                                 >
                                     Добавить значение характеристики
-                                </ButtonTransparent>
+                                </SecondaryButton>
                                 : <></>
                     : <></>
             }
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     )
         ;

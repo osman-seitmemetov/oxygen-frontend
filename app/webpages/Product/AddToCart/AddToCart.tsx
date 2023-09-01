@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from "react";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {useCart} from "@/webpages/Cart/useCart";
 import {useMutation} from "react-query";
 import {CartService} from "@/services/CartService";
@@ -54,18 +54,18 @@ const AddToCart: FC<AddToCartProps> = ({productId, productCount}) => {
         <>
             {
                 !isSmashed
-                    ? <ButtonGreen
+                    ? <PrimaryButton
                         // className={style.desc__btn}
                         disabled={isAddLoading}
                         onClick={() => mutateAsync()}
                     >
                         В корзину
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    // : <ButtonGreen
+                    // : <PrimaryButton
                     //     disabled
                     //     // className={style.desc__btn}
-                    // >Нет в наличии</ButtonGreen>
+                    // >Нет в наличии</PrimaryButton>
                 : cartProduct && <Counter value={cartProduct.count} min={1} max={productCount} productId={cartProduct.id}/>
             }
         </>

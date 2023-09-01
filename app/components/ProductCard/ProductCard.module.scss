@@ -1,7 +1,7 @@
 @import "../../assets/scss/mixins/breakpoint";
 
 .productCard {
-    width: 250px;
+    //width: 250px;
     height: 386px;
     display: flex;
     flex-direction: column;
@@ -13,10 +13,49 @@
     }
 }
 
+.top {
+    position: relative;
+}
+
+.wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+        svg {
+            transition: all .1s;
+            fill: #da1b3f;
+        }
+    }
+
+    &__icons {
+        position: relative;
+    }
+
+    &__fill {
+        fill: #FFFFFF;
+        width: 20px;
+        height: 20px;
+    }
+
+    &__outline {
+        fill: #262626;
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
 .img {
     width: 100%;
     object-fit: contain;
     object-position: center;
+    border-radius: 10px;
 
     @include breakpoint(sm-max) {
         height: 115px;
@@ -111,7 +150,7 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    background-color: var(--color-emerald);
+    background-color: var(--color-accent);
     color: var(--color-white);
     font-size: 15px;
     line-height: 18px;

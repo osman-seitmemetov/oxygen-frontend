@@ -2,8 +2,8 @@ import React, {FC} from "react";
 import styles from "./AdminFilterOptionsItem.module.scss";
 import Link from "next/link";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IFilterOption} from "@/models/IFilterOption";
 
 
@@ -65,7 +65,7 @@ const AdminFilterOptionsItem: FC<AdminFilterOptionsProps> = (
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(filterOption.id));
                             setActiveModal(false);
@@ -73,14 +73,14 @@ const AdminFilterOptionsItem: FC<AdminFilterOptionsProps> = (
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

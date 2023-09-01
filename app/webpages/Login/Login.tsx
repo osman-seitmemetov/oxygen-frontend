@@ -1,9 +1,9 @@
 import {FC} from "react";
 import Input from "@/components/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import InputGroup from "@/components/UI/InputGroup/InputGroup";
 import Checkbox from "@/components/Checkbox/Checkbox";
-import ButtonTransparent from "@/components/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import Form from "@/components/Form/Form";
 import FormLink from "@/components/Form/FormLink/FormLink";
 import FormAdditional from "@/components/Form/FormAdditional/FormAdditional";
@@ -94,14 +94,14 @@ const Login: FC = () => {
                     <FormLink link={PASSWORD_RECOVERY_ROUTE}>Забыли пароль?</FormLink>
                 </FormAdditional>
 
-                <ButtonGreen
+                <PrimaryButton
                     disabled={isSubmitting}
                     type="submit"
                 >
                     Войти
-                </ButtonGreen>
+                </PrimaryButton>
                 <FormSeparator/>
-                <ButtonTransparent link={REGISTRATION_ROUTE}>Зарегистрироваться</ButtonTransparent>
+                <SecondaryButton link={REGISTRATION_ROUTE}>Зарегистрироваться</SecondaryButton>
             </Form>
         </Auth>
     );

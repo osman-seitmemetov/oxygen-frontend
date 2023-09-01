@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Controller, SubmitHandler, useFormContext} from "react-hook-form";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
 import {ITypeFields} from "@/components/forms/AdminTypeForm/useAdminTypeForm";
@@ -80,7 +80,7 @@ const AdminTypeForm: FC<AdminTypeFormProps> = ({onSubmit, disabled}) => {
                 />
             </InputGroup>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import style from './ContactsForm.module.scss';
 import Input from "@/components/UI/InputGroup/Input/Input";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Textarea from "@/components/UI/InputGroup/Textarea/Textarea";
 import Form from "@/components/Form/Form";
@@ -128,7 +128,7 @@ const ContactsForm: FC = () => {
             <Recaptcha/>
 
             <ButtonGroup>
-                <ButtonGreen type="submit">Отправить</ButtonGreen>
+                <PrimaryButton type="submit">Отправить</PrimaryButton>
                 <ButtonReset>Отмена</ButtonReset>
             </ButtonGroup>
         </Form>

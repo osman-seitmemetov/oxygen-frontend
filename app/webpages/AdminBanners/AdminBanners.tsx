@@ -2,13 +2,13 @@ import React, {FC, useState} from "react";
 import styles from './AdminBanners.module.scss';
 import Admin from "@/components/Admin/Admin";
 import {useAdminBanners} from "@/webpages/AdminBanners/useAdminBanners";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import Head from "next/head";
 import Modal from '@/components/UI/modals/Modal/Modal';
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import Form from "@/components/Form/Form";
 import InputTel from "@/components/UI/InputGroup/InputTel/InputTel";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import AdminBannersItem from "@/webpages/AdminBanners/AdminBannersItem/AdminBannersItem";
 
 interface IBannerFields {
@@ -41,12 +41,12 @@ const AdminBanners: FC = () => {
                     isLoading
                         ? <div>loading...</div>
                         : <div>
-                            <ButtonTransparent
+                            <SecondaryButton
                                 link="/admin/banner/create"
                                 style={{maxWidth: '300px', marginBottom: 20}}
                             >
                                 Добавить новый баннер
-                            </ButtonTransparent>
+                            </SecondaryButton>
 
                             <div className={styles.banners}>
                                 добавить drag&apos;n&apos;drop для задания порядка

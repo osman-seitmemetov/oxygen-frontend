@@ -1,6 +1,6 @@
 import {FC, ReactNode} from "react";
 import style from './Promocodes.module.scss';
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import PromocodesItem from "./PromocodesItem/PromocodesItem";
 import Account from "@/components/Account/Account";
 import AccountItems from "@/components/Account/AccountItems/AccountItems";
@@ -48,7 +48,7 @@ const Promocodes: FC = () => {
     return (
         <Account title="Мои промокоды">
             <div className={style.coupons}>
-                <ButtonGreen isFloating type="button">Как использовать промокоды?</ButtonGreen>
+                <PrimaryButton isFloating type="button">Как использовать промокоды?</PrimaryButton>
                 <AccountTabs items={tabItems} hintTitle="Как использовать промокоды?"/>
             </div>
         </Account>

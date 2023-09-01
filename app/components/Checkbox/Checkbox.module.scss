@@ -3,6 +3,7 @@
 .checkboxItem {
     max-width: fit-content;
     display: flex;
+    align-items: center;
     font-weight: 400;
     cursor: pointer;
     user-select: none;
@@ -15,14 +16,14 @@
         }
 
         &:checked + .checkbox {
-            background-color: var(--color-emerald);
+            background-color: var(--color-accent);
         }
     }
 
     &__title {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 22px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     &__title_form {
@@ -35,17 +36,17 @@
     }
 
     .checkbox {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         background-color: var(--color-white-lilac-or-tundora);
         border-radius: 5px;
         position: relative;
-        padding-right: 20px;
+        //padding-right: 20px;
 
         &::after {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             background-image: url("../../assets/img/check-icon.svg");
             background-position: center;
             background-repeat: no-repeat;

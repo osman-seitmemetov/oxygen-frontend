@@ -1,7 +1,7 @@
 import React, {FC, useState} from "react";
 import Admin from "@/components/Admin/Admin";
 import styles from "./AdminProducts.module.scss";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
 import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import AdminProductItem from "@/webpages/AdminProducts/AdminProductItem/AdminProductItem";
@@ -22,12 +22,12 @@ const AdminArticles: FC = () => {
 
     return (
         <Admin title={` > Товары`}>
-            <ButtonTransparent
+            <SecondaryButton
                 link="/admin/products/create"
                 style={{maxWidth: '300px', marginBottom: 20}}
             >
                 Добавить товар
-            </ButtonTransparent>
+            </SecondaryButton>
 
             <HeaderSearch
                 isPlaceholderLeft

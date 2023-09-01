@@ -14,7 +14,6 @@ const Footer: FC = () => {
 
                 <div className={style.nav}>
                     <Link href="/about" className={style.nav__item}>О компании</Link>
-                    <Link href="/faq" className={style.nav__item}>Вопрос-Ответ</Link>
                     <Link href="/news" className={style.nav__item}>Новости</Link>
                     <Link href="/contacts" className={style.nav__item}>Контакты</Link>
                 </div>

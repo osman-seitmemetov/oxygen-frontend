@@ -2,8 +2,8 @@ import React, {FC} from "react";
 import styles from "./AdminFilterGroupsItem.module.scss";
 import Link from "next/link";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IFilterGroup} from "@/models/IFilterGroup";
 
 
@@ -58,7 +58,7 @@ const AdminFilterGroupsItem: FC<AdminCategoriesItemProps> = ({filterGroup, remov
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(filterGroup.id));
                             setActiveModal(false);
@@ -66,14 +66,14 @@ const AdminFilterGroupsItem: FC<AdminCategoriesItemProps> = ({filterGroup, remov
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

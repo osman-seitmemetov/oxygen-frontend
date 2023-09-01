@@ -5,7 +5,7 @@ import Input from "@/UI/InputGroup/Input/Input";
 import FieldsSection from "@/UI/FieldsSection/FieldsSection";
 import {stripHtml} from "string-strip-html";
 import ImageUploader from "@/UI/InputGroup/ImageUploader/ImageUploader";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
 import {IArticleFields} from "@/components/forms/AdminArticleForm/useAdminArticleForm";
 import dynamic from "next/dynamic";
 import Form from "@/components/Form/Form";
@@ -95,7 +95,7 @@ const AdminArticleForm: FC<AdminArticleFormProps> = ({onSubmit, disabled}) => {
                 </InputGroup>
             </FieldsSection>
 
-            <ButtonGreen disabled={disabled}>Сохранить</ButtonGreen>
+            <PrimaryButton disabled={disabled}>Сохранить</PrimaryButton>
         </Form>
     );
 };

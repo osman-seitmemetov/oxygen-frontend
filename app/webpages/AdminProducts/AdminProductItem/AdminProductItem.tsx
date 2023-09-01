@@ -3,8 +3,8 @@ import styles from "./AdminProductItem.module.scss";
 import Link from "next/link";
 import {IProduct} from "@/models/IProduct";
 import Modal from "@/UI/modals/Modal/Modal";
-import ButtonGreen from "@/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 
 
 interface AdminProductItemProps {
@@ -71,7 +71,7 @@ const AdminProductItem: FC<AdminProductItemProps> = ({product, removeHandler, se
                         width: '100%'
                     }}
                 >
-                    <ButtonGreen
+                    <PrimaryButton
                         onClick={() => {
                             removeHandler(String(product.id));
                             setActiveModal(false);
@@ -79,14 +79,14 @@ const AdminProductItem: FC<AdminProductItemProps> = ({product, removeHandler, se
                         style={{width: '48%'}}
                     >
                         Да
-                    </ButtonGreen>
+                    </PrimaryButton>
 
-                    <ButtonTransparent
+                    <SecondaryButton
                         onClick={() => setActiveModal(false)}
                         style={{width: '48%'}}
                     >
                         Нет
-                    </ButtonTransparent>
+                    </SecondaryButton>
                 </div>
             </Modal>
         </>

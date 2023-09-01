@@ -1,8 +1,8 @@
 import React, {FC} from "react";
 import Input from "@/components/UI/InputGroup/Input/Input";
 import InputGroup from "@/components/UI/InputGroup/InputGroup";
-import ButtonGreen from "@/components/UI/buttons/ButtonGreen/ButtonGreen";
-import ButtonTransparent from "@/components/UI/buttons/ButtonTransparent/ButtonTransparent";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import Form from "@/components/Form/Form";
 import FormAdditional from "@/components/Form/FormAdditional/FormAdditional";
@@ -194,10 +194,10 @@ const Registration: FC = () => {
                 </FormAdditional>
 
 
-                <ButtonGreen type="submit">Зарегистрироваться</ButtonGreen>
+                <PrimaryButton type="submit">Зарегистрироваться</PrimaryButton>
                 <FormLabel>Мы отправим вам SMS с кодом подтверждения</FormLabel>
                 <FormSeparator/>
-                <ButtonTransparent link={LOGIN_ROUTE}>У меня уже есть аккаунт</ButtonTransparent>
+                <SecondaryButton link={LOGIN_ROUTE}>У меня уже есть аккаунт</SecondaryButton>
             </Form>
         </Auth>
     );

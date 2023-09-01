@@ -1,4 +1,4 @@
-import React, {FC, forwardRef, InputHTMLAttributes} from 'react';
+import React, {forwardRef, InputHTMLAttributes} from 'react';
 import styles from './Checkbox.module.scss';
 
 

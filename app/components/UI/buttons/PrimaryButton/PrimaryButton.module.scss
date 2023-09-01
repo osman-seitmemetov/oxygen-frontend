@@ -4,7 +4,7 @@
     font-family: "Museo Sans Cyrl", sans-serif;
     font-weight: 700;
     font-size: 18px;
-    background-color: var(--color-emerald);
+    background-color: var(--color-accent);
     border-radius: 10px;
     color: var(--color-white);
     transition: 0.5s;
@@ -17,11 +17,11 @@
     user-select: none;
 
     &:hover {
-        background-color: var(--color-emerald-hover);
+        background-color: var(--color-accent-hover);
     }
 
     &:active {
-        background-color: var(--color-emerald-pressed);
+        background-color: var(--color-accent-pressed);
     }
 }
 
