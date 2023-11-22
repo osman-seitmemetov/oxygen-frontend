@@ -1,4 +1,4 @@
-import {instance} from "../api/interceptots";
+import {instance} from "@/api/interceptors";
 import {INotification} from "@/models/INotification";
 
 export const NotificationsService = {

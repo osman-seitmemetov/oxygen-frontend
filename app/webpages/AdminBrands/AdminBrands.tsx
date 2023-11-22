@@ -1,27 +1,13 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import Admin from "@/components/Admin/Admin";
-import styles from "./AdminCategories.module.scss";
 import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
-import {useAdminCategories} from "@/webpages/AdminCategories/useAdminCategories";
-import AdminCategoriesItem from "@/webpages/AdminCategories/AdminCategoriesItem/AdminCategoriesItem";
-import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
 import {useAdminBrands} from "@/webpages/AdminBrands/useAdminBrands";
-import AdminBrandsItem from "@/webpages/AdminBrands/AdminBrandsItem/AdminBrandsItem";
+import AdminTable from "@/components/Admin/AdminTable/AdminTable";
 
 
 const AdminBrands: FC = () => {
-    const [activeModal, setActiveModal] = useState(false);
-
-    const {
-        data,
-        isLoading,
-        deleteAsync,
-        searchTerm,
-        handleSearch
-    } = useAdminBrands();
-
-    const brands = data?.data;
+    const {data, isLoading, deleteAsync, searchTerm, handleSearch} = useAdminBrands();
 
     return (
         <Admin title={` > Бренды`}>
@@ -33,42 +19,17 @@ const AdminBrands: FC = () => {
             </SecondaryButton>
 
             <HeaderSearch
-                isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}
                 placeholder="Поиск категорий"
             />
 
-            {
-                isLoading
-                    ? <div className={styles.products}>
-                        <SkeletonLoader
-                            count={5}
-                            style={{
-                                height: 52,
-                                width: '100%',
-                                marginBottom: 20,
-                                borderRadius: 10
-                            }}
-                        />
-                    </div>
-                    : brands && brands.length ? <div>
-                            <div className={styles.products}>
-                                {
-                                    Array.isArray(brands) && brands.map(brand => (
-                                        <AdminBrandsItem
-                                            key={brand.id}
-                                            brand={brand}
-                                            setActiveModal={setActiveModal}
-                                            removeHandler={deleteAsync}
-                                            activeModal={activeModal}
-                                        />
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        : <div className={styles.products}>Категории не найдены (</div>
-            }
+            <AdminTable
+                tableItems={data || []}
+                headerItems={['Логотип', 'Название']}
+                isLoading={isLoading}
+                removeHandler={deleteAsync}
+            />
         </Admin>
     );
 }

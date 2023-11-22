@@ -2,9 +2,9 @@ import {useMutation, useQuery} from "react-query";
 import {ChangeEvent, useMemo, useState} from "react";
 import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {toastr} from "react-redux-toastr";
-import {ProductService} from "@/services/ProductService";
 import {useDebounce} from "@/hooks/useDebounce";
 import {CategoryService} from "@/services/CategoryService";
+import {ITableItem} from "@/models/ITableItem";
 
 export const useAdminCategories = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -14,18 +14,28 @@ export const useAdminCategories = () => {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении категорий')
         },
+        select: ({data}) => data.map(
+            (category): ITableItem => ({
+                id: category.id,
+                editUrl: `/admin/categories/${category.id}`,
+                items: [
+                    {type: 'IMAGE', value: category.img},
+                    {type: 'STRING', value: category.name}
+                ],
+            })
+        )
     });
 
     const {mutateAsync: deleteAsync} = useMutation(
         'admin delete categories',
-        (categoryId: string) => CategoryService.delete(categoryId),
+        (categoryId: number) => CategoryService.delete(categoryId),
         {
             onError(error) {
                 toastError(error, 'Возникла ошибка при удалении категории')
             },
             onSuccess() {
                 toastr.success('Удаление категории', 'Категория успешно удалена')
-                queryData.refetch();
+                queryData.refetch().then();
             },
         }
     )

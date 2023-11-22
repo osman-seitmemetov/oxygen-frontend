@@ -1,5 +1,5 @@
 import {genderTypes, IUser} from "@/models/IUser";
-import {instance} from "../api/interceptots";
+import {instance} from "@/api/interceptors";
 import {IProfileFields} from "@/types/types";
 
 export interface IEditData {
@@ -37,7 +37,7 @@ export const UserService = {
         return await instance.put<IUser>(`/user/edit/${id}`, editData);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await instance.delete<string>(`http://localhost:5000/api/user/${id}`, {withCredentials: true});
     }
 }

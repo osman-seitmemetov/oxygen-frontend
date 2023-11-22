@@ -6,7 +6,7 @@ import ProductCardEnd from "../ProductCardEnd/ProductCardEnd";
 import Container from "../Container/Container";
 import Link from "next/link";
 import {IProduct} from "@/models/IProduct";
-// import {Navigation} from "swiper/types/modules";
+import {Navigation} from "swiper/modules";
 
 interface ProductSliderProps {
     title: string
@@ -23,7 +23,9 @@ const ProductSlider: FC<ProductSliderProps> = ({title, products}) => {
             <Container>
                 <div className={style.head}>
                     <h2 className={style.title}>{title}</h2>
-                    <Link href="/categories?category="><div className={style.link}>Cмотреть все</div></Link>
+                    <Link href="/categories?category=">
+                        <div className={style.link}>Cмотреть все</div>
+                    </Link>
                 </div>
 
                 <div className={style.productsBody}>
@@ -53,23 +55,13 @@ const ProductSlider: FC<ProductSliderProps> = ({title, products}) => {
                         className={style.slider}
                         slidesPerView={4}
                         spaceBetween={60}
-                        // navigation={
-                        //     // {
-                        //     //     prevEl: prevButtonRef.current,
-                        //     //     nextEl: nextButtonRef.current,
-                        //     // }
-                        // }
-                        // modules={[Navigation]}
-                        // onInit={(swiper) => {
-                        //     swiper.params.navigation = {
-                        //         prevEl: prevButtonRef.current,
-                        //         nextEl: nextButtonRef.current
-                        //     };
-                        //
-                        //     // swiper.navigation.init();
-                        //     swiper.navigation.update();
-                        // }}
-                        // IOSEdgeSwipeDetection={true}
+                        navigation={
+                            {
+                                prevEl: prevButtonRef.current,
+                                nextEl: nextButtonRef.current,
+                            }
+                        }
+                        modules={[Navigation]}
                         breakpoints={{
                             320: {
                                 slidesPerView: 'auto',
@@ -93,7 +85,7 @@ const ProductSlider: FC<ProductSliderProps> = ({title, products}) => {
                             },
 
                             1440: {
-                                slidesPerView: 4,
+                                slidesPerView: 5,
                                 spaceBetween: 60,
                                 watchOverflow: true,
                                 freeMode: false,
@@ -103,9 +95,7 @@ const ProductSlider: FC<ProductSliderProps> = ({title, products}) => {
                         {
                             products?.map(product =>
                                 <SwiperSlide key={product.id}>
-                                    <ProductCard
-                                        product={product}
-                                    />
+                                    <ProductCard product={product}/>
                                 </SwiperSlide>
                             )
                         }
@@ -114,6 +104,10 @@ const ProductSlider: FC<ProductSliderProps> = ({title, products}) => {
                             <ProductCardEnd/>
                         </SwiperSlide>
                     </Swiper>
+
+                    <div className={style.items}>
+                        {products?.map(product => <ProductCard className={style.card} key={product.id} product={product}/>)}
+                    </div>
                 </div>
             </Container>
         </section>

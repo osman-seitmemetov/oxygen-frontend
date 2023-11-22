@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IFilterGroup} from "@/models/IFilterGroup";
 import {IFilterGroupFields} from "@/components/forms/AdminFilterGroupForm/useAdminFilterGroupForm";
 import {IFilterOption} from "@/models/IFilterOption";

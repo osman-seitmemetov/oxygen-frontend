@@ -1,0 +1,19 @@
+.header {
+    position: sticky;
+    top: -1px;
+    background-color: var(--color-body);
+
+    td {
+        font-weight: 700;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        &:first-child {
+            padding-left: 15px;
+        }
+
+        &:last-child {
+            padding-right: 15px;
+        }
+    }
+}

@@ -8,7 +8,7 @@
     justify-content: space-between;
 
     @include breakpoint(sm-max) {
-        max-width: 158px;
+        //max-width: 250px;
         height: 236px;
     }
 }

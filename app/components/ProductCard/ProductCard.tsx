@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import style from './ProductCard.module.scss';
 import Link from "next/link";
 import {IProduct} from "@/models/IProduct";
+import ProductCardButton from "@/components/ProductCard/ProductCardButton/ProductCardButton";
 
 interface ProductCardProps {
     product: IProduct
@@ -33,6 +34,7 @@ const ProductCard: FC<ProductCardProps> = ({product, className}) => {
 
                     <Link href={`/product/${product.id}`}>
                         <img src={`http://localhost:5000/${product.img}`} alt="Товар" className={style.img}/>
+                        {/*<img src={productImg.src} alt="Товар" className={style.img}/>*/}
                     </Link>
 
                     <Link href={`/product/${product.id}`}>
@@ -56,12 +58,7 @@ const ProductCard: FC<ProductCardProps> = ({product, className}) => {
                         }
                     </div>
 
-                    <button
-                        // onClick={addHandler}
-                        className={style.button}
-                    >
-                        В корзину
-                    </button>
+                    <ProductCardButton product={product}/>
                 </div>
             </div>
         </>

@@ -4,11 +4,8 @@ import Container from "@/components/Container/Container";
 import {useProductsForCategories} from "@/webpages/Category/useProductsForCategories";
 import Products from "@/components/Products/Products";
 import {FormProvider, useForm} from "react-hook-form";
-import {IColorValue} from "@/models/IColorValue";
-import {ITextValue} from "@/models/ITextValue";
-import {INumberValue} from "@/models/INumberValue";
-import {IBooleanValue} from "@/models/IBooleanValue";
 import ProductsLoader from "@/components/Products/ProductsFilter/ProductsLoader/ProductsLoader";
+import {IValue} from "@/models/IValue";
 
 
 export interface IProductsFilterFields {
@@ -22,23 +19,9 @@ export interface IProductsFilterFields {
         title: string,
         type: string,
         format: string,
-        checkbox: {
-            colorValueIds: number[],
-            textValueIds: number[],
-            numberValueIds: number[]
-        },
-        radio: {
-            colorValueId: number,
-            textValueId: number,
-            numberValueId: number
-        },
-        input: {
-            colorValue: IColorValue,
-            textValue: ITextValue,
-            numberValueMin: INumberValue
-            numberValueMax: INumberValue
-            booleanValue: IBooleanValue
-        }
+        valueIds: number[],
+        valueId: number,
+        value: IValue,
     }[]
 }
 
@@ -76,7 +59,7 @@ const Category: FC = () => {
             <Container className={style.container}>
                 {
                     isCategoryLoading
-                        ? <ProductsLoader />
+                        ? <ProductsLoader/>
                         : category?.data && <>
                         <div style={{marginBottom: 5}}>Главная / Каталог / {category?.data.name}</div>
                         <FormProvider {...productsFilterForm}>

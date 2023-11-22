@@ -43,7 +43,8 @@ export const useProductsForCategories = () => {
         brandIds: debouncedProductsFilterFormValues?.brandIds,
         sort: debouncedProductsFilterFormValues?.sort,
         priceMin: debouncedProductsFilterFormValues?.priceMin,
-        priceMax: debouncedProductsFilterFormValues?.priceMax
+        priceMax: debouncedProductsFilterFormValues?.priceMax,
+        parameters: debouncedProductsFilterFormValues?.parameters
     }), {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении категорий');

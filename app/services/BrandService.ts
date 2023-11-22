@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IBrand} from "@/models/IBrand";
 import {IBrandFields} from "@/components/forms/AdminBrandForm/useAdminBrandForm";
 
@@ -27,7 +27,7 @@ export const BrandService = {
         return await axiosClassic.put<IBrand>(`http://localhost:5000/api/brand/${id}`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/brand/${id}`);
     }
 }

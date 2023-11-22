@@ -9,7 +9,7 @@ const HeadProvider: FC<{children?: ReactNode}> = ({ children }) => {
 	return (
 		<>
 			<NextProgressBar
-				color="#46C578"
+				color="#1266dc"
 				startPosition={0.3}
 				stopDelayMs={200}
 				height={3}

@@ -2,51 +2,65 @@
 
 .propos {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 
     @include breakpoint(sm-max) {
-        margin-bottom: 60px;
+        margin-bottom: 15px;
     }
 }
 
 .slider {
     width: 100%;
     height: fit-content;
+    padding-bottom: 10px;
 
-    @include breakpoint(lg-max) {
-        border-radius: 12px;
+    scrollbar-color: #458245 transparent;
+    scrollbar-width: thin;
+
+
+    &::-webkit-scrollbar {
+        padding-top: 10px;
+        width: 10px;
+        height: 10px;
+        background: transparent;
+
+        @include breakpoint(sm-max) {
+            width: 6px;
+            height: 6px;
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #C1C1C1;
+        border-radius: 10px;
+        width: 10px;
+        height: 10px;
+
+        @include breakpoint(sm-max) {
+            width: 6px;
+            height: 6px;
+        }
+    }
+
+    @include breakpoint(lg) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
     }
 
     @include breakpoint(md-max) {
-        border-radius: 0;
+        display: flex;
+        overflow-x: scroll;
     }
 
     @include breakpoint(sm-max) {
-        overflow: visible;
-    }
-}
-
-.swiper-wrapper {
-    @include breakpoint(lg) {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 15px;
-        grid-row-gap: 0;
-    }
-
-    @include breakpoint(md-max) {
-        width: 100%;
-        display: flex;
-        grid-gap: 0;
+        padding-bottom: 5px;
     }
 }
 
 .item {
-    width: 210px !important;
     height: 200px;
-    padding: 30px 20px 30px 20px;
+    padding: 30px 20px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -56,28 +70,26 @@
     @include breakpoint(lg-max) {
         padding: 15px 10px;
         max-height: 171px;
-        width: 93% !important;
-        max-width: 240px;
+    }
+
+    @include breakpoint(md-max) {
+        padding: 15px 10px;
+        max-height: 171px;
+        width: 220px;
+        margin-right: 15px;
     }
 
     @include breakpoint(sm-max) {
-        max-width: 138px;
+        width: 180px;
         max-height: 138px;
         padding: 10px;
+        margin-right: 10px;
     }
 
-    &:first-child {
-        width: 340px !important;
-
-        @include breakpoint(lg-max) {
-            width: 93% !important;
-            max-width: 240px;
-        }
-
-        @include breakpoint(sm-max) {
-            max-width: 138px;
-            max-height: 138px;
-        }
+    @include breakpoint(xs-max) {
+        width: 140px;
+        max-height: 138px;
+        padding: 10px;
     }
 
     &__title {

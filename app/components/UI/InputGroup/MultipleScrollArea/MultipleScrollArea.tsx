@@ -35,6 +35,8 @@ const MultipleScrollArea: FC<MultipleScrollAreaProps> = (
     const [singleValue, setSingleValue] = useState<number>();
     const [multipleValue, setMultipleValue] = useState<number[]>([]);
 
+    console.log('options', options)
+
     useEffect(() => {
         if (field.value) {
             isMulti

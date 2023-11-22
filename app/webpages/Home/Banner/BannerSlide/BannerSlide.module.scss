@@ -6,6 +6,7 @@
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(115, 121, 140, 0.15);
     height: 100%;
+    width: 100%;
 
     @include breakpoint(sm-max) {
         flex-direction: column;
@@ -19,6 +20,7 @@
         justify-content: space-between;
         max-width: 380px;
         padding: 50px 8px 50px 30px;
+        width: 35%;
 
         @include breakpoint(lg-max) {
             flex-direction: column;
@@ -104,6 +106,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         min-width: 800px;
+        width: 100%;
 
         @include breakpoint(lg-max) {
             min-width: 65%;

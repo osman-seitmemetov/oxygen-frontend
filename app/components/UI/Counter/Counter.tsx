@@ -1,10 +1,6 @@
-import {ChangeEvent, CSSProperties, FC, forwardRef, InputHTMLAttributes, useState} from "react";
+import {FC, InputHTMLAttributes} from "react";
 import styles from "./Counter.module.scss";
-import {FieldError, UseFormSetValue} from "react-hook-form";
-import {IProductFields} from "@/webpages/AdminProduct/AdminProduct";
-import NumericInput from 'react-numeric-input';
-import {CartService} from "@/services/CartService";
-import {useDebounce} from "@/hooks/useDebounce";
+import {FieldError} from "react-hook-form";
 import {useCounter} from "@/UI/Counter/useCounter";
 
 interface CounterProps extends InputHTMLAttributes<HTMLInputElement> {

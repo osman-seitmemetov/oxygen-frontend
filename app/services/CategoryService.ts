@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {ICategory} from "@/models/ICategory";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
 import {IProductsFilterData} from "@/components/Products/useProductsFilter";
@@ -32,7 +32,7 @@ export const CategoryService = {
         return await axiosClassic.put<ICategory>(`http://localhost:5000/api/category/${id}`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/category/${id}`);
     }
 }

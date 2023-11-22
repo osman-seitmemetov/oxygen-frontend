@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {ICategory} from "@/models/ICategory";
 import {ICategoryFields} from "@/components/forms/AdminCategoryForm/useAdminCategoryForm";
 import {IParameter} from "@/models/IParameter";
@@ -26,10 +26,15 @@ export const ParameterService = {
     },
 
     async edit(id: string, data: IParameterFields) {
-        return await axiosClassic.put<IParameter>(`http://localhost:5000/api/parameter/${id}`, data);
+        const {savedValues, ...rest} = data;
+        return await axiosClassic.put<IParameter>(`http://localhost:5000/api/parameter/${id}`, {
+            ...rest,
+            values: [...data.savedValues, ...data.values]
+        });
     },
 
-    async delete(id: string) {
-        return await axiosClassic.delete<string>(`http://localhost:5000/api/parameter/${id}`);
+    async delete(id: number) {
+        console.log("__PARID__", id);
+        // return await axiosClassic.delete<string>(`http://localhost:5000/api/parameter/${id}`);
     }
 }

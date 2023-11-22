@@ -41,13 +41,13 @@ const Profile: FC = () => {
     const {onSubmit, isLoading} = useProfile(setValue, profileId);
 
     return (
-        <Account isRenderDesktopTitle title="Ваш профиль">
+        <Account isRenderDesktopTitle title="Мои данные">
             {
                 isLoading
                     ? <div>loading...</div>
                     : <Form onSubmit={handleSubmit(onSubmit)} className={style.profile}>
                         <div className={style.profile__inputs}>
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Фамилия">
+                            <InputGroup disabled={disabledInput} title="Фамилия">
                                 <Input
                                     {...register('lastname', {
                                         required: "Это поле обязательно",
@@ -58,7 +58,7 @@ const Profile: FC = () => {
                                 />
                             </InputGroup>
 
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Имя">
+                            <InputGroup disabled={disabledInput} title="Имя">
                                 <Input
                                     {...register('firstname', {
                                         required: "Это поле обязательно",
@@ -69,7 +69,7 @@ const Profile: FC = () => {
                                 />
                             </InputGroup>
 
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Дата рождения">
+                            <InputGroup disabled={disabledInput} title="Дата рождения">
                                 <Controller
                                     control={control}
                                     name='birthday'
@@ -90,7 +90,7 @@ const Profile: FC = () => {
                                 />
                             </InputGroup>
 
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Мобильный телефон">
+                            <InputGroup disabled={disabledInput} title="Мобильный телефон">
                                 <Controller
                                     control={control}
                                     name="phone"
@@ -109,7 +109,7 @@ const Profile: FC = () => {
                                 />
                             </InputGroup>
 
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Email">
+                            <InputGroup disabled={disabledInput} title="Email">
                                 <Input
                                     {...register('email', {
                                         required: "Это поле обязательно",
@@ -122,7 +122,7 @@ const Profile: FC = () => {
                                 />
                             </InputGroup>
 
-                            <InputGroup disabled={disabledInput} className={style.profile__input} title="Пол">
+                            <InputGroup disabled={disabledInput} title="Пол">
                                 <Controller
                                     control={control}
                                     name="gender"

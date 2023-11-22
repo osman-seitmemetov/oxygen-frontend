@@ -1,11 +1,11 @@
 import {FC} from "react";
 import style from "./Picture.module.scss";
 
-interface PictureOrdersEmptyProps {
+interface PictureContactsProps {
     className?: string
 }
 
-const PictureOrdersEmpty: FC<PictureOrdersEmptyProps> = ({className}) => {
+const PictureContacts: FC<PictureContactsProps> = ({className}) => {
     return (
         <>
             <svg className={`${style.picture} ${className}`} width="381" height="281" viewBox="0 0 381 281" fill="none"
@@ -63,10 +63,10 @@ const PictureOrdersEmpty: FC<PictureOrdersEmptyProps> = ({className}) => {
                     fill="#EBF2FF"/>
                 <path
                     d="M310.666 45.4109C308.855 45.8148 308.527 42.949 310.338 42.5451C314.905 41.5257 319.511 40.6794 324.117 39.9293C340.188 37.275 372.177 30.3509 372.235 30.2739C369.364 29.947 301.493 18.5029 295.076 17.5989C296.868 20.3878 305.906 32.5627 303.093 37.2558C300.915 43.1413 299.701 46.3341 298.14 51.0079C296.271 56.6049 309.914 51.1041 313.923 52.1042C313.942 52.1042 313.942 52.1042 313.961 52.1042C317.218 57.2397 320.532 62.3174 324.483 66.9719C325.119 67.7028 326.256 67.5297 326.93 66.9719C340.208 56.0087 371.233 35.1016 374.066 33.3513C373.7 33.409 326.988 41.7757 310.666 45.4109Z"
-                    fill="#E0FFEC"/>
+                    fill="#EBF2FF"/>
                 <path
                     d="M136.132 36.1977C149.621 31.9663 191.246 35.4284 180.165 12.2902C178.489 8.77039 168.005 -0.28871 165.404 2.82716C165.577 2.63482 166.021 6.63544 165.866 7.17399C164.325 12.0978 160.972 13.5981 155.942 14.5213C146.5 16.2716 135.843 13.5404 127.653 19.8683C123.24 23.2726 114.279 38.9674 118.018 45.4107C119.848 48.565 123.876 45.1222 126.015 46.4878C128.829 48.2958 127.191 50.5461 128.713 52.0848C130.582 53.9889 130.871 55.5661 132.413 51.6232C135.804 42.9295 132.336 37.3902 136.132 36.1977Z"
-                    fill="#E0FFEC"/>
+                    fill="#EBF2FF"/>
                 <path
                     d="M127.809 47.7188C125.092 46.007 121.353 46.1416 118.752 48.0265C116.169 49.9114 114.898 53.4312 115.707 56.5279C116.266 58.682 117.711 60.5285 119.484 61.8748C121.43 63.3366 123.801 64.2406 126.229 64.4329"
                     stroke="#002464" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
@@ -210,46 +210,46 @@ const PictureOrdersEmpty: FC<PictureOrdersEmptyProps> = ({className}) => {
                       strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path
                     d="M129.021 50.277C129.001 51.7387 129.252 53.1813 129.734 54.5661C129.791 54.72 129.868 54.9123 130.023 54.9508C130.235 55.0277 130.447 54.8354 130.601 54.643C132.065 52.7197 132.451 50.1808 132.643 47.7766C132.952 44.1414 132.952 40.487 132.682 36.8518"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
                 <path
                     d="M117.284 45.853C116.321 39.2943 116.937 32.4278 119.655 26.3884C122.372 20.349 127.286 15.1752 133.452 12.7325C137.615 11.0784 142.182 10.6937 146.653 10.7899C152.877 10.9245 159.756 11.7708 164.709 8.00098"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
                 <path
                     d="M136.074 36.2555C144.573 33.1396 153.88 33.5628 162.86 32.428C166.849 31.9279 170.857 31.0816 174.326 29.0428C177.795 27.0233 180.647 23.6381 181.206 19.676C181.822 15.3868 179.664 11.0785 176.581 8.02032C173.498 4.96215 169.547 2.96184 165.693 1"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
-                <path d="M165.23 1.13489C166.098 2.15428 166.425 3.59681 166.098 4.88547" stroke="#46C578"
+                <path d="M165.23 1.13489C166.098 2.15428 166.425 3.59681 166.098 4.88547" stroke="#1266dc"
                       strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path
                     d="M159.409 14.4443C158.947 16.964 157.232 19.0797 155.286 20.753C148.888 26.2539 140.081 27.7349 131.93 29.9467"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
                 <path
                     d="M166.193 12.8672C166.424 14.1174 165.73 15.3291 164.998 16.3677C161.626 21.1377 156.789 24.8498 151.297 26.8694"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
-                <path d="M170.858 15.6177C169.701 18.1181 167.832 20.2915 165.539 21.8302" stroke="#46C578"
+                <path d="M170.858 15.6177C169.701 18.1181 167.832 20.2915 165.539 21.8302" stroke="#1266dc"
                       strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M127.594 36.7942C128.345 38.5829 128.519 40.6025 128.056 42.4874" stroke="#46C578"
+                <path d="M127.594 36.7942C128.345 38.5829 128.519 40.6025 128.056 42.4874" stroke="#1266dc"
                       strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path
                     d="M232.406 80.4931C240.827 81.4548 249.422 80.9932 257.708 79.1082C266.207 77.1849 274.782 73.4535 279.908 66.414C280.814 65.1638 281.642 63.6636 281.353 62.1441C280.872 59.586 277.692 58.6051 275.071 58.6243C273.163 58.6435 271.198 58.932 269.598 59.9514C267.999 60.9708 266.843 62.875 267.151 64.7599C267.613 67.5103 270.774 68.9336 273.568 69.1836C280.756 69.8376 287.655 66.0101 293.108 61.2786"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
-                <path d="M251.155 83.1279C242.31 86.4938 232.79 88.071 223.348 87.7056" stroke="#46C578"
+                <path d="M251.155 83.1279C242.31 86.4938 232.79 88.071 223.348 87.7056" stroke="#1266dc"
                       strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 <path
                     d="M308.891 42.5066L379.999 29.043L324.115 68.2798L313.959 51.0849L308.891 42.5066ZM308.891 42.5066L297.521 53.8545L313.901 51.1618"
-                    stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                    stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                     strokeLinejoin="round"/>
                 <path d="M297.521 53.8542L304.266 33.2741L379.999 29.0426L292.318 13.0786L304.266 33.2741"
-                      stroke="#46C578" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
+                      stroke="#1266dc" strokeWidth="1.54164" strokeMiterlimit="10" strokeLinecap="round"
                       strokeLinejoin="round"/>
             </svg>
         </>
     );
 }
 
-export default PictureOrdersEmpty;
+export default PictureContacts;

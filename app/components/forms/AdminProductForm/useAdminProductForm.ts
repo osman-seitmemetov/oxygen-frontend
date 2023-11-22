@@ -1,28 +1,12 @@
 import {useForm} from "react-hook-form";
-import {IColorValue} from "@/models/IColorValue";
-import {INumberValue} from "@/models/INumberValue";
-import {ITextValue} from "@/models/ITextValue";
-import {IBooleanValue} from "@/models/IBooleanValue";
+import {IValue} from "@/models/IValue";
 
 
 export interface IProductPropertyFields {
     parameterId: number,
-    checkbox: {
-        colorValueIds: number[],
-        numberValueIds: number[],
-        textValueIds: number[]
-    },
-    radio: {
-        colorValueId: number,
-        numberValueId: number,
-        textValueId: number
-    },
-    input: {
-        colorValue: IColorValue,
-        numberValue: INumberValue,
-        textValue: ITextValue,
-        booleanValue: IBooleanValue
-    },
+    valueIds: number[],
+    valueId: number,
+    value: IValue,
 }
 
 export interface IProductFields {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import {IBanner} from "@/models/IBanner";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IBannerFields} from "@/components/forms/AdminBannerForm/useAdminBannerForm";
 
 export const BannerService = {
@@ -27,7 +27,7 @@ export const BannerService = {
         return await axiosClassic.put<IBanner>(`http://localhost:5000/api/banner/${id}`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/banner/${id}`);
     }
 }

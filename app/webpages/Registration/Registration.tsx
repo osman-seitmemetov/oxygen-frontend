@@ -62,7 +62,7 @@ const Registration: FC = () => {
 
     const router = useRouter();
     const {user} = useAuth();
-    if (user) router.push('/profile');
+    if (user) router.push('/profile').then();
 
     return (
         <Auth title="Регистрация" isScrollable>
@@ -187,7 +187,7 @@ const Registration: FC = () => {
                             >
                                 Я подтверждаю, что ознакомлен и согласен с
                                 условиями <span> публичной оферты</span> электронного
-                                магазина Convex
+                                магазина Oxygen
                             </Checkbox>
                         }
                     />

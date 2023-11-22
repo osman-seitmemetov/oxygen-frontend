@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "../api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IAbout} from "@/models/IAbout";
 
 

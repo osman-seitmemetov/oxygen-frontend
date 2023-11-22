@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 import style from './ProductsItems.module.scss';
 import ProductCard from "@/components/ProductCard/ProductCard";
 import ProductsEmpty from "./ProductsEmpty/ProductsEmpty";
@@ -67,4 +67,4 @@ const ProductsItems: FC<SearchItemsProps> = ({products, isLoading}) => {
     );
 }
 
-export default ProductsItems;
+export default memo(ProductsItems);

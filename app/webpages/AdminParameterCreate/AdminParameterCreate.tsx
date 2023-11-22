@@ -13,7 +13,7 @@ const AdminParameterCreate: FC = () => {
     return (
         <Admin title={` > Характеристики > Новая характеристика`}>
             <FormProvider {...adminParameterForm}>
-                <AdminParameterForm onSubmit={onSubmit} disabled={isLoading}/>
+                <AdminParameterForm mode="CREATE" onSubmit={onSubmit} disabled={isLoading}/>
             </FormProvider>
         </Admin>
     );

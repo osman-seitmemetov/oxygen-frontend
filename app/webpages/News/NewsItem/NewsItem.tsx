@@ -34,9 +34,7 @@ const NewsItem: FC<INewsItem> = ({article}) => {
                         {convertPostgresDateToNormalDate(article.date)}
                     </div>
 
-                    <Link href={`${NEWS_ROUTE}/1`}>
-                        <a className={style.item__link}>Подробнее</a>
-                    </Link>
+                    <Link href={`${NEWS_ROUTE}/1`} className={style.item__link}>Подробнее</Link>
                 </div>
             </div>
         </article>

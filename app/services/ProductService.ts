@@ -1,8 +1,9 @@
 import {IProduct} from '@/models/IProduct';
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IProductFields} from "@/components/forms/AdminProductForm/useAdminProductForm";
 import {IParameter} from "@/models/IParameter";
+import {IValue} from "@/models/IValue";
 
 
 export const ProductService = {
@@ -13,7 +14,16 @@ export const ProductService = {
         typeIds?: number[],
         sort?: string,
         priceMin?: number
-        priceMax?: number
+        priceMax?: number,
+        parameters?: {
+            parameterId: number,
+            title: string,
+            type: string,
+            format: string,
+            valueIds: number[],
+            valueId: number
+            value: IValue
+        }[]
     }) {
         return await axios.get<IProduct[]>('http://localhost:5000/api/product', {
             params: {
@@ -23,7 +33,8 @@ export const ProductService = {
                 brandIds: JSON.stringify(params?.brandIds),
                 sort: params?.sort,
                 priceMin: params?.priceMin,
-                priceMax: params?.priceMax
+                priceMax: params?.priceMax,
+                parameters: params?.parameters
             }
         });
     },
@@ -33,10 +44,12 @@ export const ProductService = {
     },
 
     async edit(id: string, data: IProductFields) {
-        return await axiosClassic.put<IProductFields>(`http://localhost:5000/api/product/${id}`, data);
+        return await axiosClassic.put<IProductFields>(`http://localhost:5000/api/product/${id}`, {
+            ...data
+        });
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/product/${id}`);
     },
 

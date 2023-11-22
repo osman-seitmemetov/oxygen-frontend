@@ -21,7 +21,7 @@ const Login: FC = () => {
     useAuthRedirect();
     const router = useRouter();
     const {user} = useAuth();
-    if (user) router.push('/profile');
+    if (user) router.push('/profile').then();
 
     interface ILoginFields {
         email: string,
@@ -30,12 +30,7 @@ const Login: FC = () => {
     }
 
     const {
-        register,
-        handleSubmit,
-        formState: {errors, isValid, isDirty, isSubmitting, isSubmitSuccessful},
-        reset,
-        resetField,
-        control,
+        register, handleSubmit, formState: {errors, isSubmitting}, reset, control
     } = useForm<ILoginFields>({
         mode: "onChange"
     });
@@ -55,7 +50,7 @@ const Login: FC = () => {
                         {...register('email', {
                             required: "Это поле обязательно",
                             pattern: {
-                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                 message: 'Введите валидный email'
                             }
                         })}

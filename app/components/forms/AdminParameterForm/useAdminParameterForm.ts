@@ -3,16 +3,15 @@ import {IColorValue} from "@/models/IColorValue";
 import {INumberValue} from "@/models/INumberValue";
 import {ITextValue} from "@/models/ITextValue";
 import {IBooleanValue} from "@/models/IBooleanValue";
+import {IValue} from "@/models/IValue";
 
 
 export interface IParameterFields {
     title: string,
     type: string,
     format: string,
-    booleanValues: IBooleanValue[],
-    textValues: ITextValue[],
-    numberValues: INumberValue[],
-    colorValues: IColorValue[],
+    values: IValue[],
+    savedValues: IValue[]
 }
 
 export const useAdminParameterForm = () => useForm<IParameterFields>({mode: "onChange"});

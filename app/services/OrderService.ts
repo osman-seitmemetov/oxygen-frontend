@@ -1,4 +1,4 @@
-import {axiosClassic, instance} from "../api/interceptots";
+import {axiosClassic, instance} from "@/api/interceptors";
 import {IOrder} from "@/models/IOrder";
 import {IOrderFields} from "@/types/types";
 

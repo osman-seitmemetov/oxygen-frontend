@@ -16,7 +16,7 @@ const PasswordRecovery =  React.lazy(() => import( "./pages/PasswordRecovery/Pas
 const PasswordRecovery2 =  React.lazy(() => import( "./pages/PasswordRecovery2/PasswordRecovery2"));
 const Product =  React.lazy(() => import( "./pages/Product/Product"));
 const Search =  React.lazy(() => import( "./pages/Category/Category"));
-const Profile =  React.lazy(() => import( "./pages/Profile/Profile"));
+const Profile =  React.lazy(() => import( "./pages/Settings/Settings"));
 const History =  React.lazy(() => import( "./pages/Orders/Orders"));
 const HistoryDetail =  React.lazy(() => import( "./pages/OrderDetail/OrderDetail"));
 const Coupons =  React.lazy(() => import( "./pages/Promocodes/Promocodes"));

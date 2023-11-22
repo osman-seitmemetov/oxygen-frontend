@@ -3,7 +3,7 @@
 .counter {
     width: 128px;
     height: 40px;
-    border: 1px solid var(--color-emerald);
+    border: 1px solid var(--color-accent);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -29,7 +29,7 @@
         svg {
             width: 24px;
             height: 24px;
-            fill: var(--color-emerald);
+            fill: var(--color-accent);
 
             @include breakpoint(sm-max) {
                 width: 16px;
@@ -68,7 +68,7 @@
         svg {
             width: 24px;
             height: 24px;
-            fill: var(--color-emerald);
+            fill: var(--color-accent);
 
             @include breakpoint(sm-max) {
                 width: 16px;

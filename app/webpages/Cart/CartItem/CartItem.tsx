@@ -5,14 +5,22 @@ import {PRODUCT_ROUTE} from "@/lib/consts";
 import Image from "next/image";
 import Link from "next/link";
 import {ICartProduct} from "@/models/ICart";
+import {cartAPI} from "@/services/CartService";
+import {useAuth} from "@/hooks/useAuth";
 
 interface CartItemProps {
     cartProduct: ICartProduct,
-    deleteHandler: (cartProductId: string) => void,
-    changeCountHandler: (data: { id: string, count: number }) => void
 }
 
-const CartItem: FC<CartItemProps> = ({cartProduct, deleteHandler, changeCountHandler}) => {
+const CartItem: FC<CartItemProps> = ({cartProduct,}) => {
+    const {user} = useAuth();
+    const [deleteFromCart, {isLoading: isDeleteLoading}] = cartAPI.useDeleteFromCartMutation();
+
+    const deleteHandler = () => {
+        if (user) deleteFromCart(cartProduct.product.id);
+        // deleteProductFromCart({product, count: 1, id: 1});
+    }
+
     return (
         <>
             <div className={style.item}>
@@ -26,14 +34,15 @@ const CartItem: FC<CartItemProps> = ({cartProduct, deleteHandler, changeCountHan
 
                 <div className={style.item__data}>
                     <div className={style.item__left}>
-                        <Link href={PRODUCT_ROUTE}>
-                            <a className={style.item__title}>{cartProduct.product.name}</a>
+                        <Link href={PRODUCT_ROUTE} className={style.item__title}>
+                            {cartProduct.product.name}
                         </Link>
                         <div className={style.item__count}>Осталось: {cartProduct.product.count} шт.</div>
                     </div>
 
                     <div className={style.item__bottom_mobile}>
-                        <Counter value={cartProduct.count} productId={cartProduct.id} min={1} max={cartProduct.product.count}/>
+                        <Counter value={cartProduct.count} productId={cartProduct.id} min={1}
+                                 max={cartProduct.product.count}/>
 
                         <div className={style.item__right}>
                             <div className={style.item__price}>
@@ -46,7 +55,7 @@ const CartItem: FC<CartItemProps> = ({cartProduct, deleteHandler, changeCountHan
 
                 <button
                     className={style.item__close}
-                    onClick={() => deleteHandler(String(cartProduct.id))}
+                    onClick={deleteHandler}
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

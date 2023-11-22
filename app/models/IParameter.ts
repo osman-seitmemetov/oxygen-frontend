@@ -1,15 +1,9 @@
-import {IColorValue} from "@/models/IColorValue";
-import {INumberValue} from "@/models/INumberValue";
-import {ITextValue} from "@/models/ITextValue";
-import {IBooleanValue} from "@/models/IBooleanValue";
+import {IValue} from "@/models/IValue";
 
 export interface IParameter {
-    id: string,
+    id: number,
     title: string,
     type: string,
     format: string,
-    colorValues: IColorValue[],
-    numberValues: INumberValue[],
-    textValues: ITextValue[],
-    booleanValues: IBooleanValue[],
+    values: IValue[]
 }

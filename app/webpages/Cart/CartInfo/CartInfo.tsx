@@ -1,5 +1,7 @@
 import {FC} from "react";
 import style from "./CartInfo.module.scss";
+import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 
 interface CartInfoProps {
     count: number,
@@ -12,13 +14,13 @@ const CartInfo: FC<CartInfoProps> = ({count}) => {
             {/*это форма для создания заказа*/}
             {/*Переделать форму оплаты и все шаги*/}
             <form action="cart/order" className={`${style.form} ${style.result}`}>
-                <button type="submit" className={style.form__submit} >
+                <PrimaryButton type="submit" className={style.form__submit}>
                     Оформить заказ
-                </button>
+                </PrimaryButton>
 
-                <button data-hystmodal="#cart-modal" type="button" className={style.form__promocode}>
+                <SecondaryButton data-hystmodal="#cart-modal" type="button" className={style.form__promocode}>
                     Использовать промокод
-                </button>
+                </SecondaryButton>
 
                 <div className={style.form__data}>
                     Количество единиц:
@@ -37,7 +39,7 @@ const CartInfo: FC<CartInfoProps> = ({count}) => {
 
                 <div className={style.form__data}>
                     Промокод:
-                    <span style={{ color: '#EE4029' }}>-3 000 тг.</span>
+                    <span style={{color: '#EE4029'}}>-3 000 тг.</span>
                 </div>
 
                 <div className={style.form__data}>

@@ -1,5 +1,5 @@
 export interface IType {
-    id: string,
+    id: number,
     name: string,
     categoryId: string,
     parameterIds: string[]

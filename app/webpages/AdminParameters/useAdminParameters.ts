@@ -4,6 +4,7 @@ import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {toastr} from "react-redux-toastr";
 import {useDebounce} from "@/hooks/useDebounce";
 import {ParameterService} from "@/services/ParameterService";
+import {ITableItem} from "@/models/ITableItem";
 
 export const useAdminParameters = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,11 +14,23 @@ export const useAdminParameters = () => {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении характеристик')
         },
+        select: ({data}) => data.map(
+            (parameter): ITableItem => ({
+                id: parameter.id,
+                editUrl: `/admin/parameters/${parameter.id}`,
+                items: [
+                    {type: 'STRING', value: parameter.title}
+                ],
+            })
+        )
     });
 
     const {mutateAsync: deleteAsync} = useMutation(
         'admin delete parameters',
-        (parameterId: string) => ParameterService.delete(parameterId),
+        (parameterId: number) => {
+            console.log("__parameterId__", parameterId);
+            return ParameterService.delete(parameterId)
+        },
         {
             onError(error) {
                 toastError(error, 'Возникла ошибка при удалении характеристики')

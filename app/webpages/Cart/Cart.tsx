@@ -1,17 +1,17 @@
 import {FC} from "react";
 import style from "./Cart.module.scss";
 import CartItem from './CartItem/CartItem';
-import ProductsSlider from '@/components/ProductSlider/ProductSlider';
 import CartInfo from "./CartInfo/CartInfo";
-import ProductCardImg from "@/assets/img/product.png";
 import Container from "@/components/Container/Container";
-import {IProduct} from "@/models/IProduct";
-import {useCart} from "@/webpages/Cart/useCart";
-import {products} from "@/lib/productsMock";
+import {useCart} from "@/hooks/useCart";
+import {cartAPI} from "@/services/CartService";
+
 
 const Cart: FC = () => {
-    const {data, isLoading, deleteByIdAsync, deleteAllAsync, changeCountAsync} = useCart();
-    const cart = data?.data;
+    const {data, isLoading} = cartAPI.useFetchCartQuery();
+    const [deleteAllFromCart] = cartAPI.useDeleteAllFromCartMutation();
+
+    const deleteAllHandler = () => deleteAllFromCart();
 
     return (
         <>
@@ -20,14 +20,14 @@ const Cart: FC = () => {
                     {
                         isLoading
                             ? <div>loading...</div>
-                            : cart?.count
+                            : (data?.items.length && data.items.length > 0)
                                 ? <>
                                     <div className={style.cart__left}>
                                         <div className={style.cart__head}>
                                             <h1 className={style.cart__title + " title"}>Корзина</h1>
                                             <button
                                                 className={style.cart__clean}
-                                                onClick={() => deleteAllAsync()}
+                                                onClick={deleteAllHandler}
                                             >
                                                 Очистить корзину
                                             </button>
@@ -35,19 +35,17 @@ const Cart: FC = () => {
 
                                         <div className={style.cart__items}>
                                             {
-                                                cart?.basket_products.map(item =>
+                                                data.items.map(item =>
                                                     <CartItem
                                                         key={item.product.id}
                                                         cartProduct={item}
-                                                        deleteHandler={deleteByIdAsync}
-                                                        changeCountHandler={changeCountAsync}
                                                     />
                                                 )
                                             }
                                         </div>
                                     </div>
 
-                                    <CartInfo count={cart.count} sum={cart.basket_products[0].product.price}/>
+                                    <CartInfo count={data.count} sum={data.items[0].product.price}/>
                                 </>
                                 : <div>Корзина пуста</div>
                     }

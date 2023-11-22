@@ -40,29 +40,11 @@ export const useProductsFilter = (append: (value: (FieldArray<{} | ((formValues:
                 title: param.title,
                 type: param.type,
                 format: param.format,
-                checkbox: {
-                    colorValueIds: [],
-                    textValueIds: [],
-                    numberValueIds: []
-                },
-                radio: {
-                    // @ts-ignore
-                    colorValueId: undefined,
-                    // @ts-ignore
-                    textValueId: undefined,
-                    // @ts-ignore
-                    numberValueId: undefined
-                },
-                input: {
-                    // @ts-ignore
-                    colorValue: undefined,
-                    // @ts-ignore
-                    textValue: undefined,
-                    // @ts-ignore
-                    numberValue: undefined,
-                    // @ts-ignore
-                    booleanValue: undefined
-                }
+                valueIds: [],
+                // @ts-ignore
+                valueId: undefined,
+                // @ts-ignore
+                value: undefined
             }));
         },
         enabled: !!query.id

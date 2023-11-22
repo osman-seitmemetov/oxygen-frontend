@@ -4,7 +4,7 @@ const nextConfig = {
     images: {
         domains: ['localhost']
     },
-    reactStrictMode: true,
+    reactStrictMode: false,
     swcMinify: true,
     poweredByHeader: false,
     optimizeFonts: false,

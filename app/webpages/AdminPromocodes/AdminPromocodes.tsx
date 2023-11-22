@@ -1,26 +1,13 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import Admin from "@/components/Admin/Admin";
-import styles from "./AdminPromocodes.module.scss";
 import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import HeaderSearch from "@/components/Header/HeaderSearch/HeaderSearch";
-import SkeletonLoader from "@/UI/SkeletonLoader/SkeletonLoader";
-import AdminProductItem from "@/webpages/AdminProducts/AdminProductItem/AdminProductItem";
-import {useAdminProducts} from "@/webpages/AdminProducts/useAdminProducts";
-import AdminPromocodesItem from "@/webpages/AdminPromocodes/AdminPromocodesItem/AdminPromocodesItem";
 import {useAdminPromocodes} from "@/webpages/AdminPromocodes/useAdminPromocodes";
+import AdminTable from "@/components/Admin/AdminTable/AdminTable";
 
 
 const AdminPromocodes: FC = () => {
-    const [activeModal, setActiveModal] = useState(false);
-
-    const {
-        data,
-        isLoading,
-        deleteAsync,
-        searchTerm,
-        handleSearch
-    } = useAdminPromocodes();
-    const promocodes = data?.data;
+    const {data, isLoading, deleteAsync, searchTerm, handleSearch} = useAdminPromocodes();
 
     return (
         <Admin title={` > Промокоды`}>
@@ -32,41 +19,17 @@ const AdminPromocodes: FC = () => {
             </SecondaryButton>
 
             <HeaderSearch
-                isPlaceholderLeft
                 searchTerm={searchTerm}
                 handleSearch={handleSearch}
                 placeholder="Поиск промокодов"
             />
 
-            {
-                isLoading
-                    ? <div className={styles.products}>
-                        <SkeletonLoader
-                            count={5}
-                            style={{
-                                height: 70,
-                                width: '100%',
-                                marginBottom: 20,
-                                borderRadius: 10
-                            }}
-                        />
-                    </div>
-                    : promocodes && <div>
-                    <div className={styles.products}>
-                        {
-                            Array.isArray(promocodes) && promocodes.map(promocode => (
-                                <AdminPromocodesItem
-                                    key={promocode.id}
-                                    promocode={promocode}
-                                    setActiveModal={setActiveModal}
-                                    removeHandler={deleteAsync}
-                                    activeModal={activeModal}
-                                />
-                            ))
-                        }
-                    </div>
-                </div>
-            }
+            <AdminTable
+                tableItems={data || []}
+                headerItems={['Название', 'Значение', 'Категории']}
+                isLoading={isLoading}
+                removeHandler={deleteAsync}
+            />
         </Admin>
     );
 }

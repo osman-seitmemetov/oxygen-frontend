@@ -10,8 +10,12 @@ const DynamicCheckRole = dynamic(() => import('./CheckRole'), {ssr: false})
 
 let AuthProvider: FC<TypeComponentAuthFields> = ({children, Component: {isOnlyAdmin, isOnlyUser}}) => {
     const {user} = useAuth();
-    const {checkAuth, logout} = useActions();
+    const {checkAuth, logout, fetchCart} = useActions();
     const {pathname}  = useRouter();
+
+    useEffect(() => {
+        if(user) fetchCart();
+    }, [fetchCart, user]);
 
     useEffect(() => {
         if(localStorage.getItem('token')) checkAuth();

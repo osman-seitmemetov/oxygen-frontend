@@ -4,6 +4,7 @@ import Container from "@/components/Container/Container";
 import Title from "@/components/Title/Title";
 import {useCategories} from "@/webpages/Catalog/useCategories";
 import CatalogItem from "@/webpages/Catalog/CatalogItem/CatalogItem";
+import CatalogLoader from "@/webpages/Catalog/CatalogLoader/CatalogLoader";
 
 
 const Catalog: FC = () => {
@@ -16,11 +17,10 @@ const Catalog: FC = () => {
                 <Title className={style.title}>Каталог</Title>
 
                 <div className={style.items}>
-                    { categories
-                        ? isLoading
-                            ? <div>loading...</div>
-                            : categories.map(category => <CatalogItem key={category.id} category={category} />)
-                        : <div>Ошибка при получении категорий</div>
+                    {
+                        isLoading
+                            ? <CatalogLoader/>
+                            : categories?.map(category => <CatalogItem key={category.id} category={category}/>)
                     }
                 </div>
             </Container>

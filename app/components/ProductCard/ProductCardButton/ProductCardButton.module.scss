@@ -1,0 +1,177 @@
+@import "../../../assets/scss/mixins/breakpoint";
+
+.productCard {
+    //width: 250px;
+    height: 386px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include breakpoint(sm-max) {
+        //max-width: 250px;
+        height: 236px;
+    }
+}
+
+.top {
+    position: relative;
+}
+
+.wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:hover {
+        svg {
+            transition: all .1s;
+            fill: #da1b3f;
+        }
+    }
+
+    &__icons {
+        position: relative;
+    }
+
+    &__fill {
+        fill: #FFFFFF;
+        width: 20px;
+        height: 20px;
+    }
+
+    &__outline {
+        fill: #262626;
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+
+    @include breakpoint(sm-max) {
+        height: 115px;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--color-mine-shaft-or-white);
+    margin-bottom: 10px;
+
+    @include breakpoint(sm-max) {
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 5px;
+    }
+}
+
+.available {
+    font-size: 15px;
+    line-height: 125%;
+    color: var(--color-emerald);
+    margin-bottom: 5px;
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+    }
+}
+
+.weight {
+    font-size: 15px;
+    line-height: 125%;
+    margin-bottom: 5px;
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+    }
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+
+    @include breakpoint(lg-max) {
+        font-size: 22px;
+    }
+
+    @include breakpoint(sm-max) {
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.priceOld {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration-line: line-through;
+    color: var(--color-alto);
+
+    @include breakpoint(lg-max) {
+        font-size: 16px;
+    }
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}
+
+.priceNew {
+    color: var(--color-coral-red);
+    font-weight: 700;
+}
+
+.button {
+    width: 128px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 15px;
+    line-height: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+        background-color: var(--color-emerald-hover);
+    }
+
+    &:active {
+        background-color: var(--color-emerald-pressed);
+    }
+
+    @include breakpoint(lg-max) {
+        width: 100px;
+    }
+
+    @include breakpoint(sm-max) {
+        font-size: 10px;
+        width: 78px;
+        height: 30px;
+    }
+}

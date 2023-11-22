@@ -1,4 +1,4 @@
-import {instance} from "@/api/interceptots";
+import {instance} from "@/api/interceptors";
 import {IUserPromocode} from "@/models/IPromocode";
 
 export const ProfileService = {

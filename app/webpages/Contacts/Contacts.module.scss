@@ -86,7 +86,7 @@
 .phone__icon {
     width: 18px;
     height: 18px;
-    fill: var(--color-emerald);
+    fill: var(--color-accent);
 
     @include breakpoint(sm-max) {
         width: 16px;
@@ -95,7 +95,7 @@
 }
 
  .phone__number {
-     color: var(--color-emerald);
+     color: var(--color-accent);
      margin-left: 10px;
      font-weight: 700;
      font-size: 18px;

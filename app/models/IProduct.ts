@@ -1,7 +1,4 @@
-import {IColorValue} from "@/models/IColorValue";
-import {INumberValue} from "@/models/INumberValue";
-import {ITextValue} from "@/models/ITextValue";
-import {IBooleanValue} from "@/models/IBooleanValue";
+import {IValue} from "@/models/IValue";
 
 export interface IProductProperty {
     id: number,
@@ -11,10 +8,9 @@ export interface IProductProperty {
     numberValues: string[],
     textValues: string[],
     booleanValues: string[],
-    colorValue: IColorValue,
-    numberValue: INumberValue,
-    textValue: ITextValue,
-    booleanValue: IBooleanValue,
+    valueIds: number[],
+    valueId: number,
+    value: IValue,
 }
 
 export interface IProduct {

@@ -1,5 +1,5 @@
 import {IArticle} from "@/models/IArticle";
-import {axiosClassic} from "../api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IArticleFields} from "@/components/forms/AdminArticleForm/useAdminArticleForm";
 
 export const ArticleService = {
@@ -29,7 +29,7 @@ export const ArticleService = {
         return await axiosClassic.post<IArticle>(`http://localhost:5000/api/article`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/article/${id}`);
     }
 }

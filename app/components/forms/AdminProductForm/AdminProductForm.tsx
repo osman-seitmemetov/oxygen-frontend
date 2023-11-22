@@ -14,6 +14,7 @@ import {useParametersForProduct} from "@/components/forms/AdminProductForm/usePa
 import {useCategoriesForSelect} from "@/hooks/useCategoriesForSelect";
 import {useBrandsForSelect} from "@/hooks/useBrandsForSelect";
 import {useTypesForSelect} from "@/hooks/useTypesForSelect";
+import {IValue} from "@/models/IValue";
 
 const DynamicTextEditor = dynamic(() => import('@/UI/InputGroup/TextEditor/TextEditor'), {
     ssr: false
@@ -55,29 +56,10 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
     useEffect(() => {
         if (mode === "CREATE") parameters?.forEach(param => fieldArray.append({
             parameterId: Number(param.id),
-            checkbox: {
-                colorValueIds: [],
-                numberValueIds: [],
-                textValueIds: []
-            },
-            radio: {
-                // @ts-ignore
-                colorValueId: null,
-                // @ts-ignore
-                numberValueId: null,
-                // @ts-ignore
-                textValueId: null
-            },
-            input: {
-                // @ts-ignore
-                colorValue: {},
-                // @ts-ignore
-                numberValue: {},
-                // @ts-ignore
-                textValue: {},
-                // @ts-ignore
-                booleanValue: {}
-            },
+            valueIds: [],
+            // @ts-ignore
+            valueId: null,
+            value: {} as IValue
         }))
     }, [data?.data]);
 
@@ -204,18 +186,19 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
                     {
                         isParametersLoading
                             ? <div>Loading...</div>
-                            : fieldArray.fields.map(({id, parameterId}, index) => {
+                            : fieldArray.fields.map(({id, parameterId, value, valueId, valueIds}, index) => {
                                 const parameter = parameters?.find(param => String(param.id) === String(parameterId))
 
                                 return (
                                     <>
                                         {
                                             parameter?.format === "CHECKBOX"
-                                                ? parameter.type === "TEXT"
+                                                ? parameter.type === "COLOR"
+                                                    // сделать здесь потом checkboxArea для типа COLOR
                                                     ? <InputGroup title={parameter.title} key={id}>
                                                         <Controller
                                                             control={control}
-                                                            name={`info.${index}.checkbox.textValueIds`}
+                                                            name={`info.${index}.valueIds`}
                                                             rules={{
                                                                 required: "Это поле обязательное"
                                                             }}
@@ -224,68 +207,47 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
                                                                     error={error}
                                                                     field={field}
                                                                     placeholder={parameter.title}
-                                                                    options={parameter?.textValues.map(
+                                                                    options={parameter?.values.map(
                                                                         ({value, id}) => ({
                                                                             label: value,
-                                                                            value: id
-                                                                        })) || []}
+                                                                            value: String(id)
+                                                                        })) || []
+                                                                    }
                                                                     isMulti
                                                                 />
                                                             }
                                                         />
                                                     </InputGroup>
-                                                    : parameter.type === "COLOR"
-                                                        ? <InputGroup title={parameter.title} key={id}>
-                                                            <Controller
-                                                                control={control}
-                                                                name={`info.${index}.checkbox.colorValueIds`}
-                                                                rules={{
-                                                                    required: "Это поле обязательное"
-                                                                }}
-                                                                render={({field, fieldState: {error}}) =>
-                                                                    <DynamicSelect
-                                                                        error={error}
-                                                                        field={field}
-                                                                        placeholder={parameter.title}
-                                                                        options={parameter?.colorValues.map(
-                                                                            ({value, id}) => ({
-                                                                                label: value,
-                                                                                value: id
-                                                                            })) || []}
-                                                                        isMulti
-                                                                    />
-                                                                }
-                                                            />
-                                                        </InputGroup>
-                                                        : parameter.type === "NUMBER"
-                                                        && <InputGroup title={parameter.title} key={id}>
-                                                            <Controller
-                                                                control={control}
-                                                                name={`info.${index}.checkbox.numberValueIds`}
-                                                                rules={{
-                                                                    required: "Это поле обязательное"
-                                                                }}
-                                                                render={({field, fieldState: {error}}) =>
-                                                                    <DynamicSelect
-                                                                        error={error}
-                                                                        field={field}
-                                                                        placeholder={parameter.title}
-                                                                        options={parameter?.numberValues.map(
-                                                                            ({value, id}) => ({
-                                                                                label: String(value),
-                                                                                value: id
-                                                                            })) || []}
-                                                                        isMulti
-                                                                    />
-                                                                }
-                                                            />
-                                                        </InputGroup>
+                                                    : <InputGroup title={parameter.title} key={id}>
+                                                        <Controller
+                                                            control={control}
+                                                            name={`info.${index}.valueIds`}
+                                                            rules={{
+                                                                required: "Это поле обязательное"
+                                                            }}
+                                                            render={({field, fieldState: {error}}) =>
+                                                                <DynamicSelect
+                                                                    error={error}
+                                                                    field={field}
+                                                                    placeholder={parameter.title}
+                                                                    options={parameter?.values.map(
+                                                                        ({value, id}) => ({
+                                                                            label: value,
+                                                                            value: String(id)
+                                                                        })) || []
+                                                                    }
+                                                                    isMulti
+                                                                />
+                                                            }
+                                                        />
+                                                    </InputGroup>
                                                 : parameter?.format === "RADIO"
-                                                    ? parameter.type === "TEXT"
+                                                    ? parameter.type === "COLOR"
+                                                        // сделать здесь потом checkboxArea для типа COLOR
                                                         ? <InputGroup title={parameter.title} key={id}>
                                                             <Controller
                                                                 control={control}
-                                                                name={`info.${index}.radio.textValueId`}
+                                                                name={`info.${index}.valueId`}
                                                                 rules={{
                                                                     required: "Это поле обязательное"
                                                                 }}
@@ -294,105 +256,72 @@ const AdminProductForm: FC<AdminProductFormProps> = ({onSubmit, disabled, fieldA
                                                                         error={error}
                                                                         field={field}
                                                                         placeholder={parameter.title}
-                                                                        options={parameter?.textValues.map(
+                                                                        options={parameter?.values.map(
                                                                             ({value, id}) => ({
                                                                                 label: value,
-                                                                                value: id
-                                                                            })) || []}
+                                                                                value: String(id)
+                                                                            })) || []
+                                                                        }
                                                                     />
                                                                 }
                                                             />
                                                         </InputGroup>
-                                                        : parameter.type === "COLOR"
-                                                            ? <InputGroup title={parameter.title} key={id}>
-                                                                <Controller
-                                                                    control={control}
-                                                                    name={`info.${index}.radio.colorValueId`}
-                                                                    rules={{
-                                                                        required: "Это поле обязательное"
-                                                                    }}
-                                                                    render={({field, fieldState: {error}}) =>
-                                                                        <DynamicSelect
-                                                                            error={error}
-                                                                            field={field}
-                                                                            placeholder={parameter.title}
-                                                                            options={parameter?.colorValues.map(
-                                                                                ({value, id}) => ({
-                                                                                    label: value,
-                                                                                    value: id
-                                                                                })) || []}
-                                                                        />
-                                                                    }
-                                                                />
-                                                            </InputGroup>
-                                                            : parameter.type === "NUMBER"
-                                                            && <InputGroup title={parameter.title} key={id}>
-                                                                <Controller
-                                                                    control={control}
-                                                                    name={`info.${index}.radio.numberValueId`}
-                                                                    rules={{
-                                                                        required: "Это поле обязательное"
-                                                                    }}
-                                                                    render={({field, fieldState: {error}}) =>
-                                                                        <DynamicSelect
-                                                                            error={error}
-                                                                            field={field}
-                                                                            placeholder={parameter.title}
-                                                                            options={parameter?.numberValues.map(
-                                                                                ({value, id}) => ({
-                                                                                    label: String(value),
-                                                                                    value: id
-                                                                                })) || []}
-                                                                            isMulti={parameter?.format === "CHECKBOX"}
-                                                                        />
-                                                                    }
-                                                                />
-                                                            </InputGroup>
+                                                        : <InputGroup title={parameter.title} key={id}>
+                                                            <Controller
+                                                                control={control}
+                                                                name={`info.${index}.valueId`}
+                                                                rules={{
+                                                                    required: "Это поле обязательное"
+                                                                }}
+                                                                render={({field, fieldState: {error}}) =>
+                                                                    <DynamicSelect
+                                                                        error={error}
+                                                                        field={field}
+                                                                        placeholder={parameter.title}
+                                                                        options={parameter?.values.map(
+                                                                            ({value, id}) => ({
+                                                                                label: value,
+                                                                                value: String(id)
+                                                                            })) || []
+                                                                        }
+                                                                    />
+                                                                }
+                                                            />
+                                                        </InputGroup>
                                                     : parameter?.format === "INPUT"
-                                                        ? parameter.type === "TEXT"
+                                                        ? parameter.type === "COLOR"
                                                             ? <InputGroup title={parameter.title} key={id}>
                                                                 <Input
-                                                                    {...register(`info.${index}.input.textValue.value`, {
+                                                                    {...register(`info.${index}.value.title`, {
                                                                         required: "Это поле обязательно"
                                                                     })}
                                                                     placeholder="Введите заголовок"
-                                                                    error={errors.info?.[index]?.input?.textValue?.value}
+                                                                    error={errors.info?.[index]?.value?.title}
+                                                                />
+
+                                                                <Input
+                                                                    {...register(`info.${index}.value.value`, {
+                                                                        required: "Это поле обязательно"
+                                                                    })}
+                                                                    placeholder="Введите заголовок"
+                                                                    error={errors.info?.[index]?.value?.value}
                                                                 />
                                                             </InputGroup>
-                                                            : parameter.type === "COLOR"
+                                                            : parameter.type === "BOOLEAN"
                                                                 ? <InputGroup title={parameter.title} key={id}>
+                                                                    <Checkbox{...register(`info.${index}.value`)}>
+                                                                        {parameter.title}
+                                                                    </Checkbox>
+                                                                </InputGroup>
+                                                                : <InputGroup title={parameter.title} key={id}>
                                                                     <Input
-                                                                        {...register(`info.${index}.input.colorValue.title`, {
+                                                                        {...register(`info.${index}.value.value`, {
                                                                             required: "Это поле обязательно"
                                                                         })}
-                                                                        placeholder="Введите заголовок"
-                                                                        error={errors.info?.[index]?.input?.colorValue?.title}
-                                                                    />
-
-                                                                    <Input
-                                                                        {...register(`info.${index}.input.colorValue.value`, {
-                                                                            required: "Это поле обязательно"
-                                                                        })}
-                                                                        placeholder="Введите заголовок"
-                                                                        error={errors.info?.[index]?.input?.colorValue?.value}
+                                                                        placeholder={`Введите ${parameter.title}`}
+                                                                        error={errors.info?.[index]?.value?.value}
                                                                     />
                                                                 </InputGroup>
-                                                                : parameter.type === "NUMBER"
-                                                                    ? <InputGroup title={parameter.title} key={id}>
-                                                                        <Input
-                                                                            {...register(`info.${index}.input.numberValue.value`, {
-                                                                                required: "Это поле обязательно"
-                                                                            })}
-                                                                            placeholder={`Введите ${parameter.title}`}
-                                                                            error={errors.info?.[index]?.input?.numberValue?.value}
-                                                                        />
-                                                                    </InputGroup>
-                                                                    : parameter.type === "BOOLEAN"
-                                                                    && <InputGroup title={parameter.title} key={id}>
-                                                                        <Checkbox{...register(`info.${index}.input.booleanValue.value`)}>
-                                                                            {parameter.title}
-                                                                        </Checkbox>
-                                                                    </InputGroup>
                                                         : <></>
                                         }
                                     </>

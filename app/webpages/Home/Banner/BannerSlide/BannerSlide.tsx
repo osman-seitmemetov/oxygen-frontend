@@ -19,6 +19,7 @@ const BannerSlide: FC<BannerSlideProps> = ({slide}) => {
             >
                 <div className={style.slide__uspInner}>
                     <h2 className={style.slide__title}>{slide.title}</h2>
+                    {/*Здесь выдает ошибку*/}
                     <p className={style.slide__text}>{parse(slide.text)}</p>
                 </div>
 

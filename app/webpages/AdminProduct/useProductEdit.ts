@@ -23,39 +23,26 @@ export const useProductEdit = (setValue: UseFormSetValue<IProductFields>, append
             })
 
             const parameterIds = data.info.map(i => i.parameterId);
+            const info = data.info;
+
+            info.forEach(i => console.log("__i.valueId__", typeof i.valueId, i.valueId))
 
             console.log("__parameterIds__", parameterIds)
 
             parametersData.then(data => {
                 data.data.forEach(parameter => {
-                    if (parameterIds.find(parameterId => Number(parameterId) === Number(parameter.id))) return;
+                    const p = info.find(i => Number(i.parameterId) === Number(parameter.id));
+                    console.log("__P__", p)
+                    if (p) return;
 
                     return append({
                         parameterId: Number(parameter.id),
-                        checkbox: {
-                            colorValueIds: [],
-                            numberValueIds: [],
-                            textValueIds: []
-                        },
-                        radio: {
-                            // @ts-ignore
-                            colorValueId: null,
-                            // @ts-ignore
-                            numberValueId: null,
-                            // @ts-ignore
-                            textValueId: null
-                        },
-                        input: {
-                            // @ts-ignore
-                            colorValue: {},
-                            // @ts-ignore
-                            numberValue: {},
-                            // @ts-ignore
-                            textValue: {},
-                            // @ts-ignore
-                            booleanValue: {}
-                        },
-                    })
+                        valueIds: [],
+                        // @ts-ignore
+                        valueId: null,
+                        // @ts-ignore
+                        value: {}
+                    });
                 });
             })
         }

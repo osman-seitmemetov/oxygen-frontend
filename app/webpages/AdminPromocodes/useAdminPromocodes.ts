@@ -5,6 +5,8 @@ import {toastr} from "react-redux-toastr";
 import {ProductService} from "@/services/ProductService";
 import {useDebounce} from "@/hooks/useDebounce";
 import {PromocodeService} from "@/services/PromocodeService";
+import {ITableItem} from "@/models/ITableItem";
+import {separateByCommas} from "@/lib/string/separateByCommas";
 
 export const useAdminPromocodes = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -14,18 +16,29 @@ export const useAdminPromocodes = () => {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении промокодов')
         },
+        select: ({data}) => data.map(
+            (promocode): ITableItem => ({
+                id: promocode.id,
+                editUrl: `/admin/promocodes/${promocode.id}`,
+                items: [
+                    {type: 'STRING', value: promocode.title},
+                    {type: 'STRING', value: promocode.value},
+                    {type: 'STRING', value: separateByCommas(promocode.categories)}
+                ],
+            })
+        )
     });
 
     const { mutateAsync: deleteAsync } = useMutation(
         'admin delete product',
-        (productId: string) => PromocodeService.delete(productId),
+        (productId: number) => PromocodeService.delete(productId),
         {
             onError(error) {
                 toastError(error, 'Возникла ошибка при удалении промокода')
             },
             onSuccess() {
                 toastr.success('Удаление промокода', 'Промокод успешно удален')
-                queryData.refetch();
+                queryData.refetch().then();
             },
         }
     )

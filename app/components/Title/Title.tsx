@@ -3,7 +3,7 @@ import style from "./Title.module.scss"
 
 interface ITitle {
     className?: string,
-    children: ReactNode
+    children?: ReactNode
 }
 
 const Title: FC<ITitle> = ({ className, children }) => {

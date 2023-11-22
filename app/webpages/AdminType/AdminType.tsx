@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import Admin from "@/components/Admin/Admin";
 import {FormProvider} from "react-hook-form";
-import AdminFormLoader from "@/components/AdminFormLoader/AdminFormLoader";
+import AdminFormLoader from "@/components/Admin/AdminFormLoader/AdminFormLoader";
 import AdminTypeForm from "@/components/forms/AdminTypeForm/AdminTypeForm";
 import {useAdminTypeForm} from "@/components/forms/AdminTypeForm/useAdminTypeForm";
 import {useAdminTypeEdit} from "@/webpages/AdminType/useAdminTypeEdit";

@@ -3,8 +3,6 @@ import {IProduct} from "@/models/IProduct";
 export interface ICartProduct {
     id: number,
     count: number,
-    basketId: number,
-    productId: number,
     product: IProduct
 }
 
@@ -16,5 +14,5 @@ export interface ICart {
     sum: number,
     globalSum: number,
     discount: number,
-    basket_products: ICartProduct[]
+    items: ICartProduct[]
 }

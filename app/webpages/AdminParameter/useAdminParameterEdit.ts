@@ -17,6 +17,8 @@ export const useAdminParameterEdit = (setValue: UseFormSetValue<IParameterFields
             getKeys(data).forEach(key => {
                 setValue(key, data[key]);
             })
+            setValue("values", []);
+            setValue("savedValues", data.values);
         },
         onError: (error) => {
             toastError(error, 'Возникла ошибка при загрузке данных характеристики');

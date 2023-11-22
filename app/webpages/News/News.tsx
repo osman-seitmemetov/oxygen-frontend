@@ -3,15 +3,13 @@ import style from './News.module.scss';
 import NewsItem from "./NewsItem/NewsItem";
 import Container from "../../components/Container/Container";
 import Title from "../../components/Title/Title";
-import {useAppSelector} from "@/hooks/redux";
-import {useRouter} from "next/router";
-import {useArticle} from "@/webpages/AdminArticle/useArticle";
-import {useArticles} from "@/webpages/AdminArticles/useArticles";
+import {useArticles} from "@/webpages/News/useArticles";
 
 
 const News: FC = () => {
-    const {query} = useRouter();
-    const {articles, isLoading} = useArticles();
+    const {data, isLoading} = useArticles();
+
+    const articles = data?.data;
 
     return (
         <section className={style.news}>
@@ -19,7 +17,16 @@ const News: FC = () => {
                 <Title className={style.news__title}>Новости</Title>
 
                 <div className={style.news__items}>
-                    {Array.isArray(articles?.data) && articles?.data.map(article => <NewsItem key={article.id} article={article}/>)}
+                    {
+                        isLoading
+                            ? <div>Loading...</div>
+                            : Array.isArray(articles) && articles.map(article =>
+                            <NewsItem
+                                key={article.id}
+                                article={article}
+                            />
+                        )
+                    }
                 </div>
             </Container>
         </section>

@@ -10,13 +10,14 @@ import SecondaryButton from "@/UI/buttons/SecondaryButton/SecondaryButton";
 import {IParameterFields} from "@/components/forms/AdminParameterForm/useAdminParameterForm";
 import {IOption} from "@/models/IOption";
 import PropertyInputGroup from "@/UI/PropertyInputGroup/PropertyInputGroup";
+import {IAdminForm} from "@/models/IAdminForm";
 
 const DynamicSelect = dynamic(() => import('@/UI/InputGroup/SelectCustom/SelectCustom'), {
     ssr: false
 });
 
 
-interface AdminParameterFormProps {
+interface AdminParameterFormProps extends IAdminForm {
     onSubmit: SubmitHandler<IParameterFields>,
     disabled: boolean,
 }
@@ -55,66 +56,41 @@ const formats: IOption[] = [
     }
 ];
 
-const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) => {
+const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled, mode}) => {
     const {
         register, handleSubmit, formState: {errors}, control, watch
     } = useFormContext<IParameterFields>();
 
-    const colorValuesFieldArray = useFieldArray({
-        control, name: 'colorValues',
+    const savedValues = useFieldArray({
+        control, name: 'savedValues',
     });
 
-    const textValuesFieldArray = useFieldArray({
-        control, name: 'textValues',
-    });
-
-    const numberValuesFieldArray = useFieldArray({
-        control, name: 'numberValues',
+    const values = useFieldArray({
+        control, name: 'values',
     });
 
     const type = watch("type");
     const format = watch("format");
 
     useEffect(() => {
-        if(format === "INPUT") {
-            colorValuesFieldArray.remove();
-            numberValuesFieldArray.remove();
-            textValuesFieldArray.remove();
-        }
-
-        if (type !== "COLOR") {
-            colorValuesFieldArray.remove();
-            //@ts-ignore
-            colorValuesFieldArray.append({});
-        }
-
-        if (type !== "NUMBER") {
-            numberValuesFieldArray.remove();
-            //@ts-ignore
-            numberValuesFieldArray.append({});
-        }
-
-        if (type !== "TEXT") {
-            textValuesFieldArray.remove();
-            //@ts-ignore
-            textValuesFieldArray.append({});
-        }
-    }, [format, textValuesFieldArray.remove, numberValuesFieldArray.remove, colorValuesFieldArray.remove, type])
+        if(mode === "CREATE") values.remove();
+    }, [format, type])
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)} style={{maxWidth: '100%'}}>
-            <InputGroup title="Название" autoMargin>
+            <InputGroup title="Название" autoMargin disabled={mode === "EDIT"}>
                 <Input
                     {...register('title', {
                         required: "Это поле обязательно"
                     })}
                     placeholder="Введите заголовок"
                     error={errors.title}
+                    disabled={mode === "EDIT"}
                 />
             </InputGroup>
 
             <FieldsSection>
-                <InputGroup title="Тип">
+                <InputGroup title="Тип" disabled={mode === "EDIT"}>
                     <Controller
                         control={control}
                         name="type"
@@ -127,12 +103,13 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
                                 field={field}
                                 placeholder="Категория"
                                 options={types}
+                                disabled={mode === "EDIT"}
                             />
                         }
                     />
                 </InputGroup>
 
-                <InputGroup title="Формат">
+                <InputGroup title="Формат" disabled={mode === "EDIT"}>
                     <Controller
                         control={control}
                         name="format"
@@ -145,6 +122,7 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
                                 field={field}
                                 placeholder="Категория"
                                 options={formats}
+                                disabled={mode === "EDIT"}
                             />
                         }
                     />
@@ -152,58 +130,121 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
             </FieldsSection>
 
             {
-                ((format === "CHECKBOX" || format === "RADIO") && type !== "BOOLEAN") && <FieldsSection title="Значение">
+                ((format === "CHECKBOX" || format === "RADIO") && type !== "BOOLEAN") &&
+                <FieldsSection title="Значение">
+                    {/*Вынести в отдельный компонент*/}
                     {
-                        type === "COLOR" ? colorValuesFieldArray.fields.map(({id}, index) => {
+                        type === "COLOR" ? savedValues.fields.map(({id}, index) => {
                             return (
                                 <PropertyInputGroup
-                                    removeHandler={() => colorValuesFieldArray.remove(index)}
+                                    removeHandler={() => savedValues.remove(index)}
                                     key={id}
                                 >
                                     <Input
-                                        {...register(`colorValues.${index}.title` as const, {
+                                        {...register(`savedValues.${index}.title` as const, {
                                             required: "Это поле обязательно"
                                         })}
                                         placeholder="Введите название цвета"
-                                        error={errors.colorValues?.[index]?.title}
+                                        error={errors.values?.[index]?.title}
+                                        disabled
                                     />
 
                                     <Input
-                                        {...register(`colorValues.${index}.value` as const, {
+                                        {...register(`savedValues.${index}.value` as const, {
                                             required: "Это поле обязательно"
                                         })}
                                         placeholder="Введите HEX-код"
-                                        error={errors.colorValues?.[index]?.value}
+                                        error={errors.values?.[index]?.value}
+                                        disabled
                                     />
                                 </PropertyInputGroup>
                             )
-                        }) : type === "TEXT" ? textValuesFieldArray.fields.map(({id}, index) => {
+                        }) : type === "TEXT" ? savedValues.fields.map(({id}, index) => {
                             return (
                                 <PropertyInputGroup
-                                    removeHandler={() => textValuesFieldArray.remove(index)}
+                                    removeHandler={() => savedValues.remove(index)}
                                     key={id}
                                 >
                                     <Input
-                                        {...register(`textValues.${index}.value` as const, {
+                                        {...register(`savedValues.${index}.value` as const, {
                                             required: "Это поле обязательно"
                                         })}
                                         placeholder="Введите текст"
-                                        error={errors.textValues?.[index]?.value}
+                                        error={errors.values?.[index]?.value}
+                                        disabled
                                     />
                                 </PropertyInputGroup>
                             )
-                        }) : type === "NUMBER" ? numberValuesFieldArray.fields.map(({id}, index) => {
+                        }) : type === "NUMBER" ? savedValues.fields.map(({id}, index) => {
                                 return (
                                     <PropertyInputGroup
-                                        removeHandler={() => numberValuesFieldArray.remove(index)}
+                                        removeHandler={() => savedValues.remove(index)}
                                         key={id}
                                     >
                                         <Input
-                                            {...register(`numberValues.${index}.value` as const, {
+                                            {...register(`savedValues.${index}.value` as const, {
                                                 required: "Это поле обязательно"
                                             })}
                                             placeholder="Введите число"
-                                            error={errors.numberValues?.[index]?.value}
+                                            error={errors.values?.[index]?.value}
+                                            disabled
+                                        />
+                                    </PropertyInputGroup>
+                                )
+                            })
+                            : <></>
+                    }
+                    {
+                        type === "COLOR" ? values.fields.map(({id}, index) => {
+                            return (
+                                <PropertyInputGroup
+                                    removeHandler={() => values.remove(index)}
+                                    key={id}
+                                >
+                                    <Input
+                                        {...register(`values.${index}.title` as const, {
+                                            required: "Это поле обязательно"
+                                        })}
+                                        placeholder="Введите название цвета"
+                                        error={errors.values?.[index]?.title}
+                                    />
+
+                                    <Input
+                                        {...register(`values.${index}.value` as const, {
+                                            required: "Это поле обязательно"
+                                        })}
+                                        placeholder="Введите HEX-код"
+                                        error={errors.values?.[index]?.value}
+                                    />
+                                </PropertyInputGroup>
+                            )
+                        }) : type === "TEXT" ? values.fields.map(({id}, index) => {
+                            return (
+                                <PropertyInputGroup
+                                    removeHandler={() => values.remove(index)}
+                                    key={id}
+                                >
+                                    <Input
+                                        {...register(`values.${index}.value` as const, {
+                                            required: "Это поле обязательно"
+                                        })}
+                                        placeholder="Введите текст"
+                                        error={errors.values?.[index]?.value}
+                                    />
+                                </PropertyInputGroup>
+                            )
+                        }) : type === "NUMBER" ? values.fields.map(({id}, index) => {
+                                return (
+                                    <PropertyInputGroup
+                                        removeHandler={() => values.remove(index)}
+                                        key={id}
+                                    >
+                                        <Input
+                                            {...register(`values.${index}.value` as const, {
+                                                required: "Это поле обязательно"
+                                            })}
+                                            placeholder="Введите число"
+                                            error={errors.values?.[index]?.value}
                                         />
                                     </PropertyInputGroup>
                                 )
@@ -215,44 +256,17 @@ const AdminParameterForm: FC<AdminParameterFormProps> = ({onSubmit, disabled}) =
 
             {
                 format === "CHECKBOX" || format === "RADIO"
-                    ? type === "COLOR"
-                        ? <SecondaryButton
-                            type="button"
-                            // @ts-ignore
-                            onClick={() => colorValuesFieldArray.append({})}
-                            style={{
-                                maxWidth: 400,
-                                marginBottom: 20
-                            }}
-                        >
-                            Добавить значение характеристики
-                        </SecondaryButton>
-                        : type === "TEXT"
-                            ? <SecondaryButton
-                                type="button"
-                                // @ts-ignore
-                                onClick={() => textValuesFieldArray.append({})}
-                                style={{
-                                    maxWidth: 250,
-                                    marginBottom: 20
-                                }}
-                            >
-                                Добавить значение характеристики
-                            </SecondaryButton>
-
-                            : type === "NUMBER"
-                                ? <SecondaryButton
-                                    type="button"
-                                    // @ts-ignore
-                                    onClick={() => numberValuesFieldArray.append({})}
-                                    style={{
-                                        maxWidth: 250,
-                                        marginBottom: 20
-                                    }}
-                                >
-                                    Добавить значение характеристики
-                                </SecondaryButton>
-                                : <></>
+                    ? <SecondaryButton
+                        type="button"
+                        // @ts-ignore
+                        onClick={() => values.append({})}
+                        style={{
+                            maxWidth: 400,
+                            marginBottom: 20
+                        }}
+                    >
+                        Добавить значение характеристики
+                    </SecondaryButton>
                     : <></>
             }
 

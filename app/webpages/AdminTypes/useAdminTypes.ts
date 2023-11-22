@@ -4,6 +4,7 @@ import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {toastr} from "react-redux-toastr";
 import {useDebounce} from "@/hooks/useDebounce";
 import {TypeService} from "@/services/TypeService";
+import {ITableItem} from "@/models/ITableItem";
 
 export const useAdminTypes = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,11 +14,20 @@ export const useAdminTypes = () => {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении типов')
         },
+        select: ({data}) => data.map(
+            (type): ITableItem => ({
+                id: type.id,
+                editUrl: `/admin/parameters/${type.id}`,
+                items: [
+                    {type: 'STRING', value: type.name}
+                ],
+            })
+        )
     });
 
     const {mutateAsync: deleteAsync} = useMutation(
         'admin delete type',
-        (typeId: string) => TypeService.delete(typeId),
+        (typeId: number) => TypeService.delete(typeId),
         {
             onError(error) {
                 toastError(error, 'Возникла ошибка при удалении типа')

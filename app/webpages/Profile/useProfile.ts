@@ -1,12 +1,7 @@
 import {SubmitHandler, UseFormSetValue} from "react-hook-form";
-import {useRouter} from "next/router";
 import {useMutation, useQuery} from "react-query";
-import {getKeys} from "@/lib/object/getKeys";
-import {IProductFields} from "@/webpages/AdminProduct/AdminProduct";
-import {ProductService} from "@/services/ProductService";
 import {toastError} from "@/lib/api/withToastrErrorRedux";
 import {toastr} from "react-redux-toastr";
-import {useAuth} from "@/hooks/useAuth";
 import {UserService} from "@/services/UserService";
 import {convertPostgresDateWithoutTime} from "@/lib/date/convertPostgresDateWithoutTime";
 import {genderTypes} from "@/models/IUser";
@@ -52,12 +47,6 @@ export const useProfile = (setValue: UseFormSetValue<IProfileFields>, profileId:
     )
 
     const onSubmit: SubmitHandler<IProfileFields> = useCallback(async (data) => {
-        // if(!(user?.phone === data.phone
-        //     || user?.birthday === convertInputDateToPostgresDate(data.birthday)
-        //     || user?.gender === data.gender
-        //     || user?.email === data.email
-        //     || user?.firstname === data.firstname
-        //     || user?.lastname === data.lastname))
         const birthday = convertInputDateToPostgresDate(data.birthday) || "";
         await mutateAsync({...data, birthday});
     }, [mutateAsync])

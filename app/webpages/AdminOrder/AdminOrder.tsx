@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import InputGroup from "@/UI/InputGroup/InputGroup";
 import Input from "@/UI/InputGroup/Input/Input";
 import PrimaryButton from "@/UI/buttons/PrimaryButton/PrimaryButton";
-import {IBannerFields, ICategoryFields, IOrderFields} from "@/types/types";
+import {IOrderFields} from "@/types/types";
 import {stripHtml} from "string-strip-html";
 import ImageUploader from "@/UI/InputGroup/ImageUploader/ImageUploader";
 import {useBannerEdit} from "@/webpages/AdminBanner/useBannerEdit";

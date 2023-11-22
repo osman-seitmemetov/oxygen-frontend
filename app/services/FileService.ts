@@ -1,4 +1,4 @@
-import {axiosClassic} from "../api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 
 export const FileService = {
     async upload(file: FormData, type: string) {

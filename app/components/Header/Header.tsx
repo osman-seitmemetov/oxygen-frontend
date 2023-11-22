@@ -7,6 +7,8 @@ import {useAuth} from "@/hooks/useAuth";
 import HeaderCatalog from "@/components/Header/HeaderCatalog/HeaderCatalog";
 import Logo from "@/components/Logo/Logo";
 import {useDOMLoaded} from "@/hooks/useDOMLoaded";
+import {useCart} from "@/hooks/useCart";
+import {cartAPI} from "@/services/CartService";
 
 
 export enum headerTypes {
@@ -23,6 +25,11 @@ const Header: FC<HeaderProps> = ({type}) => {
     if (type === headerTypes.auth) isRender = true;
 
     const {user} = useAuth();
+    // const {state} = useCart();
+    const {data, isLoading} = cartAPI.useFetchCartQuery();
+
+    let count = 0;
+    data?.items.forEach(i => count += i.count);
 
     const domLoaded = useDOMLoaded();
 
@@ -93,6 +100,8 @@ const Header: FC<HeaderProps> = ({type}) => {
                                 </Link>
 
                                 <Link href="/cart" className={style.link}>
+                                    {(data && data?.items.length > 0) && <div className={style.link__notify}>{count}</div>}
+
                                     <svg className={style.link__icon} width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path

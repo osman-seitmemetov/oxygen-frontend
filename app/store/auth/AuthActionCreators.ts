@@ -3,7 +3,7 @@ import {AuthService} from "@/services/AuthService";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {RegistrationResponse} from "@/models/response/RegistrationResponse";
 import {ILogin, IRegistration} from "@/types/types";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IUser} from "@/models/IUser";
 import {IEditData, UserService} from "@/services/UserService";
 import {saveToStorage} from "@/lib/auth/saveToStorage";

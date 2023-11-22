@@ -1,4 +1,4 @@
-import {axiosClassic, instance} from "@/api/interceptots";
+import {axiosClassic, instance} from "@/api/interceptors";
 import {IPromocode} from "@/models/IPromocode";
 import axios from "axios";
 import {IPromocodeFields} from "@/components/forms/AdminPromocodeForm/useAdminPromocodeForm";
@@ -22,7 +22,7 @@ export const PromocodeService = {
         return await axiosClassic.put<IPromocode>(`http://localhost:5000/api/promocode/${id}`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/promocode/${id}`);
     },
 

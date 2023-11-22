@@ -4,7 +4,7 @@ import {FormProvider, useFieldArray} from "react-hook-form";
 import {useProductEdit} from "@/webpages/AdminProduct/useProductEdit";
 import {useAdminProductForm} from "@/components/forms/AdminProductForm/useAdminProductForm";
 import AdminProductForm from "@/components/forms/AdminProductForm/AdminProductForm";
-import AdminFormLoader from "@/components/AdminFormLoader/AdminFormLoader";
+import AdminFormLoader from "@/components/Admin/AdminFormLoader/AdminFormLoader";
 
 const AdminProduct: FC = () => {
     const adminProductForm = useAdminProductForm();
@@ -16,7 +16,7 @@ const AdminProduct: FC = () => {
     const product = data?.data;
 
     return (
-        <Admin title={` > Товары > ${product?.name}`}>
+        <Admin title={` > Товары > ${product?.name}`} isLoading={isLoading}>
             {
                 isLoading
                     ? <AdminFormLoader/>

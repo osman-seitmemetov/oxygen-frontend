@@ -1,5 +1,5 @@
 import axios from "axios";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {IType} from "@/models/IType";
 import {ITypeFields} from "@/components/forms/AdminTypeForm/useAdminTypeForm";
 
@@ -27,7 +27,7 @@ export const TypeService = {
         return await axiosClassic.put<IType>(`http://localhost:5000/api/type/${id}`, data);
     },
 
-    async delete(id: string) {
+    async delete(id: number) {
         return await axiosClassic.delete<string>(`http://localhost:5000/api/type/${id}`);
     }
 }

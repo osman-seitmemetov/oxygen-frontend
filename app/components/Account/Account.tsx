@@ -2,7 +2,7 @@ import {FC, ReactNode} from "react";
 import style from './Account.module.scss';
 import AccountSidebar from "./AccountSidebar/AccountSidebar";
 import Container from "../Container/Container";
-import {IUser} from "@/models/IUser";
+import Title from "@/components/Title/Title";
 
 
 interface AccountProps {
@@ -11,15 +11,14 @@ interface AccountProps {
     children?: ReactNode
 }
 
-const Account: FC<AccountProps> = ({ children, title, isRenderDesktopTitle }) => {
+const Account: FC<AccountProps> = ({children, title, isRenderDesktopTitle}) => {
     return (
         <section className={style.account}>
             <Container>
-                <AccountSidebar />
+                <AccountSidebar/>
 
                 <div className={style.right}>
-                    {isRenderDesktopTitle && <h1 className={style.title}>{title}</h1>}
-                    <h1 className={style.title_mob}>{title}</h1>
+                    <Title className={style.title}>{title}</Title>
                     {children}
                 </div>
             </Container>

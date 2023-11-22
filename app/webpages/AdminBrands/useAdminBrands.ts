@@ -5,6 +5,7 @@ import {toastr} from "react-redux-toastr";
 import {useDebounce} from "@/hooks/useDebounce";
 import {CategoryService} from "@/services/CategoryService";
 import {BrandService} from "@/services/BrandService";
+import {ITableItem} from "@/models/ITableItem";
 
 export const useAdminBrands = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -14,11 +15,21 @@ export const useAdminBrands = () => {
         onError: (error: any) => {
             toastError(error, 'Возникла ошибка при получении брендов')
         },
+        select: ({data}) => data.map(
+            (brand): ITableItem => ({
+                id: brand.id,
+                editUrl: `/admin/brands/${brand.id}`,
+                items: [
+                    {type: 'IMAGE', value: brand.logo},
+                    {type: 'STRING', value: brand.name}
+                ],
+            })
+        )
     });
 
     const {mutateAsync: deleteAsync} = useMutation(
         'admin delete categories',
-        (categoryId: string) => CategoryService.delete(categoryId),
+        (brandId: number) => BrandService.delete(brandId),
         {
             onError(error) {
                 toastError(error, 'Возникла ошибка при удалении категории')

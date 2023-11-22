@@ -2,7 +2,7 @@ import {AxiosResponse} from "axios";
 import {LoginResponse} from "@/models/response/LoginResponse";
 import {RegistrationResponse} from "@/models/response/RegistrationResponse";
 import {genderTypes} from "@/models/IUser";
-import {axiosClassic} from "@/api/interceptots";
+import {axiosClassic} from "@/api/interceptors";
 import {saveTokenToLocalStorage} from "@/lib/saveTokenToLocalStorage";
 
 
